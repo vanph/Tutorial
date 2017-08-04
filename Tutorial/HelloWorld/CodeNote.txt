@@ -1,0 +1,6 @@
+﻿if (args != null && args.Length > 0)
+{
+    //message += " Welcome: " + args[0];
+    //message +=  string.Format(" Welcome: {0}", args[0]);
+    message += $" Welcome: {args[0]}";
+}

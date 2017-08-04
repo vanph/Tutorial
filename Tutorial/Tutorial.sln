@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{AC26888D-DB53-42EA-8D7A-82330FF89162}"
+	ProjectSection(SolutionItems) = preProject
+		..\.Net Dev.mmap = ..\.Net Dev.mmap
+		Note.txt = Note.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceCode", "SourceCode", "{E8A8FAE9-F3F0-489F-88BD-AEA15139960B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson0.HelloWorld", "HelloWorld\Lesson0.HelloWorld.csproj", "{2CCB3477-199C-4D94-A469-1A845F364E8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{50370AE8-D1E9-414B-A930-62E3BD4E8825}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CCB3477-199C-4D94-A469-1A845F364E8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CCB3477-199C-4D94-A469-1A845F364E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CCB3477-199C-4D94-A469-1A845F364E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CCB3477-199C-4D94-A469-1A845F364E8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2CCB3477-199C-4D94-A469-1A845F364E8B} = {E8A8FAE9-F3F0-489F-88BD-AEA15139960B}
+	EndGlobalSection
+EndGlobal

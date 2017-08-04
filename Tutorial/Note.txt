@@ -1,0 +1,3 @@
+Install visual studio
+Install git extensions
+Install mindmap
