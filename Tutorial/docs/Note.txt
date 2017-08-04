@@ -1,0 +1,7 @@
+Pre-requires:
+
+	Install visual studio
+	Install git extensions
+	Install mindmap
+
+Timesheet: https://docs.google.com/spreadsheets/d/1GZrwlJTYZjpF2mkJYaLPRrz5i6utF9g_cXrc9D5n3EM/
