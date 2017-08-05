@@ -9,7 +9,7 @@ namespace HelloWorld
             var message = "Hello world Luong.";
             
             Console.WriteLine(message);
-
+            
             Console.ReadLine();
         }
     }
