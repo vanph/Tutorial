@@ -1,3 +1,8 @@
 1. Pull code from github: https://github.com/vanph/Tutorial.git
 2. Create HelloWorld project
 3. Modify code and push the updated code to git
+
+Solve problems:
+Problem 1: Multiples of 3 and 5
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+Find the sum of all the multiples of 3 or 5 below 1000.
