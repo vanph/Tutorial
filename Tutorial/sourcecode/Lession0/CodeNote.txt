@@ -1,11 +1,12 @@
-﻿if (args != null && args.Length > 0)
+﻿Eg1.
+if (args != null && args.Length > 0)
 {
     //message += " Welcome: " + args[0];
     //message +=  string.Format(" Welcome: {0}", args[0]);
     message += $" Welcome: {args[0]}";
 }
 
-
+Eg2.
 Console.WriteLine("Your name:");
 string name = Console.ReadLine();
 
@@ -21,3 +22,17 @@ else
 {
     Console.WriteLine("You need more sleep");
 }    
+
+var cSharpBook = new Book("C#",5);
+            var javaBook = new Book("Java", 10);
+
+            var books = new List<Book> {cSharpBook, javaBook};
+
+            Console.WriteLine("Listing books:");
+
+            foreach (var book in books)
+            {
+                Console.WriteLine($"Name:{book.Name} Grade {book.Grade}:");
+            }
+
+            Console.ReadLine();
