@@ -3,7 +3,7 @@ Tutorial
 
 Tutorial
 
-Mindmap guide: https://github.com/vanph/Tutorial/blob/master/Tutorial/docs/.Net%20Dev.mmap
+Mindmap guide: https://github.com/vanph/Tutorial/blob/dev/Tutorial/docs/.Net%20Dev.mmap
 
 Excercises:
 
