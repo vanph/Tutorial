@@ -24,15 +24,15 @@ else
 }    
 
 var cSharpBook = new Book("C#",5);
-            var javaBook = new Book("Java", 10);
+var javaBook = new Book("Java", 10);
 
-            var books = new List<Book> {cSharpBook, javaBook};
+var books = new List<Book> {cSharpBook, javaBook};
 
-            Console.WriteLine("Listing books:");
+Console.WriteLine("Listing books:");
 
-            foreach (var book in books)
-            {
-                Console.WriteLine($"Name:{book.Name} Grade {book.Grade}:");
-            }
+foreach (var book in books)
+{
+    Console.WriteLine($"Name:{book.Name} Grade {book.Grade}:");
+}
 
-            Console.ReadLine();
+Console.ReadLine();

@@ -3,7 +3,13 @@
 3. Modify code and push the updated code to git
 4. Overview VS
 5. Create a console app: Helloworld 
-
+6. Book (Name : string, Grade : int)
+7. Value types and reference types
+8. Exercise
+Create a list 10 books.
+Find Min, Max, Avg of grade of the books.
+Find the book(s) that has the max grade.
+Delete the book(s) that has min grade. 
 
 Solve problems:
 
@@ -11,10 +17,4 @@ Problem 1: Multiples of 3 and 5
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000.
 
-Problem 2:
-Book (Name : string, Grade : int)
-
-Create a list 10 books.
-Find Min, Max, Avg of grade of the books.
-Find the book(s) that has the max grade.
-Delete the book(s) that has min grade. 
+Problem 2: Read employees from text file

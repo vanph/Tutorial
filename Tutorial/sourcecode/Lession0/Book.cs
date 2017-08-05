@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace HelloWorld
 {
-    class Book
+    public class Book
     {
-        public string Name { get; set; }
+        public string Name { get; set; } 
 
         public int Grade { get; set; }
+
+        public Book()
+        {
+            
+        }
 
         public Book(string name, int grade)
         {
