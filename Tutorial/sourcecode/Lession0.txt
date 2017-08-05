@@ -1,6 +1,8 @@
 1. Pull code from github: https://github.com/vanph/Tutorial.git
 2. Create HelloWorld project
 3. Modify code and push the updated code to git
+4. Overview VS
+5. Create a console app: Helloworld 
 
 Solve problems:
 Problem 1: Multiples of 3 and 5
