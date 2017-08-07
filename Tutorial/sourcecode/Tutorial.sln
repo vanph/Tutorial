@@ -15,14 +15,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercises", "Exercises", "{
 	ProjectSection(SolutionItems) = preProject
 		Employee.txt = Employee.txt
 		Lession0.txt = Lession0.txt
-		Lesson1.txt = Lesson1.txt
+		Lesson2.txt = Lesson2.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lessions", "Lessions", "{F1A1A508-586B-4D85-9142-68295F871AA0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Homework", "Homework", "{75EE06E1-5C04-4D12-B926-125767FFB202}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Core", "Practice\Practice.Core.csproj", "{D885010E-B5F8-4FB8-8DC0-070E7BAC5193}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Problems", "Practice\Practice.Problems.csproj", "{D885010E-B5F8-4FB8-8DC0-070E7BAC5193}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.App", "Practice.App\Practice.App.csproj", "{29E7B616-20FC-4E68-B64F-CAF0C527BE20}"
 EndProject

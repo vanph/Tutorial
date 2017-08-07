@@ -1,5 +1,5 @@
 ﻿using System;
-using Practice.Core;
+using Practice.Problems;
 
 namespace Practice.App
 {

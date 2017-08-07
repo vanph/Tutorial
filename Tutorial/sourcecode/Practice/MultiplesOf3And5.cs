@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Practice.Core
+namespace Practice.Problems
 {
     /// <summary>
     /// Problem 1: Multiples of 3 and 5

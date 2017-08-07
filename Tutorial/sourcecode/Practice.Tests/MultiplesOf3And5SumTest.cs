@@ -1,4 +1,4 @@
-﻿using Practice.Core;
+﻿using Practice.Problems;
 using Xunit;
 
 namespace Practice.Tests
