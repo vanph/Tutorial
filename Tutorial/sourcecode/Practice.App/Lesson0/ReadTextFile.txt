@@ -1,0 +1,3 @@
+﻿http://www.csharp-examples.net/read-text-file/
+http://cc.davelozinski.com/c-sharp/fastest-way-to-read-text-files
+http://cc.davelozinski.com/c-sharp/the-fastest-way-to-read-and-process-text-files
