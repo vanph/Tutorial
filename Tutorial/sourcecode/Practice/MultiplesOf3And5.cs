@@ -15,6 +15,7 @@ namespace Practice.Problems
             return Enumerable.Range(0, exclusiveUpperNumber)
                              .Where(x => x % 3 == 0 || x % 5 == 0)
                              .Sum();
+
         }
     }
 }
