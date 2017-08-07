@@ -1,0 +1,14 @@
+FirstName:Anton | Surname:Balaz | EmailAddress:anton.solictor@example.com
+FirstName:Anton | Surname:Unverified | EmailAddress:Anton.unverified@example.com
+FirstName:Arnold | Surname:Dvstest | EmailAddress:arnold.accountant@example.com
+FirstName:Barbara | Surname:Petzold | EmailAddress:barbara.guarantor@example.com
+FirstName:Barbara | Surname:Santa | EmailAddress:barbara.tenant@example.com
+FirstName:Big | Surname:Admin | EmailAddress:BigAdmin@example.com
+FirstName:Charmaine | Surname:Sheh | EmailAddress:charmaine.delegate@example.com
+FirstName:Charmaine | Surname:Sinatra | EmailAddress:charmaine.tenant@example.com
+FirstName:Hamish | Surname:Leighton | EmailAddress:Hamish.Director@example.com
+FirstName:Joel | Surname:Coen | EmailAddress:joel.guarantor@example.com
+FirstName:Mike | Surname:Quill | EmailAddress:mike.director@example.com
+FirstName:Nelly | Surname:Sachs | EmailAddress:Nelly.Sachs@example.com
+FirstName:Sean | Surname:Paul | EmailAddress:Sean.Landlord@example.com
+FirstName:Shaun | Surname:Daly | EmailAddress:shaun.solicitor@example.com
