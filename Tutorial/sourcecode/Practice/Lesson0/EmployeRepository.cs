@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Practice.Problems;
+﻿using System.Collections.Generic;
 using Practice.Problems.App_Data;
 using System.IO;
 
@@ -17,10 +12,10 @@ namespace Practice.Problems.Lesson0
             return File.ReadAllLines(filePath);
         }
 
-        public List<EmployeeInfo> GetEmployee(string file)
+        public List<EmployeeInfo> GetEmployees(string file)
         {
 
-            var listEmployees= new List<EmployeeInfo>();
+            var employees= new List<EmployeeInfo>();
             
             foreach (var line in ReadFile(file))
             {
@@ -30,9 +25,11 @@ namespace Practice.Problems.Lesson0
                 emp.FirstName = str[0].Trim();
                 emp.SurName = str[1].Trim();
                 emp.EmailAddress = str[2].Trim();
-                listEmployees.Add(emp);
+
+                employees.Add(emp);
             }
-             return listEmployees;
+
+             return employees;
         }
     }
 }

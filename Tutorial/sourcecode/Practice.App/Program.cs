@@ -1,10 +1,4 @@
 ﻿using System;
-
-using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
-using Practice.App.Lesson0;
-using Practice.Problems;
 using Practice.Problems.Lesson0;
 
 
@@ -19,13 +13,15 @@ namespace Practice.App
 
         private static void DisplayEmployee(string file)
         {
-            var list = new EmployeRepository();
-            var employees = list.GetEmployee(file);
-            foreach( var line in employees)
-            {
-                Console.WriteLine(line.EmailAddress);
+            var employeRepository = new EmployeRepository();
+            
+            var employees = employeRepository.GetEmployees(file);
 
+            foreach( var emp in employees)
+            {
+                Console.WriteLine(emp.EmailAddress);
             }
+
             Console.ReadLine();
 
         }
