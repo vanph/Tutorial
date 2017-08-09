@@ -10,7 +10,8 @@ namespace Lesson1
     {
         static void Main(string[] args)
         {
-            DynamicExample.Test();
+            var i = 6;
+            var str = "van";
 
             Console.ReadLine();
 
