@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practice
+namespace Lesson1
 {
     class Program
     {
         static void Main(string[] args)
         {
+            DynamicExample.Test();
+
+            Console.ReadLine();
+
         }
     }
 }

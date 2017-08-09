@@ -1,9 +1,13 @@
 ﻿using System;
+<<<<<<< HEAD
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using Practice.App.Lesson0;
 using Practice.Problems;
+=======
+using Practice.Problems.Lesson0;
+>>>>>>> homework_lesson0
 
 namespace Practice.App
 {
@@ -11,6 +15,7 @@ namespace Practice.App
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             //var example = new MultiplesOf3And5();
             //Console.WriteLine(example.Sum(1000));
 
@@ -35,8 +40,22 @@ namespace Practice.App
             foreach (var emp in employees)
             {
                 Console.WriteLine(emp.FirstName);
+=======
+            DisplayEmployee("Employee.txt");
+        }
+
+        private static void DisplayEmployee(string file)
+        {
+            var list = new EmployeRepository();
+            var employees = list.GetEmployee(file);
+
+            foreach( var line in employees)
+            {
+                Console.WriteLine(line.EmailAddress);
+>>>>>>> homework_lesson0
             }
             Console.ReadLine();
+
         }
     }
 }
