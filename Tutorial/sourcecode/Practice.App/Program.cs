@@ -48,7 +48,6 @@ namespace Practice.App
         {
             var list = new EmployeRepository();
             var employees = list.GetEmployee(file);
-
             foreach( var line in employees)
             {
                 Console.WriteLine(line.EmailAddress);
