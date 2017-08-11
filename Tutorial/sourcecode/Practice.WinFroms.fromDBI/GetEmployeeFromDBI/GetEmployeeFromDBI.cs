@@ -25,7 +25,8 @@ namespace Practice.WinFroms.GetEmployeeFromDBI
             gridViewEmployee.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             //gridViewEmployee.DataSource = GetAllEmployee().Tables[0];
             var context = new Model1();
-            var employees = context.EmployeeInfoes.OrderByDescending(x => x.ID_Employee).ToList();
+            var query = context.EmployeeInfoes.Where(x => x.Name_Employee.Contains("A")).Select(x => new { Name = x.Name_Employee});
+            var employees = query.ToList();
 
             gridViewEmployee.DataSource = employees;
         }
