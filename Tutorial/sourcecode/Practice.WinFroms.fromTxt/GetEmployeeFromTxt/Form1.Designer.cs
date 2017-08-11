@@ -29,15 +29,18 @@
         private void InitializeComponent()
         {
             this.dataGridViewEmployee = new System.Windows.Forms.DataGridView();
-            this.btnShowEmployee = new System.Windows.Forms.Button();
             this.ColumnFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAddressEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnShowEmployee = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewEmployee
             // 
+            this.dataGridViewEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnFirstName,
@@ -47,16 +50,6 @@
             this.dataGridViewEmployee.Name = "dataGridViewEmployee";
             this.dataGridViewEmployee.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewEmployee.TabIndex = 0;
-            // 
-            // btnShowEmployee
-            // 
-            this.btnShowEmployee.Location = new System.Drawing.Point(22, 43);
-            this.btnShowEmployee.Name = "btnShowEmployee";
-            this.btnShowEmployee.Size = new System.Drawing.Size(75, 23);
-            this.btnShowEmployee.TabIndex = 1;
-            this.btnShowEmployee.Text = "Show";
-            this.btnShowEmployee.UseVisualStyleBackColor = true;
-            this.btnShowEmployee.Click += new System.EventHandler(this.btnShowEmployee_Click);
             // 
             // ColumnFirstName
             // 
@@ -72,6 +65,17 @@
             // 
             this.ColumnAddressEmail.HeaderText = "Address Email";
             this.ColumnAddressEmail.Name = "ColumnAddressEmail";
+            // 
+            // btnShowEmployee
+            // 
+            this.btnShowEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowEmployee.Location = new System.Drawing.Point(187, 42);
+            this.btnShowEmployee.Name = "btnShowEmployee";
+            this.btnShowEmployee.Size = new System.Drawing.Size(75, 23);
+            this.btnShowEmployee.TabIndex = 1;
+            this.btnShowEmployee.Text = "Show";
+            this.btnShowEmployee.UseVisualStyleBackColor = true;
+            this.btnShowEmployee.Click += new System.EventHandler(this.btnShowEmployee_Click);
             // 
             // Form1
             // 

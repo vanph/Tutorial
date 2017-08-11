@@ -35,10 +35,13 @@
             // 
             // gridViewEmployee
             // 
+            this.gridViewEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridViewEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridViewEmployee.Location = new System.Drawing.Point(22, 99);
             this.gridViewEmployee.Name = "gridViewEmployee";
-            this.gridViewEmployee.Size = new System.Drawing.Size(240, 150);
+            this.gridViewEmployee.Size = new System.Drawing.Size(404, 204);
             this.gridViewEmployee.TabIndex = 0;
             this.gridViewEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewEmployee_CellContentClick);
             // 
@@ -56,7 +59,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(468, 326);
             this.Controls.Add(this.btnShowEmployee);
             this.Controls.Add(this.gridViewEmployee);
             this.Name = "Form1";

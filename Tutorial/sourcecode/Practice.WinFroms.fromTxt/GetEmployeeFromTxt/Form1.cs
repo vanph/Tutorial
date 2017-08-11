@@ -24,12 +24,13 @@ namespace Practice.WinFroms.fromTxt
             var employeRepository = new EmployeRepository();
             var employees = employeRepository.GetEmployees(@"D:\dev\Tutorial\Tutorial\sourcecode\Employee.txt");
 
-            foreach (var emp in employees)
-            {
-                string[] row = new string[] { emp.FirstName, emp.SurName, emp.EmailAddress };
-                dataGridViewEmployee.Rows.Add(row);
-            }
+            //foreach (var emp in employees)
+            //{
+            //    string[] row = new string[] { emp.FirstName, emp.SurName, emp.EmailAddress };
+            //    dataGridViewEmployee.Rows.Add(row);
+            //}
 
+            dataGridViewEmployee.DataSource = employees;
         }
 
         

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using Practice.WinFroms.fromDBI.Model;
 
 namespace Practice.WinFroms.GetEmployeeFromDBI
 {
@@ -22,7 +23,11 @@ namespace Practice.WinFroms.GetEmployeeFromDBI
         private void btnShowEmployee_Click(object sender, EventArgs e)
         {
             gridViewEmployee.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            gridViewEmployee.DataSource = GetAllEmployee().Tables[0];
+            //gridViewEmployee.DataSource = GetAllEmployee().Tables[0];
+            var context = new Model1();
+            var employees = context.EmployeeInfoes.OrderByDescending(x => x.ID_Employee).ToList();
+
+            gridViewEmployee.DataSource = employees;
         }
 
       
