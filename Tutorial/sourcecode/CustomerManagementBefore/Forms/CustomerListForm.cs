@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
+using CustomerManagement.DataAccess;
 
 namespace CustomerManagement.Forms
 {
@@ -13,7 +15,11 @@ namespace CustomerManagement.Forms
 
         private void FormLoaded(object sender, EventArgs e)
         {
-            
+            var  dbContext = new DataModel();
+
+            var customers = dbContext.Customers.ToList();
+
+            grdCustomer.DataSource = customers;
         }
 
 

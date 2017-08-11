@@ -28,6 +28,9 @@ namespace Practice.WinFroms.GetEmployeeFromDBI
             var query = context.EmployeeInfoes.Where(x => x.Name_Employee.Contains("A")).Select(x => new { Name = x.Name_Employee});
             var employees = query.ToList();
 
+            var emp = employees.FirstOrDefault();
+            var emp2 = employees.First();
+
             gridViewEmployee.DataSource = employees;
         }
 

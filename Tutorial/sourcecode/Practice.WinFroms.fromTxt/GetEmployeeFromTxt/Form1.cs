@@ -22,7 +22,7 @@ namespace Practice.WinFroms.fromTxt
         {
 
             var employeRepository = new EmployeRepository();
-            var employees = employeRepository.GetEmployees(@"D:\dev\Tutorial\Tutorial\sourcecode\Employee.txt");
+            var employees = employeRepository.GetEmployees(@"GetEmployeeFromTxt\Employee.txt");
 
             //foreach (var emp in employees)
             //{
@@ -30,7 +30,9 @@ namespace Practice.WinFroms.fromTxt
             //    dataGridViewEmployee.Rows.Add(row);
             //}
 
-            dataGridViewEmployee.DataSource = employees;
+            var filteredEmps = employees.Where(x => x.FirstName.Contains("Anton")).ToList();
+
+            dataGridViewEmployee.DataSource = filteredEmps;
         }
 
         

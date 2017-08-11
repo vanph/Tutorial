@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\Customer.cs" />
+    <Compile Include="DataAccess\DataModel.cs" />
     <Compile Include="MasterData\Countries.cs" />
     <Compile Include="MasterData\States.cs" />
     <Compile Include="Forms\CustomerDetailForm.cs">
@@ -103,9 +105,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataAccess\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="temp.txt" />
   </ItemGroup>
