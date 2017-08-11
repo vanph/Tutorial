@@ -31,3 +31,5 @@ _ReSharper*/
 #Nuget packages folder
 packages/
 Tutorial/docs/~$.Net Dev.mmap.~$lock
+/DBI/dbEmployee.mdf
+/DBI/dbEmployee_log.ldf
