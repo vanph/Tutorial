@@ -23,12 +23,7 @@ namespace Practice.WinFroms.fromTxt
 
             var employeRepository = new EmployeRepository();
 
-            var employees = employeRepository.GetEmployees(file);
-
-            foreach (var emp in employees)
-            {
-                dataGridViewEmployee.Column[ColumnFirstName].;
-            }
+           
         }
 
         
