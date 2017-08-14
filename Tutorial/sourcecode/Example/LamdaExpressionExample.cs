@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Example
 {
@@ -29,19 +32,36 @@ namespace Example
             //Example 2: calculate circle using delegate
             Calculate circle = (x, y) => (x + y)*2;
             Console.WriteLine(circle(3, 4));
-
+            
             //Example 3: Lambdas with the Standard Query Operators
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-            var oddNumbers = numbers.Where(n => n % 2 == 1);
+            
+            //var oddNumbers = numbers.Where(n => n % 2 == 1);
+            var oddNumbers = from n in numbers where n % 2 == 1 select n;
 
             Console.WriteLine("Odd Numbers:");
             foreach (var oddNumber in oddNumbers)
             {
                 Console.Write(oddNumber + " ");
             }
+
             Console.WriteLine();
             Console.WriteLine("Count even numbers:" + numbers.Count(n => n % 2 == 0));
+            
+            
         }
-        
+
+        public bool Odd(int n)
+        {
+            return n % 2 == 1;
+        }
+    }
+
+    public class Calcualtion
+    {
+        public int Test(Func<int,int> abc, int i)
+        {
+            return abc(i);
+        }
     }
 }

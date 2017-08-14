@@ -67,6 +67,7 @@ namespace CustomerManagement.Forms
                     if (customer != null)
                     {
                         _dbContext.Customers.Remove(customer);
+                        //delete orders linked to the customer
                         _dbContext.SaveChanges();
 
                         MessageBox.Show(@"Successfully removed the selected customer");

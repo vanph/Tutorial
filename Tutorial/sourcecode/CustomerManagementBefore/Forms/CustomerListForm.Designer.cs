@@ -55,6 +55,8 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -199,6 +201,9 @@
             this.grdCustomer.AllowUserToAddRows = false;
             this.grdCustomer.AllowUserToDeleteRows = false;
             this.grdCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CustomerID,
+            this.CompanyName});
             this.grdCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdCustomer.Location = new System.Drawing.Point(0, 27);
             this.grdCustomer.Margin = new System.Windows.Forms.Padding(2);
@@ -326,6 +331,20 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
+            // CustomerID
+            // 
+            this.CustomerID.DataPropertyName = "CustomerID";
+            this.CustomerID.HeaderText = "CustomerID";
+            this.CustomerID.Name = "CustomerID";
+            this.CustomerID.ReadOnly = true;
+            // 
+            // CompanyName
+            // 
+            this.CompanyName.DataPropertyName = "CompanyName";
+            this.CompanyName.HeaderText = "Company Name";
+            this.CompanyName.Name = "CompanyName";
+            this.CompanyName.ReadOnly = true;
+            // 
             // CustomerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,6 +401,8 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
     }
 }
 

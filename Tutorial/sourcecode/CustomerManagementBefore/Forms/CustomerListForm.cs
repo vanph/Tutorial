@@ -11,15 +11,16 @@ namespace CustomerManagement.Forms
         public CustomerListForm()
         {
             InitializeComponent();
+            grdCustomer.AutoGenerateColumns = false;
         }
 
         private void FormLoaded(object sender, EventArgs e)
         {
-            var  dbContext = new DataModel();
+            //var  dbContext = new DataModel();
 
-            var customers = dbContext.Customers.ToList();
+            //var customers = dbContext.Customers.ToList();
 
-            grdCustomer.DataSource = customers;
+            //grdCustomer.DataSource = customers;
         }
 
 
