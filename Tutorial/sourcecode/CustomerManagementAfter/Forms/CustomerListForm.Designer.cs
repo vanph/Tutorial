@@ -43,7 +43,9 @@
             this.txtCompanyNameFilter = new System.Windows.Forms.TextBox();
             this.cmdCompanyName = new System.Windows.Forms.Button();
             this.grdCustomer = new System.Windows.Forms.DataGridView();
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -55,12 +57,13 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingNavigator)).BeginInit();
+            this.customerBindingNavigator.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,7 +74,7 @@
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 268);
+            this.panel1.Location = new System.Drawing.Point(0, 370);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(951, 127);
@@ -199,24 +202,43 @@
             this.grdCustomer.AllowUserToAddRows = false;
             this.grdCustomer.AllowUserToDeleteRows = false;
             this.grdCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CustomerID,
+            this.CompanyName});
             this.grdCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdCustomer.Location = new System.Drawing.Point(0, 27);
             this.grdCustomer.Margin = new System.Windows.Forms.Padding(2);
             this.grdCustomer.Name = "grdCustomer";
             this.grdCustomer.ReadOnly = true;
             this.grdCustomer.RowTemplate.Height = 24;
-            this.grdCustomer.Size = new System.Drawing.Size(951, 241);
+            this.grdCustomer.Size = new System.Drawing.Size(951, 343);
             this.grdCustomer.TabIndex = 0;
             this.grdCustomer.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnGridCustomer_CellMouseDoubleClick);
+            this.grdCustomer.SelectionChanged += new System.EventHandler(this.grdCustomer_SelectionChanged);
             this.grdCustomer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnGridCustomer_KeyDown);
             // 
-            // bindingNavigator1
+            // CustomerID
             // 
-            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CustomerID.DataPropertyName = "CustomerID";
+            this.CustomerID.HeaderText = "Customer ID";
+            this.CustomerID.Name = "CustomerID";
+            this.CustomerID.ReadOnly = true;
+            // 
+            // CompanyName
+            // 
+            this.CompanyName.DataPropertyName = "CompanyName";
+            this.CompanyName.HeaderText = "Company Name";
+            this.CompanyName.Name = "CompanyName";
+            this.CompanyName.ReadOnly = true;
+            // 
+            // customerBindingNavigator
+            // 
+            this.customerBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.customerBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.customerBindingNavigator.CountItemFormat = "of {0} customers";
+            this.customerBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.customerBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.customerBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -228,16 +250,16 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(951, 27);
-            this.bindingNavigator1.TabIndex = 2;
-            this.bindingNavigator1.Text = "Navigator";
+            this.customerBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.customerBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.customerBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.customerBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.customerBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.customerBindingNavigator.Name = "customerBindingNavigator";
+            this.customerBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.customerBindingNavigator.Size = new System.Drawing.Size(951, 27);
+            this.customerBindingNavigator.TabIndex = 2;
+            this.customerBindingNavigator.Text = "Navigator";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -252,8 +274,8 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 24);
-            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(93, 24);
+            this.bindingNavigatorCountItem.Text = "of {0} customers";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
             // bindingNavigatorDeleteItem
@@ -326,15 +348,20 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // CustomerListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(951, 395);
+            this.ClientSize = new System.Drawing.Size(951, 497);
             this.Controls.Add(this.grdCustomer);
-            this.Controls.Add(this.bindingNavigator1);
+            this.Controls.Add(this.customerBindingNavigator);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CustomerListForm";
@@ -347,9 +374,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingNavigator)).EndInit();
+            this.customerBindingNavigator.ResumeLayout(false);
+            this.customerBindingNavigator.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,7 +397,7 @@
         private System.Windows.Forms.Button cmdEditCurrent;
         private System.Windows.Forms.Button cmdAddNew;
         private System.Windows.Forms.Button cmdRemoveCurrent;
-        private System.Windows.Forms.BindingNavigator bindingNavigator1;
+        private System.Windows.Forms.BindingNavigator customerBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -382,6 +409,9 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

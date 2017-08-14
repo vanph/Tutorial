@@ -14,6 +14,7 @@ namespace CustomerManagement.Forms
         public CustomerDetailForm()
         {
             InitializeComponent();
+            Adding = true;
         }
         public CustomerDetailForm(Customer customer, List<string> contactTitles)
         {
@@ -57,37 +58,45 @@ namespace CustomerManagement.Forms
             }
         }
 
-        [Localizable(false)]
-        public sealed override string Text
-        {
-            get { return base.Text; }
-            set { base.Text = value; }
-        }
+        //[Localizable(false)]
+        //public sealed override string Text
+        //{
+        //    get { return base.Text; }
+        //    set { base.Text = value; }
+        //}
 
         private void cmdSave_Click(object sender, EventArgs e)
         {
-            //Customer customers = new Customer();
+            if (Adding)
+            {
+                Customer = new Customer
+                {
+                    CompanyName = txtCompanyName.Text,
+                    ContactName = txtContactName.Text,
+                    ContactTitle = cboTitles.Text,
+                    Address = txtAddress.Text,
+                    Country = cboCountry.Text,
+                    City = txtCity.Text,
+                    PostalCode = txtPostalCode.Text
+                };
 
-            //if (Adding)
-            //{
-            //    Customer.CompanyName = txtCompanyName.Text;
-            //    Customer.ContactName = txtContactName.Text;
-            //    Customer.ContactTitle = cboTitles.Text;
-            //    Customer.Address = txtAddress.Text;
-            //    Customer.Country = cboCountry.Text;
-            //    Customer.City = txtCity.Text;
-            //    Customer.PostalCode = txtPostalCode.Text;
-            //}
-            //else
-            //{
-            //    Customer.CompanyName = txtCompanyName.Text;
-            //    Customer.ContactName = txtContactName.Text;
-            //    Customer.ContactTitle = cboTitles.Text;
-            //    Customer.Address = txtAddress.Text;
-            //    Customer.Country = cboCountry.Text;
-            //    Customer.City = txtCity.Text;
-            //    Customer.PostalCode = txtPostalCode.Text;
-            //}
+                DialogResult = DialogResult.OK;
+                
+            }
+            else
+            {
+                Customer.CompanyName = txtCompanyName.Text;
+                Customer.ContactName = txtContactName.Text;
+                Customer.ContactTitle = cboTitles.Text;
+                Customer.Address = txtAddress.Text;
+                Customer.Country = cboCountry.Text;
+                Customer.City = txtCity.Text;
+                Customer.PostalCode = txtPostalCode.Text;
+
+                DialogResult = DialogResult.OK;
+            }
+
+            
         }
     }
 }
