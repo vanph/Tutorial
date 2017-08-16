@@ -1,0 +1,10 @@
+JSON (JavaScript Object Notation) is a lightweight data-interchange format
+http://www.json.org/
+https://www.w3schools.com/js/js_json_intro.asp
+XML https://www.w3schools.com/Xml/
+
+Difference between WCF and Web API and WCF REST and Web Service
+http://www.dotnettricks.com/learn/webapi/difference-between-wcf-and-web-api-and-wcf-rest-and-web-service
+http://www.csharptutorial.in/296/wcf-tutorials-soap-vs-rest-web-services-or-difference-between-soap-and-rest-web-services
+
+Practice

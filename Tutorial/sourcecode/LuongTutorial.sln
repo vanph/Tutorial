@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercises", "Exercises", "{
 		Employee.txt = Employee.txt
 		Lession0.txt = Lession0.txt
 		Lesson1.txt = Lesson1.txt
+		Lesson6.txt = Lesson6.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Homework", "Homework", "{75EE06E1-5C04-4D12-B926-125767FFB202}"
@@ -42,6 +43,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{0CB9155E-B870-41D1-A36A-1DE78EF5AE71}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCountry", "MyCountry\MyCountry.csproj", "{B915DC64-6DF6-4C08-866A-3081636D690E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStoreApp", "BookStoreApp\BookStoreApp.csproj", "{4E59A46B-8BB8-4A8D-8760-5E0F8FAD4C4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +84,10 @@ Global
 		{B915DC64-6DF6-4C08-866A-3081636D690E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B915DC64-6DF6-4C08-866A-3081636D690E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B915DC64-6DF6-4C08-866A-3081636D690E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E59A46B-8BB8-4A8D-8760-5E0F8FAD4C4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E59A46B-8BB8-4A8D-8760-5E0F8FAD4C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E59A46B-8BB8-4A8D-8760-5E0F8FAD4C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E59A46B-8BB8-4A8D-8760-5E0F8FAD4C4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,5 +102,6 @@ Global
 		{C285E53F-6040-478C-AA29-83EB1B3B9A07} = {75EE06E1-5C04-4D12-B926-125767FFB202}
 		{EEE96A90-7055-42D1-82A3-E68FEE4C0056} = {3F77A513-246E-4F4E-8D70-EF89801794D8}
 		{B915DC64-6DF6-4C08-866A-3081636D690E} = {0CB9155E-B870-41D1-A36A-1DE78EF5AE71}
+		{4E59A46B-8BB8-4A8D-8760-5E0F8FAD4C4B} = {3F77A513-246E-4F4E-8D70-EF89801794D8}
 	EndGlobalSection
 EndGlobal
