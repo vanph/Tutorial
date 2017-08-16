@@ -52,10 +52,11 @@ namespace CustomerManagement.Forms
             AddNewCustomer();
         }
         private void RemoveCurrentRow()
-        {
-            var position = _customerBindingSource.Position;
+        {           
             if (grdCustomer.SelectedRows.Count > 0)
             {
+
+                //casting: reference type -> reference type
                 var selectedCustomer = grdCustomer.SelectedRows[0].DataBoundItem as Customer;
                 if (selectedCustomer == null)
                 {
@@ -156,7 +157,7 @@ namespace CustomerManagement.Forms
                 var selectedCustomer = grdCustomer.SelectedRows[0].DataBoundItem as Customer;
                 if (selectedCustomer != null)
                 {
-                    
+                    lblCustomerIdentifier.Text = selectedCustomer.CustomerID;
                 }
             }
            

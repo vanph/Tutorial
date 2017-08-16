@@ -56,7 +56,16 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContextName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Region = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostalCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -126,6 +135,7 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Data Binding on current row";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // lblCompanyName
             // 
@@ -136,6 +146,7 @@
             this.lblCompanyName.Size = new System.Drawing.Size(43, 13);
             this.lblCompanyName.TabIndex = 3;
             this.lblCompanyName.Text = "ABCDE";
+            this.lblCompanyName.Click += new System.EventHandler(this.lblCompanyName_Click);
             // 
             // label2
             // 
@@ -156,6 +167,7 @@
             this.lblCustomerIdentifier.Size = new System.Drawing.Size(31, 13);
             this.lblCustomerIdentifier.TabIndex = 1;
             this.lblCustomerIdentifier.Text = "0000";
+            this.lblCustomerIdentifier.Click += new System.EventHandler(this.lblCustomerIdentifier_Click);
             // 
             // label1
             // 
@@ -198,20 +210,28 @@
             // 
             // grdCustomer
             // 
-            this.grdCustomer.AllowUserToAddRows = false;
-            this.grdCustomer.AllowUserToDeleteRows = false;
+            this.grdCustomer.AllowUserToOrderColumns = true;
             this.grdCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CustomerID,
-            this.CompanyName});
+            this.ContactTitle,
+            this.CompanyName,
+            this.ContextName,
+            this.Address,
+            this.City,
+            this.Region,
+            this.PostalCode,
+            this.Country,
+            this.Phone,
+            this.Fax});
             this.grdCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdCustomer.Location = new System.Drawing.Point(0, 27);
             this.grdCustomer.Margin = new System.Windows.Forms.Padding(2);
             this.grdCustomer.Name = "grdCustomer";
-            this.grdCustomer.ReadOnly = true;
             this.grdCustomer.RowTemplate.Height = 24;
             this.grdCustomer.Size = new System.Drawing.Size(951, 241);
             this.grdCustomer.TabIndex = 0;
+            this.grdCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCustomer_CellContentClick);
             this.grdCustomer.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnGridCustomer_CellMouseDoubleClick);
             this.grdCustomer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnGridCustomer_KeyDown);
             // 
@@ -334,16 +354,67 @@
             // CustomerID
             // 
             this.CustomerID.DataPropertyName = "CustomerID";
-            this.CustomerID.HeaderText = "CustomerID";
+            this.CustomerID.HeaderText = "Customer ID";
             this.CustomerID.Name = "CustomerID";
-            this.CustomerID.ReadOnly = true;
+            // 
+            // ContactTitle
+            // 
+            this.ContactTitle.HeaderText = "Contact Title";
+            this.ContactTitle.Name = "ContactTitle";
             // 
             // CompanyName
             // 
             this.CompanyName.DataPropertyName = "CompanyName";
             this.CompanyName.HeaderText = "Company Name";
             this.CompanyName.Name = "CompanyName";
-            this.CompanyName.ReadOnly = true;
+            // 
+            // ContextName
+            // 
+            this.ContextName.DataPropertyName = "ContactName";
+            this.ContextName.HeaderText = "Contact Name";
+            this.ContextName.Name = "ContextName";
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            // 
+            // City
+            // 
+            this.City.DataPropertyName = "City";
+            this.City.HeaderText = "City";
+            this.City.Name = "City";
+            // 
+            // Region
+            // 
+            this.Region.DataPropertyName = "Region";
+            this.Region.HeaderText = "Region";
+            this.Region.Name = "Region";
+            // 
+            // PostalCode
+            // 
+            this.PostalCode.DataPropertyName = "PostalCode";
+            this.PostalCode.HeaderText = "Postal Code";
+            this.PostalCode.Name = "PostalCode";
+            // 
+            // Country
+            // 
+            this.Country.DataPropertyName = "Country";
+            this.Country.HeaderText = "Country";
+            this.Country.Name = "Country";
+            // 
+            // Phone
+            // 
+            this.Phone.DataPropertyName = "Phone";
+            this.Phone.HeaderText = "Phone";
+            this.Phone.Name = "Phone";
+            // 
+            // Fax
+            // 
+            this.Fax.DataPropertyName = "Fax";
+            this.Fax.HeaderText = "Fax";
+            this.Fax.Name = "Fax";
             // 
             // CustomerListForm
             // 
@@ -402,7 +473,16 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContextName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn City;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Region;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostalCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Country;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fax;
     }
 }
 

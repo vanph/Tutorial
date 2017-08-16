@@ -16,16 +16,21 @@ namespace CustomerManagement.Forms
 
         private void FormLoaded(object sender, EventArgs e)
         {
-            //var  dbContext = new DataModel();
+            var dbContext = new DataModel();
 
-            //var customers = dbContext.Customers.ToList();
+            var customers = dbContext.Customers.ToList();
 
-            //grdCustomer.DataSource = customers;
+            grdCustomer.DataSource = customers;
         }
 
 
         private void cmdFilterByColumn_Click(object sender, EventArgs e)
         {
+            var dbContext = new DataModel();
+
+            var customers = dbContext.Customers.Where( x => x.CompanyName.Contains(txtCompanyNameFilter.Text)).ToList();
+
+            grdCustomer.DataSource = customers;
         }
 
 
@@ -40,11 +45,15 @@ namespace CustomerManagement.Forms
         }
         private void RemoveCurrentRow()
         {
-
+            //var dbContext = new DataModel();
+            //int indexRowCurrent = grdCustomer.CurrentCell.RowIndex;
+            //int indexColumnCurrent = grdCustomer.CurrentCell.ColumnIndex;
+            
         }
         private void AddNewCustomer()
         {
-
+            var CustomerDetailForm = new CustomerDetailForm();
+            CustomerDetailForm.ShowDialog(); 
 
         }
         private void EditCurrentRow()
@@ -87,6 +96,26 @@ namespace CustomerManagement.Forms
             {
                 EditCurrentRow();
             }
+        }
+
+        private void grdCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCustomerIdentifier_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void lblCompanyName_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
