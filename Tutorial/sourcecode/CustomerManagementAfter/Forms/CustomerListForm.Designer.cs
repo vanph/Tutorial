@@ -154,9 +154,8 @@
             this.lblCustomerIdentifier.Location = new System.Drawing.Point(56, 25);
             this.lblCustomerIdentifier.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCustomerIdentifier.Name = "lblCustomerIdentifier";
-            this.lblCustomerIdentifier.Size = new System.Drawing.Size(31, 13);
+            this.lblCustomerIdentifier.Size = new System.Drawing.Size(0, 13);
             this.lblCustomerIdentifier.TabIndex = 1;
-            this.lblCustomerIdentifier.Text = "0000";
             // 
             // label1
             // 
@@ -164,9 +163,9 @@
             this.label1.Location = new System.Drawing.Point(4, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Identifier";
+            this.label1.Text = "ID";
             // 
             // groupBox1
             // 
