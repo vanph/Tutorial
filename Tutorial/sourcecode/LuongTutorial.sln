@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{BFFF951A-F652-4CB0-8FD3-E926033863EB}"
 	ProjectSection(SolutionItems) = preProject
@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercises", "Exercises", "{
 		Lession0.txt = Lession0.txt
 		Lesson1.txt = Lesson1.txt
 		Lesson6.txt = Lesson6.txt
+		Lesson7-Homework.txt = Lesson7-Homework.txt
 		Lesson7.txt = Lesson7.txt
+		Lesson8.txt = Lesson8.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Homework", "Homework", "{75EE06E1-5C04-4D12-B926-125767FFB202}"
@@ -95,5 +97,8 @@ Global
 		{C285E53F-6040-478C-AA29-83EB1B3B9A07} = {75EE06E1-5C04-4D12-B926-125767FFB202}
 		{EEE96A90-7055-42D1-82A3-E68FEE4C0056} = {3F77A513-246E-4F4E-8D70-EF89801794D8}
 		{4E59A46B-8BB8-4A8D-8760-5E0F8FAD4C4B} = {3F77A513-246E-4F4E-8D70-EF89801794D8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B61887F5-9907-4971-8707-F8EF18E9D19F}
 	EndGlobalSection
 EndGlobal

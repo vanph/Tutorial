@@ -1,44 +1,3 @@
-Review:
-
-1.Types:
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/
-C# is a strongly-typed language	
-
-2.Reference Type and Value Types
-http://net-informations.com/faq/general/valuetype-referencetype.htm
-http://net-informations.com/faq/net/stack-heap.htm
-
-Every type is a value type or reference type
-- Use struct to create a value type
-- Use class to create a reference type
-Value types are usually immutable
-- Can not change the value of 4
-- Can not change the value of August 9th, 2002
-Arrays and strings are reference types
--Strings behave like a value type
-
-3.Anonymous Types
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/anonymous-types
-
-4.Other Links:
-https://stackoverflow.com/questions/31859016/is-the-use-of-dynamic-considered-a-bad-practice
-http://www.dotnettricks.com/learn/csharp/difference-between-constant-and-readonly-and-static
-http://www.c-sharpcorner.com/UploadFile/c210df/difference-between-const-readonly-and-static-readonly-in-C-Sharp/
-http://geekswithblogs.net/BlackRabbitCoder/archive/2010/07/29/c-fundamentals-the-differences-between-struct-and-class.aspx
-https://www.codeproject.com/Articles/1456/Enums-and-Structs-in-C
-
-5. Boxing vs Unboxing vs Casting
-http://www.dotnettricks.com/learn/csharp/understanding-boxing-and-unboxing-in-csharp
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/how-to-safely-cast-by-using-as-and-is-operators
-
-Unboxing is converting a value type to a reference type. Casting is converting a reference type to a reference type or a value type as another value type.
-int i = 0;
-object o = (object)i; //this is boxing
-int i2 = (int)o; //this is unboxing.
-long l = (long)i; //this is casting.
-
-New
 1. C# version vs .Net version
 C# Version: https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/
 What's New in C# 6: https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-6
@@ -46,6 +5,9 @@ What's New in C# 7: https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csh
 C# version vs .Net version:
 http://dotnetpattern.com/csharp-versions-features(***)
 http://www.tutorialsteacher.com/csharp/csharp-version-history
+
+- Auto property
+- Expression-Bodied
 
 2. Debug Mode vs Release Mode
 https://stackoverflow.com/questions/5338733/what-is-the-difference-between-debug-mode-and-release-mode-in-visual-studio-2010
