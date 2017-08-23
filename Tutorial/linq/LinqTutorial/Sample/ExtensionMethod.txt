@@ -1,0 +1,8 @@
+﻿New
+1. Extension methods:
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
+Feature and Property of Extension Methods 
+-It is a static method.
+- It must be located in a static class.
+- It uses the "this" keyword as the first parameter with a type in .NET and this method will be called by a given type instance on the client side.
+- It also shown by VS intellisense. When we press the dot (.) after a type instance, then it comes in VS intellisense.

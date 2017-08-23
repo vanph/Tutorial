@@ -1,0 +1,17 @@
+﻿public static int MultiplyBy(this int value, int mulitiplier)
+    {
+        // Uses a second parameter after the instance parameter.
+        return value * mulitiplier;
+    }
+
+
+	public static int TotalCharWithoutSpace(this string str)
+       {
+           int totalCharWithoutSpace = 0;
+           string[] userString = str.Split(' ');
+           foreach (string stringValue in userString)
+           {
+               totalCharWithoutSpace += stringValue.Length;
+           }
+           return totalCharWithoutSpace;
+       }
