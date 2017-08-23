@@ -39,7 +39,21 @@ int i2 = (int)o; //this is unboxing.
 long l = (long)i; //this is casting.
 
 New
-1. Extension methods:
+1. C# version vs .Net version
+C# Version: https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/
+What's New in C# 6: https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-6
+What's New in C# 7: https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-7
+C# version vs .Net version:
+http://dotnetpattern.com/csharp-versions-features(***)
+http://www.tutorialsteacher.com/csharp/csharp-version-history
+
+2. Debug Mode vs Release Mode
+https://stackoverflow.com/questions/5338733/what-is-the-difference-between-debug-mode-and-release-mode-in-visual-studio-2010
+https://stackoverflow.com/questions/2446027/debug-vs-release-performance
+https://stackoverflow.com/questions/4043934/deploying-app-to-production-using-debug-mode-rather-than-release-mode
+
+
+3. Extension methods:
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
 Feature and Property of Extension Methods 
 -It is a static method.
