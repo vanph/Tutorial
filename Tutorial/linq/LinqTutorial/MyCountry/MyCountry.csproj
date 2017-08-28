@@ -45,6 +45,8 @@
     <Compile Include="Model\District.cs" />
     <Compile Include="Repository\DistrictRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ICityRepository.cs" />
+    <Compile Include="Repository\IDistrictRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

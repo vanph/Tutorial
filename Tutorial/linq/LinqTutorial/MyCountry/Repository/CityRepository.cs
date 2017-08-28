@@ -1,13 +1,31 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MyCountry.Model;
 
 namespace MyCountry.Repository
 {
-    public class CityRepository
+    public class CityRepository: ICityRepository
     {
-        public List<City> GetCities()
+        private IEnumerable<City> _cities;
+
+        public CityRepository()
         {
-            var cities = new List<City>
+            InitData();
+        }
+
+        public IEnumerable<City> GetAll()
+        {
+            return _cities;
+        }
+
+        public City GetByCode(string code)
+        {
+           return _cities.FirstOrDefault(x => x.Code == code);
+        }
+
+        private void InitData()
+        {
+            _cities = new List<City>
            {
                 new City("01", "Thành phố Hà Nội", "Thành phố Trung ương"),
                 new City("02", "Tỉnh Hà Giang", "Tỉnh"),
@@ -74,8 +92,6 @@ namespace MyCountry.Repository
                 new City("96", "Tỉnh Cà Mau", "Tỉnh")
            };
 
-
-            return cities;
         }
     }
 }

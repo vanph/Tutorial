@@ -1,0 +1,11 @@
+﻿1. List districts by:
+- District Code, District Name, City Name
+2. Filter based on the above list
+3. Show cities that have max count of districts.
+4. Create 2 combobox
+- City 
+- District
+=> display districts by selected city
+
+
+* Refactor code

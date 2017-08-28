@@ -35,9 +35,12 @@ namespace Example
             
             //Example 3: Lambdas with the Standard Query Operators
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-            
+            Func<int, bool> myDel;
             var oddNumbers = from n in numbers where n % 2 == 1 select n;
-            var oddNumbers2 = numbers.Where(n => n % 2 == 1);
+            myDel = n => n % 2 == 1;
+            var oddNumbers2 = numbers.Where(myDel);
+            myDel = n => n % 3 == 1;
+            var oddNumbers22 = numbers.Where(myDel);
             var oddNumbers3 = from n in numbers where Odd(n) select n;
             var oddNumbers4 = numbers.Where(Odd);
 

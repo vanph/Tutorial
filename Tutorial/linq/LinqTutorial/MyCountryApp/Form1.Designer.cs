@@ -30,25 +30,29 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSearchCity = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCityFilter = new System.Windows.Forms.TextBox();
             this.grdCity = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.grdDistrict = new System.Windows.Forms.DataGridView();
+            this.btnSearchDistrict = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCity)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDistrict)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnSearchCity);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtCityFilter);
             this.groupBox1.Controls.Add(this.grdCity);
             this.groupBox1.Location = new System.Drawing.Point(37, 57);
             this.groupBox1.Name = "groupBox1";
@@ -67,12 +71,12 @@
             this.btnSearchCity.UseVisualStyleBackColor = true;
             this.btnSearchCity.Click += new System.EventHandler(this.btnSearchCity_Click);
             // 
-            // textBox1
+            // txtCityFilter
             // 
-            this.textBox1.Location = new System.Drawing.Point(26, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtCityFilter.Location = new System.Drawing.Point(26, 47);
+            this.txtCityFilter.Name = "txtCityFilter";
+            this.txtCityFilter.Size = new System.Drawing.Size(243, 20);
+            this.txtCityFilter.TabIndex = 1;
             // 
             // grdCity
             // 
@@ -84,6 +88,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnSearchDistrict);
+            this.groupBox2.Controls.Add(this.grdDistrict);
             this.groupBox2.Location = new System.Drawing.Point(453, 57);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(328, 519);
@@ -114,12 +120,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Summary";
             // 
-            // textBox2
+            // label1
             // 
-            this.textBox2.Location = new System.Drawing.Point(27, 50);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 20);
-            this.textBox2.TabIndex = 1;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 479);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "City Max:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(27, 98);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(367, 327);
+            this.dataGridView1.TabIndex = 3;
             // 
             // button2
             // 
@@ -131,22 +147,30 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.btnSearchCity_Click);
             // 
-            // dataGridView1
+            // textBox2
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 98);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(367, 327);
-            this.dataGridView1.TabIndex = 3;
+            this.textBox2.Location = new System.Drawing.Point(27, 50);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(243, 20);
+            this.textBox2.TabIndex = 1;
             // 
-            // label1
+            // grdDistrict
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 479);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "City Max:";
+            this.grdDistrict.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdDistrict.Location = new System.Drawing.Point(39, 98);
+            this.grdDistrict.Name = "grdDistrict";
+            this.grdDistrict.Size = new System.Drawing.Size(268, 386);
+            this.grdDistrict.TabIndex = 0;
+            // 
+            // btnSearchDistrict
+            // 
+            this.btnSearchDistrict.Location = new System.Drawing.Point(232, 50);
+            this.btnSearchDistrict.Name = "btnSearchDistrict";
+            this.btnSearchDistrict.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchDistrict.TabIndex = 2;
+            this.btnSearchDistrict.Text = "Search";
+            this.btnSearchDistrict.UseVisualStyleBackColor = true;
+            this.btnSearchDistrict.Click += new System.EventHandler(this.btnSearchDistrict_Click);
             // 
             // Form1
             // 
@@ -161,9 +185,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCity)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDistrict)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -172,7 +198,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnSearchCity;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCityFilter;
         private System.Windows.Forms.DataGridView grdCity;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button1;
@@ -181,6 +207,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSearchDistrict;
+        private System.Windows.Forms.DataGridView grdDistrict;
     }
 }
 

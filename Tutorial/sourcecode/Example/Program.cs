@@ -10,11 +10,11 @@ namespace Example
     {
         static void Main(string[] args)
         {
-            //var example1 = new DelegateExample();
-            //example1.Run();
+            var example1 = new DelegateExample();
+            example1.Run();
 
-            var example2 = new LamdaExpressionExample();
-            example2.Run();
+            //var example2 = new LamdaExpressionExample();
+            //example2.Run();
 
             Console.ReadLine();
         }

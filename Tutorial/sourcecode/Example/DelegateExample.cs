@@ -18,7 +18,7 @@ namespace Example
 
             var otherClass2 = new OtherClass2();
             _delegateMessage = otherClass2.Bye;
-            _delegateMessage("van");
+            _delegateMessage("Luong");
 
 
             var csBook = new Book() {Name = "CS"};
