@@ -28,7 +28,7 @@ namespace MyCountryApp
         {
             var keyWord = txtCityFilter.Text;
             var cities = _cityRepository.GetAll().ToList();
-            
+
             if (string.IsNullOrEmpty(keyWord))
             {
                 grdCity.DataSource = cities;
@@ -36,17 +36,69 @@ namespace MyCountryApp
             else
             {
                 keyWord = keyWord.ToLower();
-                grdCity.DataSource = cities.Where(x=>x.Code.Contains(keyWord) || x.Name.ToLower().Contains(keyWord)).ToList();
+                grdCity.DataSource = cities.Where(x => x.Code.Contains(keyWord) || x.Name.ToLower().Contains(keyWord)).ToList();
                 //grdCity.DataSource = cities.Where(x => x.Code.Contains(keyWord) || x.Name.ContainsByStringComparison(keyWord,StringComparison.InvariantCultureIgnoreCase)).ToList();
             }
-            
+
         }
 
         private void btnSearchDistrict_Click(object sender, EventArgs e)
         {
             var districts = _districtRepository.GetAll();
             grdDistrict.DataSource = districts;
-            
+
+        }
+
+        private void OnButtonSearchSumaryClicked(object sender, EventArgs e)
+        {
+            //GetSummary1();
+            GetSummary2();
+        }
+
+        private void GetSummary1()
+        {
+            var districts = _districtRepository.GetAll();
+            var cities = _cityRepository.GetAll();
+
+            var result = from district in districts
+                         join city in cities on district.CityCode equals city.Code
+                         select new { DistrictCode = district.Code, DistrictName = district.Name, CityName = city.Name };
+
+            var keyWord = txtSummaryFilter.Text;
+
+            if (string.IsNullOrEmpty(keyWord))
+            {
+                grdSummary.DataSource = result.ToList();
+            }
+            else
+            {
+                grdSummary.DataSource = result.Where(x => x.DistrictCode.Contains(keyWord)).ToList();
+            }
+        }
+
+        private void GetSummary2()
+        {
+            var districts = _districtRepository.GetAll();
+            var cities = _cityRepository.GetAll();
+
+            var keyWord = txtSummaryFilter.Text;
+
+            if (string.IsNullOrEmpty(keyWord))
+            {
+                grdSummary.DataSource = (from district in districts
+                                         join city in cities on district.CityCode equals city.Code
+                                         select new { DistrictCode = district.Code, DistrictName = district.Name, CityName = city.Name }).ToList();
+            }
+            else
+            {
+                //grdSummary.DataSource = (from district in districts.Where(x=>x.Code.Contains(keyWord))
+                //                         join city in cities on district.CityCode equals city.Code
+                //                         select new { DistrictCode = district.Code, DistrictName = district.Name, CityName = city.Name }).ToList();
+                grdSummary.DataSource = (from district in districts
+                                         join city in cities on district.CityCode equals city.Code
+                                         where district.Code.Contains(keyWord)
+                                         select new { DistrictCode = district.Code, DistrictName = district.Name, CityName = city.Name }).ToList();
+            }
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿1. List districts by:
 - District Code, District Name, City Name
 2. Filter based on the above list
+=> Done
+
+Todo:
 3. Show cities that have max count of districts.
 4. Create 2 combobox
 - City 

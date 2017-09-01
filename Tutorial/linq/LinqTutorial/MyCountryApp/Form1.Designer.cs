@@ -33,20 +33,20 @@
             this.txtCityFilter = new System.Windows.Forms.TextBox();
             this.grdCity = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSearchDistrict = new System.Windows.Forms.Button();
+            this.grdDistrict = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.grdDistrict = new System.Windows.Forms.DataGridView();
-            this.btnSearchDistrict = new System.Windows.Forms.Button();
+            this.grdSummary = new System.Windows.Forms.DataGridView();
+            this.btnSearchSumary = new System.Windows.Forms.Button();
+            this.txtSummaryFilter = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCity)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDistrict)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSummary)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -97,6 +97,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "District";
             // 
+            // btnSearchDistrict
+            // 
+            this.btnSearchDistrict.Location = new System.Drawing.Point(232, 50);
+            this.btnSearchDistrict.Name = "btnSearchDistrict";
+            this.btnSearchDistrict.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchDistrict.TabIndex = 2;
+            this.btnSearchDistrict.Text = "Search";
+            this.btnSearchDistrict.UseVisualStyleBackColor = true;
+            this.btnSearchDistrict.Click += new System.EventHandler(this.btnSearchDistrict_Click);
+            // 
+            // grdDistrict
+            // 
+            this.grdDistrict.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdDistrict.Location = new System.Drawing.Point(39, 98);
+            this.grdDistrict.Name = "grdDistrict";
+            this.grdDistrict.Size = new System.Drawing.Size(268, 386);
+            this.grdDistrict.TabIndex = 0;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(278, 479);
@@ -109,10 +127,10 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.grdSummary);
+            this.groupBox3.Controls.Add(this.btnSearchSumary);
             this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.txtSummaryFilter);
             this.groupBox3.Location = new System.Drawing.Point(835, 57);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(432, 519);
@@ -129,48 +147,30 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "City Max:";
             // 
-            // dataGridView1
+            // grdSummary
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 98);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(367, 327);
-            this.dataGridView1.TabIndex = 3;
+            this.grdSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSummary.Location = new System.Drawing.Point(27, 98);
+            this.grdSummary.Name = "grdSummary";
+            this.grdSummary.Size = new System.Drawing.Size(367, 327);
+            this.grdSummary.TabIndex = 3;
             // 
-            // button2
+            // btnSearchSumary
             // 
-            this.button2.Location = new System.Drawing.Point(278, 50);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnSearchCity_Click);
+            this.btnSearchSumary.Location = new System.Drawing.Point(278, 50);
+            this.btnSearchSumary.Name = "btnSearchSumary";
+            this.btnSearchSumary.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchSumary.TabIndex = 2;
+            this.btnSearchSumary.Text = "Search";
+            this.btnSearchSumary.UseVisualStyleBackColor = true;
+            this.btnSearchSumary.Click += new System.EventHandler(this.OnButtonSearchSumaryClicked);
             // 
-            // textBox2
+            // txtSummaryFilter
             // 
-            this.textBox2.Location = new System.Drawing.Point(27, 50);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // grdDistrict
-            // 
-            this.grdDistrict.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdDistrict.Location = new System.Drawing.Point(39, 98);
-            this.grdDistrict.Name = "grdDistrict";
-            this.grdDistrict.Size = new System.Drawing.Size(268, 386);
-            this.grdDistrict.TabIndex = 0;
-            // 
-            // btnSearchDistrict
-            // 
-            this.btnSearchDistrict.Location = new System.Drawing.Point(232, 50);
-            this.btnSearchDistrict.Name = "btnSearchDistrict";
-            this.btnSearchDistrict.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchDistrict.TabIndex = 2;
-            this.btnSearchDistrict.Text = "Search";
-            this.btnSearchDistrict.UseVisualStyleBackColor = true;
-            this.btnSearchDistrict.Click += new System.EventHandler(this.btnSearchDistrict_Click);
+            this.txtSummaryFilter.Location = new System.Drawing.Point(27, 50);
+            this.txtSummaryFilter.Name = "txtSummaryFilter";
+            this.txtSummaryFilter.Size = new System.Drawing.Size(243, 20);
+            this.txtSummaryFilter.TabIndex = 1;
             // 
             // Form1
             // 
@@ -186,10 +186,10 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCity)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdDistrict)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDistrict)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSummary)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -203,9 +203,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DataGridView grdSummary;
+        private System.Windows.Forms.Button btnSearchSumary;
+        private System.Windows.Forms.TextBox txtSummaryFilter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearchDistrict;
         private System.Windows.Forms.DataGridView grdDistrict;
