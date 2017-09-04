@@ -12,7 +12,7 @@ namespace Sample
             var person = new Person {FirstName = "Luong", MiddleName = "Van",SurName = "Tran"};
             
             Console.WriteLine(person.FullName);
-            //Console.WriteLine(p.SayHello("Welcome"));
+            Console.WriteLine(person.SayHello("Welcome"));
             //Console.WriteLine("LastName");
             //Console.WriteLine(nameof(p.SurName));
 
