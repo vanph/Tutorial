@@ -1,30 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MyCountry.Model;
 
 namespace MyCountry.Repository
 {
-    public class DistrictRepository: IDistrictRepository
+    public class DistrictRepository: BaseRepository<District>, IDistrictRepository
     {
-        private IEnumerable<District> _districts;
-
-        public DistrictRepository()
+      
+        public District GetByDistrict(string code)
         {
-            InitData();
+            return Data.FirstOrDefault(x => x.Code == code);
         }
-        public IEnumerable<District> GetAll()
-        {
-            return _districts;
-        }
+        
 
-        public District GetByCode(string code)
+        protected override void InitData()
         {
-            return _districts.FirstOrDefault(x=> x.Code == code);
-        }
-
-        private void InitData()
-        {
-            _districts = new List<District>
+            Data = new List<District>
             {
                 new District("001", "Quận Ba Đình", "Quận", "01"),
                 new District("002", "Quận Hoàn Kiếm", "Quận", "01"),

@@ -7,10 +7,9 @@ using MyCountry.Model;
 
 namespace MyCountry.Repository
 {
-   public interface IDistrictRepository
+   public interface IDistrictRepository:IGeneralRepository<District>
    {
-       IEnumerable<District> GetAll();
 
-       District GetByCode(string code);
+       District GetByDistrict(string code);
    }
 }

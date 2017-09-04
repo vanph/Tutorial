@@ -41,6 +41,9 @@
             this.grdSummary = new System.Windows.Forms.DataGridView();
             this.btnSearchSumary = new System.Windows.Forms.Button();
             this.txtSummaryFilter = new System.Windows.Forms.TextBox();
+            this.btnClickMe = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCity)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -172,11 +175,43 @@
             this.txtSummaryFilter.Size = new System.Drawing.Size(243, 20);
             this.txtSummaryFilter.TabIndex = 1;
             // 
+            // btnClickMe
+            // 
+            this.btnClickMe.Location = new System.Drawing.Point(183, 13);
+            this.btnClickMe.Name = "btnClickMe";
+            this.btnClickMe.Size = new System.Drawing.Size(176, 23);
+            this.btnClickMe.TabIndex = 4;
+            this.btnClickMe.Text = "click me!";
+            this.btnClickMe.UseVisualStyleBackColor = true;
+            this.btnClickMe.Click += new System.EventHandler(this.OnClickMe_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(410, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(162, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.OnClickMe_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(622, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 6;
+            this.textBox1.Click += new System.EventHandler(this.OnClickMe_Click);
+            
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1291, 668);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnClickMe);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -191,6 +226,7 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSummary)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -209,6 +245,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearchDistrict;
         private System.Windows.Forms.DataGridView grdDistrict;
+        private System.Windows.Forms.Button btnClickMe;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

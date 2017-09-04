@@ -1,31 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MyCountry.Model;
 
 namespace MyCountry.Repository
 {
-    public class CityRepository: ICityRepository
+    public class CityRepository: BaseRepository<City>, ICityRepository
     {
-        private IEnumerable<City> _cities;
-
-        public CityRepository()
+        public City GetByCity(string code)
         {
-            InitData();
+            return Data.FirstOrDefault(x => x.Code == code);
         }
-
-        public IEnumerable<City> GetAll()
+                
+        protected override void InitData()
         {
-            return _cities;
-        }
-
-        public City GetByCode(string code)
-        {
-           return _cities.FirstOrDefault(x => x.Code == code);
-        }
-
-        private void InitData()
-        {
-            _cities = new List<City>
+            Data = new List<City>
            {
                 new City("01", "Thành phố Hà Nội", "Thành phố Trung ương"),
                 new City("02", "Tỉnh Hà Giang", "Tỉnh"),
