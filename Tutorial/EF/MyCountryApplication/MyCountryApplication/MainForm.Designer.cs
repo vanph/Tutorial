@@ -38,12 +38,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grvDistrict = new System.Windows.Forms.DataGridView();
-<<<<<<< HEAD
-=======
+
             this.grvDictrictCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvDistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvCityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
->>>>>>> b30ac85a0718306b1c07b928ef0f67ea4eb0930d
+
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -55,12 +54,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblDistrictCode = new System.Windows.Forms.Label();
-<<<<<<< HEAD
+
             this.grvDictrictCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvDistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvCityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-=======
->>>>>>> b30ac85a0718306b1c07b928ef0f67ea4eb0930d
+
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDistrict)).BeginInit();
@@ -102,7 +100,7 @@
             this.panel2.TabIndex = 1;
             // 
             // btnClearSearch
-<<<<<<< HEAD
+
             // 
             this.btnClearSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -113,7 +111,7 @@
             this.btnClearSearch.Text = "Clear Search";
             this.btnClearSearch.UseVisualStyleBackColor = true;
             this.btnClearSearch.Click += new System.EventHandler(this.BtnClearSearch_Click);
-=======
+
             // 
             this.btnClearSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -135,7 +133,7 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            
             // 
             // cbbCity
             // 
@@ -195,11 +193,11 @@
             this.grvDistrict.Name = "grvDistrict";
             this.grvDistrict.Size = new System.Drawing.Size(884, 303);
             this.grvDistrict.TabIndex = 2;
->>>>>>> b30ac85a0718306b1c07b928ef0f67ea4eb0930d
+
             // 
             // grvDictrictCode
             // 
-<<<<<<< HEAD
+
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.Location = new System.Drawing.Point(584, 39);
@@ -258,16 +256,13 @@
             // grvDistrict
             // 
             this.grvDistrict.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvDistrict.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.grvDictrictCode,
-            this.grvDistrictName,
-            this.grvCityName});
+            
             this.grvDistrict.Location = new System.Drawing.Point(0, 155);
             this.grvDistrict.Name = "grvDistrict";
             this.grvDistrict.Size = new System.Drawing.Size(884, 303);
             this.grvDistrict.TabIndex = 2;
             this.grvDistrict.SelectionChanged += new System.EventHandler(this.GrvDistrict_SelectionChanged);
-=======
+
             this.grvDictrictCode.DataPropertyName = "DistrictCode";
             this.grvDictrictCode.HeaderText = "Dictrict Code";
             this.grvDictrictCode.Name = "grvDictrictCode";
@@ -283,7 +278,7 @@
             this.grvCityName.DataPropertyName = "CityName";
             this.grvCityName.HeaderText = "City Name";
             this.grvCityName.Name = "grvCityName";
->>>>>>> b30ac85a0718306b1c07b928ef0f67ea4eb0930d
+
             // 
             // panel3
             // 
@@ -390,7 +385,7 @@
             this.lblDistrictCode.Size = new System.Drawing.Size(0, 13);
             this.lblDistrictCode.TabIndex = 0;
             // 
-<<<<<<< HEAD
+
             // grvDictrictCode
             // 
             this.grvDictrictCode.DataPropertyName = "DistrictCode";
@@ -409,8 +404,7 @@
             this.grvCityName.HeaderText = "City Name";
             this.grvCityName.Name = "grvCityName";
             // 
-=======
->>>>>>> b30ac85a0718306b1c07b928ef0f67ea4eb0930d
+
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,10 +417,9 @@
             this.Controls.Add(this.panel1);
             this.Name = "mainForm";
             this.Text = "My Country Application";
-<<<<<<< HEAD
+
             this.Load += new System.EventHandler(this.MainForm_Load);
-=======
->>>>>>> b30ac85a0718306b1c07b928ef0f67ea4eb0930d
+
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
