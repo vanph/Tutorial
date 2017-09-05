@@ -167,5 +167,10 @@ namespace CustomerManagement.Forms
         {
            return _dbContext.Customers.Select(cust => cust.ContactTitle).Distinct().ToList();
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

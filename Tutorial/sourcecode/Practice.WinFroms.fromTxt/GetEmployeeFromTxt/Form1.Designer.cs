@@ -50,6 +50,7 @@
             this.dataGridViewEmployee.Name = "dataGridViewEmployee";
             this.dataGridViewEmployee.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewEmployee.TabIndex = 0;
+            this.dataGridViewEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployee_CellContentClick);
             // 
             // ColumnFirstName
             // 

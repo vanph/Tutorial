@@ -177,15 +177,15 @@
             // 
             // countriesBindingSource
             // 
-            this.countriesBindingSource.DataSource = typeof(CustomerManagement.MasterData.Countries);
+            
             // 
             // countriesBindingSource1
             // 
-            this.countriesBindingSource1.DataSource = typeof(CustomerManagement.MasterData.Countries);
+           
             // 
             // countriesBindingSource2
             // 
-            this.countriesBindingSource2.DataSource = typeof(CustomerManagement.MasterData.Countries);
+            
             // 
             // label2
             // 

@@ -88,6 +88,7 @@
             this.grdCity.Name = "grdCity";
             this.grdCity.Size = new System.Drawing.Size(314, 386);
             this.grdCity.TabIndex = 0;
+            this.grdCity.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCity_CellContentClick);
             // 
             // groupBox2
             // 
@@ -202,7 +203,6 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 6;
             this.textBox1.Click += new System.EventHandler(this.OnClickMe_Click);
-            
             // 
             // Form1
             // 

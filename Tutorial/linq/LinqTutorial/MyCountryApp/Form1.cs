@@ -133,6 +133,9 @@ namespace MyCountryApp
             
         }
 
+        private void grdCity_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }
