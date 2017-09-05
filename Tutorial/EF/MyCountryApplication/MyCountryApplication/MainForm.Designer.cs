@@ -1,6 +1,6 @@
 ﻿namespace MyCountryApplication
 {
-    partial class mainForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,9 +38,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grvDistrict = new System.Windows.Forms.DataGridView();
-            this.grvDictrictCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grvDistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grvCityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -52,6 +49,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblDistrictCode = new System.Windows.Forms.Label();
+            this.grvDictrictCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvDistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvCityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDistrict)).BeginInit();
@@ -102,7 +102,7 @@
             this.btnClearSearch.TabIndex = 5;
             this.btnClearSearch.Text = "Clear Search";
             this.btnClearSearch.UseVisualStyleBackColor = true;
-            this.btnClearSearch.Click += new System.EventHandler(this.btnClearSearch_Click);
+            this.btnClearSearch.Click += new System.EventHandler(this.BtnClearSearch_Click);
             // 
             // btnSearch
             // 
@@ -114,7 +114,7 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // cbbCity
             // 
@@ -172,25 +172,7 @@
             this.grvDistrict.Name = "grvDistrict";
             this.grvDistrict.Size = new System.Drawing.Size(884, 303);
             this.grvDistrict.TabIndex = 2;
-            this.grvDistrict.SelectionChanged += new System.EventHandler(this.grvDistrict_SelectionChanged);
-            // 
-            // grvDictrictCode
-            // 
-            this.grvDictrictCode.DataPropertyName = "DistrictCode";
-            this.grvDictrictCode.HeaderText = "Dictrict Code";
-            this.grvDictrictCode.Name = "grvDictrictCode";
-            // 
-            // grvDistrictName
-            // 
-            this.grvDistrictName.DataPropertyName = "Name";
-            this.grvDistrictName.HeaderText = "District Name";
-            this.grvDistrictName.Name = "grvDistrictName";
-            // 
-            // grvCityName
-            // 
-            this.grvCityName.DataPropertyName = "CityName";
-            this.grvCityName.HeaderText = "City Name";
-            this.grvCityName.Name = "grvCityName";
+            this.grvDistrict.SelectionChanged += new System.EventHandler(this.GrvDistrict_SelectionChanged);
             // 
             // panel3
             // 
@@ -297,6 +279,24 @@
             this.lblDistrictCode.Size = new System.Drawing.Size(0, 13);
             this.lblDistrictCode.TabIndex = 0;
             // 
+            // grvDictrictCode
+            // 
+            this.grvDictrictCode.DataPropertyName = "DistrictCode";
+            this.grvDictrictCode.HeaderText = "Dictrict Code";
+            this.grvDictrictCode.Name = "grvDictrictCode";
+            // 
+            // grvDistrictName
+            // 
+            this.grvDistrictName.DataPropertyName = "DistrictName";
+            this.grvDistrictName.HeaderText = "District Name";
+            this.grvDistrictName.Name = "grvDistrictName";
+            // 
+            // grvCityName
+            // 
+            this.grvCityName.DataPropertyName = "CityName";
+            this.grvCityName.HeaderText = "City Name";
+            this.grvCityName.Name = "grvCityName";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,6 +309,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "mainForm";
             this.Text = "My Country Application";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

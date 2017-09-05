@@ -62,6 +62,8 @@
     </Compile>
     <Compile Include="Model\City.cs" />
     <Compile Include="Model\District.cs" />
+    <Compile Include="Model\DistrictInformation.cs" />
+    <Compile Include="MyCountryBusiness.cs" />
     <Compile Include="Model\MyCountryEntities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

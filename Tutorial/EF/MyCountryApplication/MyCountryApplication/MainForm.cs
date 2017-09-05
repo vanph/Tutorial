@@ -11,20 +11,18 @@ using MyCountryApplication.Model;
 
 namespace MyCountryApplication
 {
-    public partial class mainForm : Form
+    public partial class MainForm : Form
     {
-        MyCountryEntities dbContext;
+        private readonly MyCountryBusiness _myCountryBusiness;
 
 
-        public mainForm()
+        public MainForm()
         {
-            dbContext = new MyCountryEntities();
-           
+
             InitializeComponent();
             grvDistrict.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // select all line
-
-            FillDataCbbCity();
-            FillDataGrvDistrict();
+            grvDistrict.AutoGenerateColumns = false;
+            _myCountryBusiness = new MyCountryBusiness();
         }
 
 
@@ -34,64 +32,34 @@ namespace MyCountryApplication
             //var query = context.Cities.Select(x => x.Name);
             //var cities = query.ToList();
 
-            cbbCity.DataSource = dbContext.Cities.ToList();
+            cbbCity.DataSource = _myCountryBusiness.GetCities();
             cbbCity.DisplayMember = "Name";
 
         }
 
         private void FillDataGrvDistrict()
         {
-            grvDistrict.DataSource = (from districts in dbContext.Districts
-                                      join cities in dbContext.Cities on districts.CityCode equals cities.CityCode
-                                      select new { DistrictCode = districts.DistrictCode, Name = districts.Name, CityName = cities.Name }).ToList();
+            grvDistrict.DataSource = _myCountryBusiness.GetDistrictInformations();
+
+
         }
 
-        private void btnClearSearch_Click(object sender, EventArgs e)
+        private void BtnClearSearch_Click(object sender, EventArgs e)
         {
             FillDataGrvDistrict();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void BtnSearch_Click(object sender, EventArgs e)
         {
-            var keyword = txtKeyword.Text.ToLower();
-            var cityChoose = cbbCity.GetItemText(cbbCity.SelectedItem);
-
-            if (keyword == null && cityChoose == null)
-            {
-                FillDataGrvDistrict();
-            }
-
-            else if (keyword == null && cityChoose != null)
-            {
-                grvDistrict.DataSource = (from districts in dbContext.Districts
-                                          join cities in dbContext.Cities on districts.CityCode equals cities.CityCode
-                                          where cities.Name == cityChoose
-                                          select new { DistrictCode = districts.DistrictCode, Name = districts.Name, CityName = cities.Name }).ToList();
-            }
-
-            else if (keyword != null && cityChoose == null)
-            {
-                grvDistrict.DataSource = (from districts in dbContext.Districts
-                                          join cities in dbContext.Cities on districts.CityCode equals cities.CityCode
-                                          where (districts.Name.ToLower().Contains(keyword) || districts.DistrictCode.ToLower().Contains(keyword))
-                                          select new { DistrictCode = districts.DistrictCode, Name = districts.Name, CityName = cities.Name }).ToList();
-            }
-
-            else
-            {
-                grvDistrict.DataSource = (from districts in dbContext.Districts
-                                          join cities in dbContext.Cities on districts.CityCode equals cities.CityCode
-                                          where (districts.Name.ToLower().Contains(keyword) || districts.DistrictCode.ToLower().Contains(keyword))
-                                                && cities.Name == cityChoose
-                                          select new { DistrictCode = districts.DistrictCode, Name = districts.Name, CityName = cities.Name }).ToList();
-            }
-
-
+            var keyword = txtKeyword.Text;
+            var cityChoose = cbbCity.SelectedItem as City;
+            var cityCode = cityChoose != null ? cityChoose.CityCode : string.Empty;
+            grvDistrict.DataSource = _myCountryBusiness.GetDistrictInformations(keyword, cityCode);
         }
 
-     
 
-        private void grvDistrict_SelectionChanged(object sender, EventArgs e)
+
+        private void GrvDistrict_SelectionChanged(object sender, EventArgs e)
         {
             if (grvDistrict.SelectedRows.Count > 0)
             {
@@ -102,6 +70,12 @@ namespace MyCountryApplication
                 //lblDistrictCode.Text = selectDistrict.DistrictCode;
                 //lblDistrictName.Text = selectDistrict.Name;
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            FillDataCbbCity();
+            FillDataGrvDistrict();
         }
     }
 
