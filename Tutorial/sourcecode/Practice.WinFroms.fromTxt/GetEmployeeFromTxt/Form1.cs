@@ -35,8 +35,9 @@ namespace Practice.WinFroms.fromTxt
             dataGridViewEmployee.DataSource = filteredEmps;
         }
 
-        
+        private void dataGridViewEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-    
+        }
     }
 }
