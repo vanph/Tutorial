@@ -38,9 +38,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grvDistrict = new System.Windows.Forms.DataGridView();
-            this.grvColumnDistrictCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grvColumnDistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grvColumnCityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -52,6 +49,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblDistrictCode = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.grvColumnDistrictCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvColumnDistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvColumnCityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnExport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDistrict)).BeginInit();
@@ -61,21 +63,20 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(885, 51);
+            this.panel1.Size = new System.Drawing.Size(884, 51);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(885, 51);
+            this.label1.Size = new System.Drawing.Size(884, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "My Country Application";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -88,9 +89,10 @@
             this.panel2.Controls.Add(this.txtSearch);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 51);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(882, 64);
+            this.panel2.Size = new System.Drawing.Size(884, 64);
             this.panel2.TabIndex = 1;
             // 
             // btnClearSearch
@@ -149,52 +151,34 @@
             // 
             // grvDistrict
             // 
-            this.grvDistrict.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grvDistrict.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grvDistrict.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvDistrict.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.grvColumnDistrictCode,
             this.grvColumnDistrictName,
             this.grvColumnCityName});
-            this.grvDistrict.Location = new System.Drawing.Point(0, 115);
+            this.grvDistrict.Location = new System.Drawing.Point(8, 155);
             this.grvDistrict.Name = "grvDistrict";
-            this.grvDistrict.Size = new System.Drawing.Size(882, 327);
+            this.grvDistrict.Size = new System.Drawing.Size(870, 294);
             this.grvDistrict.TabIndex = 2;
             this.grvDistrict.SelectionChanged += new System.EventHandler(this.grvDistrict_SelectionChanged);
             // 
-            // grvColumnDistrictCode
-            // 
-            this.grvColumnDistrictCode.DataPropertyName = "DistrictCode";
-            this.grvColumnDistrictCode.HeaderText = "District Code";
-            this.grvColumnDistrictCode.Name = "grvColumnDistrictCode";
-            // 
-            // grvColumnDistrictName
-            // 
-            this.grvColumnDistrictName.DataPropertyName = "DistrictName";
-            this.grvColumnDistrictName.HeaderText = "District Name";
-            this.grvColumnDistrictName.Name = "grvColumnDistrictName";
-            // 
-            // grvColumnCityName
-            // 
-            this.grvColumnCityName.DataPropertyName = "CityName";
-            this.grvColumnCityName.HeaderText = "City Name";
-            this.grvColumnCityName.Name = "grvColumnCityName";
-            // 
             // panel4
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.Controls.Add(this.btnDelete);
             this.panel4.Controls.Add(this.btnEdit);
             this.panel4.Controls.Add(this.btnAdd);
-            this.panel4.Location = new System.Drawing.Point(1, 442);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 442);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(882, 69);
+            this.panel4.Size = new System.Drawing.Size(884, 69);
             this.panel4.TabIndex = 4;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(376, 28);
+            this.btnDelete.Location = new System.Drawing.Point(230, 28);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 7;
@@ -203,7 +187,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(217, 28);
+            this.btnEdit.Location = new System.Drawing.Point(137, 28);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 6;
@@ -223,17 +207,16 @@
             // 
             // panel5
             // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.Controls.Add(this.lblDistrictName);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.lblCityName);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.lblDistrictCode);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(1, 511);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 511);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(882, 100);
+            this.panel5.Size = new System.Drawing.Size(884, 100);
             this.panel5.TabIndex = 5;
             // 
             // lblDistrictName
@@ -287,18 +270,64 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "District Code:";
             // 
+            // grvColumnDistrictCode
+            // 
+            this.grvColumnDistrictCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.grvColumnDistrictCode.DataPropertyName = "DistrictCode";
+            this.grvColumnDistrictCode.HeaderText = "District Code";
+            this.grvColumnDistrictCode.MinimumWidth = 100;
+            this.grvColumnDistrictCode.Name = "grvColumnDistrictCode";
+            // 
+            // grvColumnDistrictName
+            // 
+            this.grvColumnDistrictName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.grvColumnDistrictName.DataPropertyName = "DistrictName";
+            this.grvColumnDistrictName.HeaderText = "District Name";
+            this.grvColumnDistrictName.Name = "grvColumnDistrictName";
+            // 
+            // grvColumnCityName
+            // 
+            this.grvColumnCityName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.grvColumnCityName.DataPropertyName = "CityName";
+            this.grvColumnCityName.HeaderText = "City Name";
+            this.grvColumnCityName.MinimumWidth = 100;
+            this.grvColumnCityName.Name = "grvColumnCityName";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(32, 130);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "District List:";
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.Location = new System.Drawing.Point(803, 126);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 7;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 611);
-            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.btnExport);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.grvDistrict);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.grvDistrict);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Country Application";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -308,6 +337,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -337,6 +367,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn grvColumnDistrictCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn grvColumnDistrictName;
         private System.Windows.Forms.DataGridViewTextBoxColumn grvColumnCityName;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnExport;
     }
 }
 

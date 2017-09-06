@@ -37,6 +37,42 @@ namespace MyCountryApplication
             return dbContext.Cities.ToList();
         }
 
+        public void AddDistrict(District district)
+        {            
+            if (string.IsNullOrEmpty(district.DistrictCode))
+            {
+                throw new Exception("District code cannot be empty.");
+            }
+
+            if (string.IsNullOrEmpty(district.Name))
+            {
+                throw new Exception("District name cannot be empty.");
+            }
+
+            if (string.IsNullOrEmpty(district.CityCode))
+            {
+                throw new Exception("City code cannot be empty.");
+            }
+
+            var dbContext = new MyCountryEntities();
+
+            var isExisted = dbContext.Districts.Any(x => x.DistrictCode == district.DistrictCode);
+
+            if(isExisted)
+            {
+                throw new Exception($"District code {district.DistrictCode} exists.");
+            }
+
+            dbContext.Districts.Add(district);
+
+            dbContext.SaveChanges();            
+        }
+
+        
+        public District GetDistrictByCode(string code)
+        {
+            return null;
+        }
     }
 
     

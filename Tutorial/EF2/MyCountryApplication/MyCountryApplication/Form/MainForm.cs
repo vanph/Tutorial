@@ -77,12 +77,16 @@ namespace MyCountryApplication
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var frm = new DistrictDetailForm();
+            frm.Text = "Add New Dictrict";
+            frm.ShowDialog();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            var frm = new DistrictDetailForm();
+            frm.Text = "Edit Dictrict";
             frm.ShowDialog();
 
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                MessageBox.Show("OK");
-            }
         }
 
         //private void btnEdit_Click(object sender, EventArgs e)
@@ -93,7 +97,7 @@ namespace MyCountryApplication
         //    if (grvDistrict.SelectedRows.Count > 0)
         //    {
         //        var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
-                
+
         //    }
         //}
     }

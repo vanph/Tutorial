@@ -1,104 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyCountryApplication.Modal;
-using MyCountryApplication;
 
 namespace MyCountryApplication
 {
-    
-
     public partial class DistrictDetailForm : Form
-    {
-        private MyCountryEntities _dbContext;
+    {        
+        private readonly MyCountryBusiness _myCountryBusiness;
         private District _district;
         private City _city;
-        private Boolean _adding { get;  set; }
+        private Boolean _adding { get; set; }
         public DistrictDetailForm()
         {
-            InitializeComponent();
-            lblNoticeDistrictCode.Visible = false;
-            _dbContext = new MyCountryEntities();
+            InitializeComponent();            
             _district = new District();
             _city = new City();
-
             _adding = true;
+            _myCountryBusiness = new MyCountryBusiness();
         }
-
-        //public DistrictDetailForm(District district, City city)
-        //{
-        //    InitializeComponent();
-        //    lblNoticeDistrictCode.Visible = false;
-
-        //    _district = district;
-        //    _city = city;
-
-           
-
-        //}
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
-
-            if (_adding)
+            try
             {
-                bool flag = true;
-                
-
-                foreach (var dictrictList in _dbContext.Districts)
+                if (_adding)
                 {
-                    if (dictrictList.DistrictCode == txtDistrictCode.Text)
-                    {
-                        flag = false;
-                        lblNoticeDistrictCode.Visible = true;
-                    }
-                }
-
-                if(flag == true)
-                {
+                    
                     _district.DistrictCode = txtDistrictCode.Text;
                     _district.Name = txtDistrictName.Text;
                     _district.Type = txtDistrictType.Text;
-                    _district.CityCode = txtCityCode.Text;
+                    var selectedCity = cbbCity.SelectedItem as City;
+                    _district.CityCode = selectedCity != null ? selectedCity.CityCode : string.Empty;   
+                    
+                    _myCountryBusiness.AddDistrict(_district);
 
-                    _dbContext.Districts.Add(_district);
-
-                    _city.CityCode = txtCityCode.Text;
-                    _city.Name = txtCityName.Text;
-                    _city.Type = txtCityType.Text;
-
-                    _dbContext.SaveChanges();
-
+                    DialogResult = DialogResult.OK;
                 }
-                DialogResult = DialogResult.OK;
-                                
             }
-            else
-            //{
-                 
-            //    _district.DistrictCode = txtDistrictCode.Text;
-            //    _district.Name = txtDistrictName.Text;
-            //    _district.Type = txtDistrictType.Text;
-            //    _district.CityCode = txtCityCode.Text;
-
-            //    _dbContext.Districts.Add(_district);
-
-            //    _city.CityCode = txtCityCode.Text;
-            //    _city.Name = txtCityName.Text;
-            //    _city.Type = txtCityType.Text;
-
-
-            //    _dbContext.Cities.Add(_city);
-            //    _dbContext.SaveChanges();
-            //}
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }            
         }
 
         private void DistrictDetailForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -114,6 +56,13 @@ namespace MyCountryApplication
             this.Close();
         }
 
-        
+        private void DistrictDetailForm_Load(object sender, EventArgs e)
+        {
+            //_myCountryBusiness.GetCities();
+            cbbCity.DataSource = _myCountryBusiness.GetCities();
+            cbbCity.DisplayMember = nameof(City.Name);
+        }
+
+       
     }
 }
