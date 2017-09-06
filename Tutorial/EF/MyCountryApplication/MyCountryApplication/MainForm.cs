@@ -48,10 +48,7 @@ namespace MyCountryApplication
         }
 
 
-        private void btnClearSearch_Click(object sender, EventArgs e)
-        {
-            FillDataGrvDistrict();
-        }
+      
 
 
         private void BtnClearSearch_Click(object sender, EventArgs e)
@@ -91,6 +88,8 @@ namespace MyCountryApplication
             FillDataCbbCity();
             FillDataGrvDistrict();
         }
+
+       
     }
 
 
