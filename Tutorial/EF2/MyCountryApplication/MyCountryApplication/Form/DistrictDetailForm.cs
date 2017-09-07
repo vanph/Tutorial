@@ -97,10 +97,16 @@ namespace MyCountryApplication
 
         private void DistrictDetailForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var loadAgainData = new MainForm();
-
-            loadAgainData.FillDataGrvDistrict();
-            loadAgainData.FillNameCitiesToSearch();
+            try
+            {
+                var loadAgainData = new MainForm();
+                loadAgainData.FillDataGrvDistrict();
+                loadAgainData.FillNameCitiesToSearch();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
         private void btnCancle_Click(object sender, EventArgs e)
@@ -110,13 +116,20 @@ namespace MyCountryApplication
 
         private void DistrictDetailForm_Load(object sender, EventArgs e)
         {
-            cbbCity.DataSource = _myCountryBusiness.GetCities();
-            cbbCity.DisplayMember = nameof(City.Name);
-            if (!_adding)
+            try
             {
-                FillDataOldUpForm(_dictrictEdit);
-                txtDistrictCode.ReadOnly = true;
-                cbbCity.Enabled = false;
+                cbbCity.DataSource = _myCountryBusiness.GetCities();
+                cbbCity.DisplayMember = nameof(City.Name);
+                if (!_adding)
+                {
+                    FillDataOldUpForm(_dictrictEdit);
+                    txtDistrictCode.ReadOnly = true;
+                    cbbCity.Enabled = false;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

@@ -42,72 +42,111 @@ namespace MyCountryApplication
             grvDistrict.DataSource = _myCountryBusiness.GetDistrictInfomation();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void BtnSearch_Click(object sender, EventArgs e)
         {
-            var keyword = txtSearch.Text;
-            var cityChoose = cbbCitySearch.SelectedItem as City;
-            var cityCode = cityChoose != null ? cityChoose.CityCode : String.Empty;
-
-            if (String.IsNullOrEmpty(keyword) && String.IsNullOrEmpty(cityCode))
+            try
             {
-                FillDataGrvDistrict();
-            }
-            else
+                var keyword = txtSearch.Text;
+                var cityChoose = cbbCitySearch.SelectedItem as City;
+                var cityCode = cityChoose != null ? cityChoose.CityCode : String.Empty;
 
-                grvDistrict.DataSource = _myCountryBusiness.GetDistrictInfomation(keyword, cityCode);
+                if (String.IsNullOrEmpty(keyword) && String.IsNullOrEmpty(cityCode))
+                {
+                    FillDataGrvDistrict();
+                }
+                else
+                {
+
+                    grvDistrict.DataSource = _myCountryBusiness.GetDistrictInfomation(keyword, cityCode);
+                }
+            }
+            catch( Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnClearSearch_Click(object sender, EventArgs e)
         {
-            FillDataGrvDistrict();
+            try
+            {
+                FillDataGrvDistrict();
+            }
+            catch( Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void grvDistrict_SelectionChanged(object sender, EventArgs e)
         {
-            if (grvDistrict.SelectedRows.Count > 0)
+            try
             {
-                var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
-                lblCityName.Text = selectRow.CityName;
-                lblDistrictCode.Text = selectRow.DistrictCode;
-                lblDistrictName.Text = selectRow.DistrictName;
+                if (grvDistrict.SelectedRows.Count > 0)
+                {
+                    var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
+                    lblCityName.Text = selectRow.CityName;
+                    lblDistrictCode.Text = selectRow.DistrictCode;
+                    lblDistrictName.Text = selectRow.DistrictName;
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
-            var frm = new DistrictDetailForm();
-            frm.Text = "Add New Dictrict";
-            frm.ShowDialog();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (grvDistrict.SelectedRows.Count > 0)
+            try
             {
-                var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
-                var districtEdit = _myCountryBusiness.GetDistrictByCode(selectRow.DistrictCode);
-                var frm = new DistrictDetailForm(districtEdit);
-                frm.Text = "Edit Dictrict";
+                var frm = new DistrictDetailForm();
+                frm.Text = "Add New Dictrict";
                 frm.ShowDialog();
-            }
-            else
+            }catch(Exception ex)
             {
-                MessageBox.Show("Please select the row you want to Edit!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void BtnEdit_Click(object sender, EventArgs e)
         {
-           
-            if(grvDistrict.SelectedRows.Count > 0)
+            try
             {
-                var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
-                _myCountryBusiness.DeleteDistrict(_myCountryBusiness.GetDistrictByCode(selectRow.DistrictCode));
+                if (grvDistrict.SelectedRows.Count > 0)
+                {
+                    var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
+                    var districtEdit = _myCountryBusiness.GetDistrictByCode(selectRow.DistrictCode);
+                    var frm = new DistrictDetailForm(districtEdit);
+                    frm.Text = "Edit Dictrict";
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Please select the row you want to Edit!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
-            else
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            try
             {
-                MessageBox.Show("Please select the row you want to Delete", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (grvDistrict.SelectedRows.Count > 0)
+                {
+                    var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
+                    _myCountryBusiness.DeleteDistrict(_myCountryBusiness.GetDistrictByCode(selectRow.DistrictCode));
+                }
+                else
+                {
+                    MessageBox.Show("Please select the row you want to Delete", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             
         }
