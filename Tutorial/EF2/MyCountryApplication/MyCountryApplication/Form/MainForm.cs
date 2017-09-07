@@ -14,7 +14,7 @@ namespace MyCountryApplication
 {
     public partial class MainForm : Form
     {
-       private readonly MyCountryBusiness _myCountryBusiness;
+        private readonly MyCountryBusiness _myCountryBusiness;
         public MainForm()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace MyCountryApplication
         public void FillNameCitiesToSearch()
         {
             cbbCitySearch.DataSource = _myCountryBusiness.GetCities();
-            cbbCitySearch.DisplayMember = "Name";
+            cbbCitySearch.DisplayMember = nameof(City.Name);
             cbbCitySearch.SelectedIndex = -1;
         }
 
@@ -48,23 +48,23 @@ namespace MyCountryApplication
             var cityChoose = cbbCitySearch.SelectedItem as City;
             var cityCode = cityChoose != null ? cityChoose.CityCode : String.Empty;
 
-            if(String.IsNullOrEmpty(keyword) && String.IsNullOrEmpty(cityCode))
+            if (String.IsNullOrEmpty(keyword) && String.IsNullOrEmpty(cityCode))
             {
                 FillDataGrvDistrict();
             }
             else
 
-            grvDistrict.DataSource= _myCountryBusiness.GetDistrictInfomation(keyword, cityCode);
+                grvDistrict.DataSource = _myCountryBusiness.GetDistrictInfomation(keyword, cityCode);
         }
 
-        private void btnClearSearch_Click(object sender, EventArgs e)
+        private void BtnClearSearch_Click(object sender, EventArgs e)
         {
             FillDataGrvDistrict();
         }
 
         private void grvDistrict_SelectionChanged(object sender, EventArgs e)
         {
-            if(grvDistrict.SelectedRows.Count > 0)
+            if (grvDistrict.SelectedRows.Count > 0)
             {
                 var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
                 lblCityName.Text = selectRow.CityName;
@@ -83,22 +83,33 @@ namespace MyCountryApplication
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var frm = new DistrictDetailForm();
-            frm.Text = "Edit Dictrict";
-            frm.ShowDialog();
-
+            if (grvDistrict.SelectedRows.Count > 0)
+            {
+                var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
+                var districtEdit = _myCountryBusiness.GetDistrictByCode(selectRow.DistrictCode);
+                var frm = new DistrictDetailForm(districtEdit);
+                frm.Text = "Edit Dictrict";
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select the row you want to Edit!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        //private void btnEdit_Click(object sender, EventArgs e)
-        //{
-        //    var frm = new DistrictDetailForm();
-        //    frm.ShowDialog();
-
-        //    if (grvDistrict.SelectedRows.Count > 0)
-        //    {
-        //        var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
-
-        //    }
-        //}
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+           
+            if(grvDistrict.SelectedRows.Count > 0)
+            {
+                var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
+                _myCountryBusiness.DeleteDistrict(_myCountryBusiness.GetDistrictByCode(selectRow.DistrictCode));
+            }
+            else
+            {
+                MessageBox.Show("Please select the row you want to Delete", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
     }
 }

@@ -8,31 +8,83 @@ namespace MyCountryApplication
     {        
         private readonly MyCountryBusiness _myCountryBusiness;
         private District _district;
-        private City _city;
         private Boolean _adding { get; set; }
+        private District _dictrictEdit;
         public DistrictDetailForm()
         {
             InitializeComponent();            
-            _district = new District();
-            _city = new City();
             _adding = true;
             _myCountryBusiness = new MyCountryBusiness();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        public DistrictDetailForm(District district)
         {
-            try
+            InitializeComponent();
+            _myCountryBusiness = new MyCountryBusiness();
+
+            var districtCode = district != null ? district.DistrictCode : string.Empty;
+
+          if(string.IsNullOrEmpty(districtCode))
             {
+                _adding = true;
+            }
+            else
+            {
+                _adding = false;
+                _dictrictEdit = district;
+            }
+            
+        }
+        private void FillDataOldUpForm(District district)
+        {
+            
+            txtDistrictCode.Text = district.DistrictCode;
+            txtDistrictName.Text = district.Name;
+            txtDistrictType.Text = district.Type;
+            cbbCity.SelectedIndex = cbbCity.FindString(_myCountryBusiness.GetNameCity(district.CityCode));
+        }
+
+
+        private District MatchNewDataDistrict(District district)
+        {
+            
+            district.DistrictCode = txtDistrictCode.Text;
+            district.Name = txtDistrictName.Text;
+            district.Type = txtDistrictType.Text;
+            var selectedCity = cbbCity.SelectedItem as City;
+            district.CityCode = selectedCity != null ? selectedCity.CityCode : string.Empty;
+
+            if (string.IsNullOrEmpty(district.DistrictCode))
+            {
+                throw new Exception("District code cannot be empty.");
+            }
+
+            if (string.IsNullOrEmpty(district.Name))
+            {
+                throw new Exception("District name cannot be empty.");
+            }
+
+            if (string.IsNullOrEmpty(district.CityCode))
+            {
+                throw new Exception("City code cannot be empty.");
+            }
+
+            return district;
+        }
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+                try
+            {
+                _district = new District();
                 if (_adding)
                 {
-                    
-                    _district.DistrictCode = txtDistrictCode.Text;
-                    _district.Name = txtDistrictName.Text;
-                    _district.Type = txtDistrictType.Text;
-                    var selectedCity = cbbCity.SelectedItem as City;
-                    _district.CityCode = selectedCity != null ? selectedCity.CityCode : string.Empty;   
-                    
-                    _myCountryBusiness.AddDistrict(_district);
+                    _myCountryBusiness.AddDistrict(MatchNewDataDistrict(_district));
+
+                    DialogResult = DialogResult.OK;
+                }
+                else
+                { 
+                    _myCountryBusiness.EditDistrict(MatchNewDataDistrict(_dictrictEdit));
 
                     DialogResult = DialogResult.OK;
                 }
@@ -40,7 +92,7 @@ namespace MyCountryApplication
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }            
+            }       
         }
 
         private void DistrictDetailForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -58,9 +110,14 @@ namespace MyCountryApplication
 
         private void DistrictDetailForm_Load(object sender, EventArgs e)
         {
-            //_myCountryBusiness.GetCities();
             cbbCity.DataSource = _myCountryBusiness.GetCities();
             cbbCity.DisplayMember = nameof(City.Name);
+            if (!_adding)
+            {
+                FillDataOldUpForm(_dictrictEdit);
+                txtDistrictCode.ReadOnly = true;
+                cbbCity.Enabled = false;
+            }
         }
 
        

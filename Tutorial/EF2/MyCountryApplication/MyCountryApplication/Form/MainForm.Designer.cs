@@ -38,6 +38,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grvDistrict = new System.Windows.Forms.DataGridView();
+            this.grvColumnDistrictCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvColumnDistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvColumnCityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -49,9 +52,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblDistrictCode = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.grvColumnDistrictCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grvColumnDistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grvColumnCityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -103,7 +103,7 @@
             this.btnClearSearch.TabIndex = 5;
             this.btnClearSearch.Text = "Clear Search";
             this.btnClearSearch.UseVisualStyleBackColor = true;
-            this.btnClearSearch.Click += new System.EventHandler(this.btnClearSearch_Click);
+            this.btnClearSearch.Click += new System.EventHandler(this.BtnClearSearch_Click);
             // 
             // btnSearch
             // 
@@ -165,6 +165,29 @@
             this.grvDistrict.TabIndex = 2;
             this.grvDistrict.SelectionChanged += new System.EventHandler(this.grvDistrict_SelectionChanged);
             // 
+            // grvColumnDistrictCode
+            // 
+            this.grvColumnDistrictCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.grvColumnDistrictCode.DataPropertyName = "DistrictCode";
+            this.grvColumnDistrictCode.HeaderText = "District Code";
+            this.grvColumnDistrictCode.MinimumWidth = 100;
+            this.grvColumnDistrictCode.Name = "grvColumnDistrictCode";
+            // 
+            // grvColumnDistrictName
+            // 
+            this.grvColumnDistrictName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.grvColumnDistrictName.DataPropertyName = "DistrictName";
+            this.grvColumnDistrictName.HeaderText = "District Name";
+            this.grvColumnDistrictName.Name = "grvColumnDistrictName";
+            // 
+            // grvColumnCityName
+            // 
+            this.grvColumnCityName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.grvColumnCityName.DataPropertyName = "CityName";
+            this.grvColumnCityName.HeaderText = "City Name";
+            this.grvColumnCityName.MinimumWidth = 100;
+            this.grvColumnCityName.Name = "grvColumnCityName";
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.btnDelete);
@@ -184,6 +207,7 @@
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -269,29 +293,6 @@
             this.label4.Size = new System.Drawing.Size(70, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "District Code:";
-            // 
-            // grvColumnDistrictCode
-            // 
-            this.grvColumnDistrictCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.grvColumnDistrictCode.DataPropertyName = "DistrictCode";
-            this.grvColumnDistrictCode.HeaderText = "District Code";
-            this.grvColumnDistrictCode.MinimumWidth = 100;
-            this.grvColumnDistrictCode.Name = "grvColumnDistrictCode";
-            // 
-            // grvColumnDistrictName
-            // 
-            this.grvColumnDistrictName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.grvColumnDistrictName.DataPropertyName = "DistrictName";
-            this.grvColumnDistrictName.HeaderText = "District Name";
-            this.grvColumnDistrictName.Name = "grvColumnDistrictName";
-            // 
-            // grvColumnCityName
-            // 
-            this.grvColumnCityName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.grvColumnCityName.DataPropertyName = "CityName";
-            this.grvColumnCityName.HeaderText = "City Name";
-            this.grvColumnCityName.MinimumWidth = 100;
-            this.grvColumnCityName.Name = "grvColumnCityName";
             // 
             // label5
             // 

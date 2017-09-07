@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyCountryApplication.Modal;
+using System.Windows.Forms;
 
 namespace MyCountryApplication
 {
@@ -39,21 +40,7 @@ namespace MyCountryApplication
 
         public void AddDistrict(District district)
         {            
-            if (string.IsNullOrEmpty(district.DistrictCode))
-            {
-                throw new Exception("District code cannot be empty.");
-            }
-
-            if (string.IsNullOrEmpty(district.Name))
-            {
-                throw new Exception("District name cannot be empty.");
-            }
-
-            if (string.IsNullOrEmpty(district.CityCode))
-            {
-                throw new Exception("City code cannot be empty.");
-            }
-
+            
             var dbContext = new MyCountryEntities();
 
             var isExisted = dbContext.Districts.Any(x => x.DistrictCode == district.DistrictCode);
@@ -71,9 +58,53 @@ namespace MyCountryApplication
         
         public District GetDistrictByCode(string code)
         {
-            return null;
+            var dbContext = new MyCountryEntities();        
+            return dbContext.Districts.FirstOrDefault(x => x.DistrictCode == code);
+        }
+
+        public void EditDistrict(District district)
+        { 
+            var dbContext = new MyCountryEntities();
+            var existingDistrict = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == district.DistrictCode);
+            if(existingDistrict != null)
+            {
+                existingDistrict.Name = district.Name;
+                existingDistrict.Type = district.Type;
+                dbContext.SaveChanges();
+
+                MessageBox.Show(@"Successfully removed the selected customer");
+            }
+            else
+            {
+                MessageBox.Show(@"Cannot found the selected customer");
+            }
+            
+        }
+
+        public City GetCityByCode(string code)
+        {
+            var dbContext = new MyCountryEntities();
+            return dbContext.Cities.FirstOrDefault(x => x.CityCode == code);
+        }
+        public string GetNameCity(string code)
+        {
+            return GetCityByCode(code).Name;
+        }
+        
+        public void DeleteDistrict(District district)
+        {
+            var dbContext = new MyCountryEntities();
+            var existingDistrict = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == district.DistrictCode);
+            if (existingDistrict != null)
+            {
+                dbContext.Districts.Remove(existingDistrict);
+                dbContext.SaveChanges();
+                MessageBox.Show(@"Successfully removed the selected customer");
+            }
+            else
+            {
+                MessageBox.Show(@"Cannot found the selected customer");
+            }
         }
     }
-
-    
 }
