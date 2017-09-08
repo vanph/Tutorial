@@ -160,7 +160,9 @@
             this.grvColumnDistrictName,
             this.grvColumnCityName});
             this.grvDistrict.Location = new System.Drawing.Point(8, 155);
+            this.grvDistrict.MultiSelect = false;
             this.grvDistrict.Name = "grvDistrict";
+            this.grvDistrict.ReadOnly = true;
             this.grvDistrict.Size = new System.Drawing.Size(870, 294);
             this.grvDistrict.TabIndex = 2;
             this.grvDistrict.SelectionChanged += new System.EventHandler(this.grvDistrict_SelectionChanged);
@@ -248,8 +250,9 @@
             this.lblDistrictName.AutoSize = true;
             this.lblDistrictName.Location = new System.Drawing.Point(111, 42);
             this.lblDistrictName.Name = "lblDistrictName";
-            this.lblDistrictName.Size = new System.Drawing.Size(0, 13);
+            this.lblDistrictName.Size = new System.Drawing.Size(77, 13);
             this.lblDistrictName.TabIndex = 9;
+            this.lblDistrictName.Text = "lblDistrictName";
             // 
             // label9
             // 
@@ -265,8 +268,9 @@
             this.lblCityName.AutoSize = true;
             this.lblCityName.Location = new System.Drawing.Point(111, 69);
             this.lblCityName.Name = "lblCityName";
-            this.lblCityName.Size = new System.Drawing.Size(0, 13);
+            this.lblCityName.Size = new System.Drawing.Size(62, 13);
             this.lblCityName.TabIndex = 7;
+            this.lblCityName.Text = "lblCityName";
             // 
             // label7
             // 
@@ -282,8 +286,9 @@
             this.lblDistrictCode.AutoSize = true;
             this.lblDistrictCode.Location = new System.Drawing.Point(111, 10);
             this.lblDistrictCode.Name = "lblDistrictCode";
-            this.lblDistrictCode.Size = new System.Drawing.Size(0, 13);
+            this.lblDistrictCode.Size = new System.Drawing.Size(74, 13);
             this.lblDistrictCode.TabIndex = 6;
+            this.lblDistrictCode.Text = "lblDistrictCode";
             // 
             // label4
             // 
@@ -312,6 +317,7 @@
             this.btnExport.TabIndex = 7;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // MainForm
             // 

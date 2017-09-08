@@ -5,14 +5,14 @@ using MyCountryApplication.Modal;
 namespace MyCountryApplication
 {
     public partial class DistrictDetailForm : Form
-    {        
+    {
         private readonly MyCountryBusiness _myCountryBusiness;
-        private District _district;
+        
         private Boolean _adding { get; set; }
         private District _dictrictEdit;
         public DistrictDetailForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
             _adding = true;
             _myCountryBusiness = new MyCountryBusiness();
         }
@@ -21,115 +21,114 @@ namespace MyCountryApplication
         {
             InitializeComponent();
             _myCountryBusiness = new MyCountryBusiness();
+            _adding = false;
+            _dictrictEdit = district;
 
-            var districtCode = district != null ? district.DistrictCode : string.Empty;
-
-          if(string.IsNullOrEmpty(districtCode))
-            {
-                _adding = true;
-            }
-            else
-            {
-                _adding = false;
-                _dictrictEdit = district;
-            }
-            
         }
         private void FillDataOldUpForm(District district)
         {
-            
             txtDistrictCode.Text = district.DistrictCode;
             txtDistrictName.Text = district.Name;
             txtDistrictType.Text = district.Type;
-            cbbCity.SelectedIndex = cbbCity.FindString(_myCountryBusiness.GetNameCity(district.CityCode));
+
+            var city = _myCountryBusiness.GetCityByCode(district.CityCode);
+            var cityName = city != null ? city.Name : string.Empty;
+
+            cbbCity.SelectedIndex = cbbCity.FindString(cityName);
         }
 
 
-        private District MatchNewDataDistrict(District district)
+        private District GetBindingDistrict()
         {
-            
-            district.DistrictCode = txtDistrictCode.Text;
-            district.Name = txtDistrictName.Text;
-            district.Type = txtDistrictType.Text;
+            var district = new District()
+            {
+                DistrictCode = txtDistrictCode.Text,
+                Name = txtDistrictName.Text,
+                Type = txtDistrictType.Text
+            };
             var selectedCity = cbbCity.SelectedItem as City;
             district.CityCode = selectedCity != null ? selectedCity.CityCode : string.Empty;
 
+            return district;
+        }
+
+        private bool IsValidDistrict(District district, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+            
             if (string.IsNullOrEmpty(district.DistrictCode))
             {
-                throw new Exception("District code cannot be empty.");
+                errorMessage = "District code cannot be empty.";
+                return false;
             }
 
             if (string.IsNullOrEmpty(district.Name))
             {
-                throw new Exception("District name cannot be empty.");
+                errorMessage = "District name cannot be empty.";
+                return false;
             }
 
             if (string.IsNullOrEmpty(district.CityCode))
             {
-                throw new Exception("City code cannot be empty.");
+                errorMessage = "City code cannot be empty.";
+                return false;
             }
 
-            return district;
+            if (string.IsNullOrEmpty(district.Type))
+            {
+                errorMessage = "District type cannot be empty.";
+                return false;
+            }
+
+            return true;
         }
+
         private void BtnSave_Click(object sender, EventArgs e)
         {
-                try
+            try
             {
-                _district = new District();
+                var district = GetBindingDistrict();                
+                string errorMessage = string.Empty;
+
+                if(!IsValidDistrict(district, out errorMessage))
+                {
+                    MessageBox.Show(errorMessage);
+                    return;
+                }
+                
                 if (_adding)
                 {
-                    _myCountryBusiness.AddDistrict(MatchNewDataDistrict(_district));
-
-                    DialogResult = DialogResult.OK;
+                    _myCountryBusiness.AddDistrict(district);
                 }
                 else
-                { 
-                    _myCountryBusiness.EditDistrict(MatchNewDataDistrict(_dictrictEdit));
-
-                    DialogResult = DialogResult.OK;
+                {
+                    _myCountryBusiness.EditDistrict(district);
                 }
+
+                DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }       
-        }
-
-        private void DistrictDetailForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            try
-            {
-                var loadAgainData = new MainForm();
-                loadAgainData.FillDataGrvDistrict();
-                loadAgainData.FillNameCitiesToSearch();
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
-           
         }
 
-        private void btnCancle_Click(object sender, EventArgs e)
+
+
+        private void BtnCancle_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void DistrictDetailForm_Load(object sender, EventArgs e)
         {
-            try
+            cbbCity.DataSource = _myCountryBusiness.GetCities();
+            cbbCity.DisplayMember = nameof(City.Name);
+            if (!_adding)
             {
-                cbbCity.DataSource = _myCountryBusiness.GetCities();
-                cbbCity.DisplayMember = nameof(City.Name);
-                if (!_adding)
-                {
-                    FillDataOldUpForm(_dictrictEdit);
-                    txtDistrictCode.ReadOnly = true;
-                    cbbCity.Enabled = false;
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                FillDataOldUpForm(_dictrictEdit);
+                txtDistrictCode.ReadOnly = true;
+                cbbCity.Enabled = false;
             }
         }
 

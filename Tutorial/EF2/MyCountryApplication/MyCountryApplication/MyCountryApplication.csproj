@@ -73,6 +73,7 @@
     <Compile Include="MyCountryBusiness.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringMessages.cs" />
     <EmbeddedResource Include="Form\DistrictDetailForm.resx">
       <DependentUpon>DistrictDetailForm.cs</DependentUpon>
     </EmbeddedResource>

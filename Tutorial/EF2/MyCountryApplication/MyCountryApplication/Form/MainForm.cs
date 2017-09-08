@@ -20,57 +20,54 @@ namespace MyCountryApplication
             InitializeComponent();
             grvDistrict.SelectionMode = DataGridViewSelectionMode.FullRowSelect;// select all line
             grvDistrict.AutoGenerateColumns = false;// don't auto generate column 
-
+            lblCityName.Text = "";
+            lblDistrictCode.Text = "";
+            lblDistrictName.Text = "";
             _myCountryBusiness = new MyCountryBusiness();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            FillNameCitiesToSearch();
-            FillDataGrvDistrict();
+            LoadCites();
+            SearchDistricts();
         }
 
-        public void FillNameCitiesToSearch()
+        public void LoadCites()
         {
             cbbCitySearch.DataSource = _myCountryBusiness.GetCities();
             cbbCitySearch.DisplayMember = nameof(City.Name);
             cbbCitySearch.SelectedIndex = -1;
         }
 
-        public void FillDataGrvDistrict()
-        {
-            grvDistrict.DataSource = _myCountryBusiness.GetDistrictInfomation();
-        }
-
+        
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             try
             {
-                var keyword = txtSearch.Text;
-                var cityChoose = cbbCitySearch.SelectedItem as City;
-                var cityCode = cityChoose != null ? cityChoose.CityCode : String.Empty;
-
-                if (String.IsNullOrEmpty(keyword) && String.IsNullOrEmpty(cityCode))
-                {
-                    FillDataGrvDistrict();
-                }
-                else
-                {
-
-                    grvDistrict.DataSource = _myCountryBusiness.GetDistrictInfomation(keyword, cityCode);
-                }
+                SearchDistricts();
             }
-            catch( Exception ex)
+            catch ( Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
+        private void SearchDistricts()
+        {
+            var keyword = txtSearch.Text;
+            var cityChoose = cbbCitySearch.SelectedItem as City;
+            var cityCode = cityChoose != null ? cityChoose.CityCode : String.Empty;
+
+            grvDistrict.DataSource = _myCountryBusiness.GetDistrictInfomations(keyword, cityCode);
+        }
+
         private void BtnClearSearch_Click(object sender, EventArgs e)
         {
             try
-            {
-                FillDataGrvDistrict();
+            {                
+                txtSearch.Text = "";
+                cbbCitySearch.SelectedIndex = -1;
+                SearchDistricts();
             }
             catch( Exception ex)
             {
@@ -100,9 +97,17 @@ namespace MyCountryApplication
         {
             try
             {
-                var frm = new DistrictDetailForm();
-                frm.Text = "Add New Dictrict";
-                frm.ShowDialog();
+                var frm = new DistrictDetailForm()
+                {
+                    Text = StringMessages.AddDistrictTitle
+                };
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show(StringMessages.EditDistrictSuccess,StringMessages.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    SearchDistricts();
+                }
+
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -115,11 +120,19 @@ namespace MyCountryApplication
             {
                 if (grvDistrict.SelectedRows.Count > 0)
                 {
-                    var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
-                    var districtEdit = _myCountryBusiness.GetDistrictByCode(selectRow.DistrictCode);
-                    var frm = new DistrictDetailForm(districtEdit);
-                    frm.Text = "Edit Dictrict";
-                    frm.ShowDialog();
+                    var selectedDistrictInfo = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
+                    if (selectedDistrictInfo != null)
+                    {
+                        var districtEdit = _myCountryBusiness.GetDistrictByCode(selectedDistrictInfo.DistrictCode);
+                        var frm = new DistrictDetailForm(districtEdit);
+                        frm.Text = StringMessages.EditDistrictTitle;
+                        if(frm.ShowDialog()== DialogResult.OK)
+                        {
+                            MessageBox.Show(StringMessages.EditDistrictSuccess, StringMessages.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        
+                    }       
+                    
                 }
                 else
                 {
@@ -137,18 +150,35 @@ namespace MyCountryApplication
             {
                 if (grvDistrict.SelectedRows.Count > 0)
                 {
-                    var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
-                    _myCountryBusiness.DeleteDistrict(_myCountryBusiness.GetDistrictByCode(selectRow.DistrictCode));
+                    if (MessageBox.Show(StringMessages.DeleteDistrictConfirmMessage, "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        var selectRow = grvDistrict.SelectedRows[0].DataBoundItem as DistrictInformation;
+                        _myCountryBusiness.DeleteDistrict(_myCountryBusiness.GetDistrictByCode(selectRow.DistrictCode));
+                        MessageBox.Show(StringMessages.DeleteDistrictSuccess, StringMessages.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        SearchDistricts();
+                    }
+             
                 }
                 else
                 {
-                    MessageBox.Show("Please select the row you want to Delete", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please select the row you want to delete", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Todo: implement export function
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace MyCountryApplication
     {
         public string DistrictCode { get; private set; }
 
-        public List<DistrictInformation> GetDistrictInfomation(string keyword ="", string cityCode = "")
+        public List<DistrictInformation> GetDistrictInfomations(string keyword ="", string cityCode = "")
         {
             var dbContext = new MyCountryEntities();
             var query = from d in dbContext.Districts
@@ -70,13 +70,11 @@ namespace MyCountryApplication
             {
                 existingDistrict.Name = district.Name;
                 existingDistrict.Type = district.Type;
-                dbContext.SaveChanges();
-
-                MessageBox.Show(@"Successfully removed the selected customer");
+                dbContext.SaveChanges();                
             }
             else
             {
-                MessageBox.Show(@"Cannot found the selected customer");
+                throw new Exception($"Cannot found district");                
             }
             
         }
@@ -86,11 +84,7 @@ namespace MyCountryApplication
             var dbContext = new MyCountryEntities();
             return dbContext.Cities.FirstOrDefault(x => x.CityCode == code);
         }
-        public string GetNameCity(string code)
-        {
-            return GetCityByCode(code).Name;
-        }
-        
+                
         public void DeleteDistrict(District district)
         {
             var dbContext = new MyCountryEntities();
@@ -98,12 +92,11 @@ namespace MyCountryApplication
             if (existingDistrict != null)
             {
                 dbContext.Districts.Remove(existingDistrict);
-                dbContext.SaveChanges();
-                MessageBox.Show(@"Successfully removed the selected customer");
+                dbContext.SaveChanges();                
             }
             else
             {
-                MessageBox.Show(@"Cannot found the selected customer");
+                throw new Exception($"Cannot found dictrict");
             }
         }
     }

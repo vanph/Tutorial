@@ -52,6 +52,7 @@
             // txtDistrictCode
             // 
             this.txtDistrictCode.Location = new System.Drawing.Point(115, 61);
+            this.txtDistrictCode.MaxLength = 50;
             this.txtDistrictCode.Name = "txtDistrictCode";
             this.txtDistrictCode.Size = new System.Drawing.Size(250, 20);
             this.txtDistrictCode.TabIndex = 1;
@@ -59,9 +60,10 @@
             // txtDistrictName
             // 
             this.txtDistrictName.Location = new System.Drawing.Point(115, 90);
+            this.txtDistrictName.MaxLength = 100;
             this.txtDistrictName.Name = "txtDistrictName";
             this.txtDistrictName.Size = new System.Drawing.Size(250, 20);
-            this.txtDistrictName.TabIndex = 7;
+            this.txtDistrictName.TabIndex = 2;
             // 
             // label4
             // 
@@ -77,7 +79,7 @@
             this.btnSave.Location = new System.Drawing.Point(209, 156);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 8;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
@@ -87,17 +89,18 @@
             this.btnCancle.Location = new System.Drawing.Point(290, 156);
             this.btnCancle.Name = "btnCancle";
             this.btnCancle.Size = new System.Drawing.Size(75, 23);
-            this.btnCancle.TabIndex = 9;
+            this.btnCancle.TabIndex = 5;
             this.btnCancle.Text = "Cancle";
             this.btnCancle.UseVisualStyleBackColor = true;
-            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
+            this.btnCancle.Click += new System.EventHandler(this.BtnCancle_Click);
             // 
             // txtDistrictType
             // 
             this.txtDistrictType.Location = new System.Drawing.Point(115, 119);
+            this.txtDistrictType.MaxLength = 50;
             this.txtDistrictType.Name = "txtDistrictType";
             this.txtDistrictType.Size = new System.Drawing.Size(250, 20);
-            this.txtDistrictType.TabIndex = 11;
+            this.txtDistrictType.TabIndex = 3;
             // 
             // label3
             // 
@@ -123,7 +126,7 @@
             this.cbbCity.Location = new System.Drawing.Point(115, 32);
             this.cbbCity.Name = "cbbCity";
             this.cbbCity.Size = new System.Drawing.Size(250, 21);
-            this.cbbCity.TabIndex = 15;
+            this.cbbCity.TabIndex = 0;
             // 
             // DistrictDetailForm
             // 
@@ -144,7 +147,6 @@
             this.Name = "DistrictDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DistrictDetailForm";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DistrictDetailForm_FormClosed);
             this.Load += new System.EventHandler(this.DistrictDetailForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
