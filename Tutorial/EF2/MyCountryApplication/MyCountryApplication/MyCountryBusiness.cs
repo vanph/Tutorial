@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MyCountryApplication.Modal;
-using System.Windows.Forms;
+using MyCountryApplication.ViewModel;
 
 namespace MyCountryApplication
 {
@@ -12,21 +10,22 @@ namespace MyCountryApplication
     {
         public string DistrictCode { get; private set; }
 
-        public List<DistrictInformation> GetDistrictInfomations(string keyword ="", string cityCode = "")
+        public List<DistrictViewModel> GetDistrictInformations(string keyword = "", string cityCode = "")
         {
             var dbContext = new MyCountryEntities();
             var query = from d in dbContext.Districts
                         join c in dbContext.Cities
                         on d.CityCode equals c.CityCode
-                        select new DistrictInformation { DistrictCode = d.DistrictCode, DistrictName = d.Name, CityName = c.Name, CityCode = c.CityCode };
+                        select new DistrictViewModel { DistrictCode = d.DistrictCode, DistrictName = d.Name, CityName = c.Name, CityCode = c.CityCode };
 
-            if (!string.IsNullOrEmpty(keyword)){
+            if (!string.IsNullOrEmpty(keyword))
+            {
                 query = query.Where(x => x.DistrictCode == keyword || x.DistrictName == keyword);
             }
 
             if (!string.IsNullOrEmpty(cityCode))
             {
-                query = query.Where(x => x.CityCode== cityCode);
+                query = query.Where(x => x.CityCode == cityCode);
             }
 
             return query.ToList();
@@ -39,44 +38,43 @@ namespace MyCountryApplication
         }
 
         public void AddDistrict(District district)
-        {            
-            
+        {
             var dbContext = new MyCountryEntities();
 
             var isExisted = dbContext.Districts.Any(x => x.DistrictCode == district.DistrictCode);
 
-            if(isExisted)
+            if (isExisted)
             {
                 throw new Exception($"District code {district.DistrictCode} exists.");
             }
 
             dbContext.Districts.Add(district);
 
-            dbContext.SaveChanges();            
+            dbContext.SaveChanges();
         }
 
-        
+
         public District GetDistrictByCode(string code)
         {
-            var dbContext = new MyCountryEntities();        
+            var dbContext = new MyCountryEntities();
             return dbContext.Districts.FirstOrDefault(x => x.DistrictCode == code);
         }
 
         public void EditDistrict(District district)
-        { 
+        {
             var dbContext = new MyCountryEntities();
             var existingDistrict = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == district.DistrictCode);
-            if(existingDistrict != null)
+            if (existingDistrict != null)
             {
                 existingDistrict.Name = district.Name;
                 existingDistrict.Type = district.Type;
-                dbContext.SaveChanges();                
+                dbContext.SaveChanges();
             }
             else
             {
-                throw new Exception($"Cannot found district");                
+                throw new Exception("Cannot found district");
             }
-            
+
         }
 
         public City GetCityByCode(string code)
@@ -84,7 +82,7 @@ namespace MyCountryApplication
             var dbContext = new MyCountryEntities();
             return dbContext.Cities.FirstOrDefault(x => x.CityCode == code);
         }
-                
+
         public void DeleteDistrict(District district)
         {
             var dbContext = new MyCountryEntities();
@@ -92,11 +90,11 @@ namespace MyCountryApplication
             if (existingDistrict != null)
             {
                 dbContext.Districts.Remove(existingDistrict);
-                dbContext.SaveChanges();                
+                dbContext.SaveChanges();
             }
             else
             {
-                throw new Exception($"Cannot found dictrict");
+                throw new Exception("Cannot found dictrict");
             }
         }
     }

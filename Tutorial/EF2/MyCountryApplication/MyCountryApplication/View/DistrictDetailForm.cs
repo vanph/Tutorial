@@ -2,14 +2,14 @@
 using System.Windows.Forms;
 using MyCountryApplication.Modal;
 
-namespace MyCountryApplication
+namespace MyCountryApplication.View
 {
     public partial class DistrictDetailForm : Form
     {
         private readonly MyCountryBusiness _myCountryBusiness;
-        
-        private Boolean _adding { get; set; }
-        private District _dictrictEdit;
+
+        private readonly bool _adding;
+        private readonly District _dictrictEdit;
         public DistrictDetailForm()
         {
             InitializeComponent();
@@ -88,7 +88,7 @@ namespace MyCountryApplication
             try
             {
                 var district = GetBindingDistrict();                
-                string errorMessage = string.Empty;
+                string errorMessage;
 
                 if(!IsValidDistrict(district, out errorMessage))
                 {
@@ -112,12 +112,10 @@ namespace MyCountryApplication
                 MessageBox.Show(ex.Message);
             }
         }
-
-
-
+        
         private void BtnCancle_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void DistrictDetailForm_Load(object sender, EventArgs e)

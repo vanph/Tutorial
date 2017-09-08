@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyCountryApplication.Modal
+﻿namespace MyCountryApplication.ViewModel
 {
-    public class DistrictInformation
+    public class DistrictViewModel
     {
         public string DistrictCode { get; set; }
         public string DistrictName { get; set; }

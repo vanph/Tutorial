@@ -1,4 +1,4 @@
-﻿namespace MyCountryApplication
+﻿namespace MyCountryApplication.View
 {
     partial class DistrictDetailForm
     {
