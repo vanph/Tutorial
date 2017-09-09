@@ -152,7 +152,8 @@ namespace MyCountryApplication.View
 
                         if (selectedDistrict == null) return;
 
-                        _myCountryBusiness.DeleteDistrict(_myCountryBusiness.GetDistrictByCode(selectedDistrict.DistrictCode));
+                        //_myCountryBusiness.DeleteDistrict(_myCountryBusiness.GetDistrictByCode(selectedDistrict.DistrictCode));
+                        _myCountryBusiness.DeleteDistrict(selectedDistrict.DistrictCode);
                         MessageBox.Show(StringMessages.DeleteDistrictSuccess, StringMessages.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         SearchDistricts();
                     }

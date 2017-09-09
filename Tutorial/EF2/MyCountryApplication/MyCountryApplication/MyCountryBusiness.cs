@@ -8,8 +8,6 @@ namespace MyCountryApplication
 {
     public class MyCountryBusiness
     {
-        public string DistrictCode { get; private set; }
-
         public List<DistrictViewModel> GetDistrictInformations(string keyword = "", string cityCode = "")
         {
             var dbContext = new MyCountryEntities();
@@ -83,10 +81,25 @@ namespace MyCountryApplication
             return dbContext.Cities.FirstOrDefault(x => x.CityCode == code);
         }
 
-        public void DeleteDistrict(District district)
+        //public void DeleteDistrict(District district)
+        //{
+        //    var dbContext = new MyCountryEntities();
+        //    var existingDistrict = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == district.DistrictCode);
+        //    if (existingDistrict != null)
+        //    {
+        //        dbContext.Districts.Remove(existingDistrict);
+        //        dbContext.SaveChanges();
+        //    }
+        //    else
+        //    {
+        //        throw new Exception("Cannot found dictrict");
+        //    }
+        //}
+
+        public void DeleteDistrict(string districtCode)
         {
             var dbContext = new MyCountryEntities();
-            var existingDistrict = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == district.DistrictCode);
+            var existingDistrict = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == districtCode);
             if (existingDistrict != null)
             {
                 dbContext.Districts.Remove(existingDistrict);
