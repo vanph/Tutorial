@@ -12,8 +12,8 @@ namespace MyCountryApplication.View
     public partial class MainForm : Form
     {
         private readonly MyCountryBusiness _myCountryBusiness;
-        private int _indexPage = 2;
-        private int _numberShowRecords = 100;
+        private int _indexPage = 1;
+        private int _numberShowRecords = 30;
         public MainForm()
         {
             InitializeComponent();
@@ -230,6 +230,15 @@ namespace MyCountryApplication.View
             {
                 _indexPage = _indexPage + 1;
                 txtIndexPage.Text = Convert.ToString(_indexPage);
+                SearchDistricts();
+            }
+        }
+
+        private void txtIndexPage_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtIndexPage.Text))
+            {
+                _indexPage = Convert.ToInt16(txtIndexPage.Text);
                 SearchDistricts();
             }
         }

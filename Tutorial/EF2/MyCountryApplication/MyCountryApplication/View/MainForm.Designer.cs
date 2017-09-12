@@ -218,6 +218,7 @@
             this.txtIndexPage.Size = new System.Drawing.Size(75, 20);
             this.txtIndexPage.TabIndex = 10;
             this.txtIndexPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIndexPage.TextChanged += new System.EventHandler(this.txtIndexPage_TextChanged);
             // 
             // btnPrev
             // 
