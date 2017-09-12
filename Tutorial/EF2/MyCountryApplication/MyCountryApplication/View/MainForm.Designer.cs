@@ -42,6 +42,9 @@
             this.grvColumnDistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvColumnCityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtIndexPage = new System.Windows.Forms.TextBox();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -174,6 +177,7 @@
             this.grvColumnDistrictCode.HeaderText = "District Code";
             this.grvColumnDistrictCode.MinimumWidth = 100;
             this.grvColumnDistrictCode.Name = "grvColumnDistrictCode";
+            this.grvColumnDistrictCode.ReadOnly = true;
             // 
             // grvColumnDistrictName
             // 
@@ -181,6 +185,7 @@
             this.grvColumnDistrictName.DataPropertyName = "DistrictName";
             this.grvColumnDistrictName.HeaderText = "District Name";
             this.grvColumnDistrictName.Name = "grvColumnDistrictName";
+            this.grvColumnDistrictName.ReadOnly = true;
             // 
             // grvColumnCityName
             // 
@@ -189,9 +194,13 @@
             this.grvColumnCityName.HeaderText = "City Name";
             this.grvColumnCityName.MinimumWidth = 100;
             this.grvColumnCityName.Name = "grvColumnCityName";
+            this.grvColumnCityName.ReadOnly = true;
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.txtIndexPage);
+            this.panel4.Controls.Add(this.btnPrev);
+            this.panel4.Controls.Add(this.btnNext);
             this.panel4.Controls.Add(this.btnDelete);
             this.panel4.Controls.Add(this.btnEdit);
             this.panel4.Controls.Add(this.btnAdd);
@@ -200,6 +209,37 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(884, 69);
             this.panel4.TabIndex = 4;
+            // 
+            // txtIndexPage
+            // 
+            this.txtIndexPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIndexPage.Location = new System.Drawing.Point(658, 28);
+            this.txtIndexPage.Name = "txtIndexPage";
+            this.txtIndexPage.Size = new System.Drawing.Size(75, 20);
+            this.txtIndexPage.TabIndex = 10;
+            this.txtIndexPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrev.Location = new System.Drawing.Point(552, 28);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(75, 20);
+            this.btnPrev.TabIndex = 9;
+            this.btnPrev.Text = "Prev";
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNext.Location = new System.Drawing.Point(758, 28);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 20);
+            this.btnNext.TabIndex = 8;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnDelete
             // 
@@ -341,6 +381,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDistrict)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
@@ -376,6 +417,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn grvColumnCityName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.TextBox txtIndexPage;
+        private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.Button btnNext;
     }
 }
 

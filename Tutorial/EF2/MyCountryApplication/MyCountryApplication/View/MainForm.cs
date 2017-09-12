@@ -12,6 +12,8 @@ namespace MyCountryApplication.View
     public partial class MainForm : Form
     {
         private readonly MyCountryBusiness _myCountryBusiness;
+        private int _indexPage = 2;
+        private int _numberShowRecords = 100;
         public MainForm()
         {
             InitializeComponent();
@@ -27,6 +29,7 @@ namespace MyCountryApplication.View
         {
             LoadCites();
             SearchDistricts();
+            txtIndexPage.Text = Convert.ToString(_indexPage);
         }
 
         public void LoadCites()
@@ -54,7 +57,7 @@ namespace MyCountryApplication.View
             var cityChoose = cbbCitySearch.SelectedItem as City;
             var cityCode = cityChoose != null ? cityChoose.CityCode : String.Empty;
 
-            grvDistrict.DataSource = _myCountryBusiness.GetDistrictInformations(keyword, cityCode);
+            grvDistrict.DataSource = _myCountryBusiness.GetDistrictInformations(keyword, cityCode,_indexPage, _numberShowRecords);
         }
 
         private void BtnClearSearch_Click(object sender, EventArgs e)
@@ -191,12 +194,12 @@ namespace MyCountryApplication.View
 
                             write.WriteHeader( typeof(DistrictViewModel));
 
-                            foreach( DistrictViewModel dict in  grvDistrict.DataSource as List<DistrictViewModel>)
+                            foreach( var dict in _myCountryBusiness.GetDistrictInformations())
                             {
                                 write.WriteRecord(dict);   
                             }
                         }
-                        MessageBox.Show("OK");
+                        MessageBox.Show(StringMessages.ExportSuccess);
 
                     }
                 }
@@ -205,6 +208,29 @@ namespace MyCountryApplication.View
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            if (_indexPage -1 > 0)
+            {
+                _indexPage = _indexPage - 1;
+                txtIndexPage.Text = Convert.ToString(_indexPage);
+                SearchDistricts();
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            int totalRecord = _myCountryBusiness.GetDistrictInformations().Count;
+            float maxPages = totalRecord / _numberShowRecords;
+
+            if (_indexPage <= Math.Round(maxPages,0))
+            {
+                _indexPage = _indexPage + 1;
+                txtIndexPage.Text = Convert.ToString(_indexPage);
+                SearchDistricts();
             }
         }
     }

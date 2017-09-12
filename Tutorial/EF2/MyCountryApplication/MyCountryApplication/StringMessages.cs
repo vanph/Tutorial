@@ -9,5 +9,6 @@
         public static string Information = "Information";
         public static string EditDistrictSuccess = "Successfully updated the district.";
         public static string DeleteDistrictSuccess = "Successfully deleted the district.";
+        public static string ExportSuccess = "Successfully exported.";
     }
 }

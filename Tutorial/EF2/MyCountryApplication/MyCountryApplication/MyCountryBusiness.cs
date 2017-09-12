@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using MyCountryApplication.Modal;
 using MyCountryApplication.ViewModel;
+using System.Data.Entity;
 
 namespace MyCountryApplication
 {
     public class MyCountryBusiness
     {
-        public List<DistrictViewModel> GetDistrictInformations(string keyword = "", string cityCode = "")
+        public List<DistrictViewModel> GetDistrictInformations(string keyword = "", string cityCode = "", int indexPage = 0,int numberShowRecords =0)
         {
             var dbContext = new MyCountryEntities();
             var query = from d in dbContext.Districts
@@ -24,6 +25,10 @@ namespace MyCountryApplication
             if (!string.IsNullOrEmpty(cityCode))
             {
                 query = query.Where(x => x.CityCode == cityCode);
+            }
+            if (indexPage != 0)
+            {
+               query = query.OrderBy(x => x.DistrictCode).Skip((indexPage - 1) * numberShowRecords).Take(numberShowRecords);
             }
 
             return query.ToList();
