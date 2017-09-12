@@ -2,6 +2,10 @@
 using System.Windows.Forms;
 using MyCountryApplication.Modal;
 using MyCountryApplication.ViewModel;
+using System.Text;
+using System.IO;
+using CsvHelper;
+using System.Collections.Generic;
 
 namespace MyCountryApplication.View
 {
@@ -67,7 +71,7 @@ namespace MyCountryApplication.View
             }
         }
 
-        private void grvDistrict_SelectionChanged(object sender, EventArgs e)
+        private void GrvDistrict_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
@@ -170,11 +174,33 @@ namespace MyCountryApplication.View
 
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
+        private void BtnExport_Click(object sender, EventArgs e)
         {
+       
             try
+                
             {
-                //Todo: implement export function
+                using (SaveFileDialog fSave = new SaveFileDialog (){ Filter = "CSV|*.csv", ValidateNames = true })
+                {
+                    
+                    if (fSave.ShowDialog() == DialogResult.OK)
+                    {
+                        using (var sw = new StreamWriter(fSave.FileName))
+                        {
+                            var write = new CsvWriter(sw);
+
+                            write.WriteHeader( typeof(DistrictViewModel));
+
+                            foreach( DistrictViewModel dict in  grvDistrict.DataSource as List<DistrictViewModel>)
+                            {
+                                write.WriteRecord(dict);   
+                            }
+                        }
+                        MessageBox.Show("OK");
+
+                    }
+                }
+
             }
             catch (Exception ex)
             {

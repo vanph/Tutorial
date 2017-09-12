@@ -165,7 +165,7 @@
             this.grvDistrict.ReadOnly = true;
             this.grvDistrict.Size = new System.Drawing.Size(870, 294);
             this.grvDistrict.TabIndex = 2;
-            this.grvDistrict.SelectionChanged += new System.EventHandler(this.grvDistrict_SelectionChanged);
+            this.grvDistrict.SelectionChanged += new System.EventHandler(this.GrvDistrict_SelectionChanged);
             // 
             // grvColumnDistrictCode
             // 
@@ -317,7 +317,7 @@
             this.btnExport.TabIndex = 7;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            this.btnExport.Click += new System.EventHandler(this.BtnExport_Click);
             // 
             // MainForm
             // 
