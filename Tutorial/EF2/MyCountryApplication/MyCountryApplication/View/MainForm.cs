@@ -266,7 +266,7 @@ namespace MyCountryApplication.View
             }
         }
 
-        private void districtToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void DistrictToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -281,7 +281,7 @@ namespace MyCountryApplication.View
             }
         }
 
-        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void AboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
