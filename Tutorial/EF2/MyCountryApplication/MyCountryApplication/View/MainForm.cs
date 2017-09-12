@@ -211,7 +211,7 @@ namespace MyCountryApplication.View
             }
         }
 
-        private void btnPrev_Click(object sender, EventArgs e)
+        private void BtnPrev_Click(object sender, EventArgs e)
         {
             if (_indexPage -1 > 0)
             {
@@ -221,7 +221,7 @@ namespace MyCountryApplication.View
             }
         }
 
-        private void btnNext_Click(object sender, EventArgs e)
+        private void BtnNext_Click(object sender, EventArgs e)
         {
             int totalRecord = _myCountryBusiness.GetDistrictInformations().Count;
             float maxPages = totalRecord / _numberShowRecords;
@@ -234,12 +234,66 @@ namespace MyCountryApplication.View
             }
         }
 
-        private void txtIndexPage_TextChanged(object sender, EventArgs e)
+        private void TxtIndexPage_TextChanged(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtIndexPage.Text))
             {
                 _indexPage = Convert.ToInt16(txtIndexPage.Text);
                 SearchDistricts();
+            }
+        }
+
+        private void ExitMenu_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void loginMenu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var frm = new LoginForm()
+                {
+                    Text = StringMessages.LoginTitle
+                };
+
+                frm.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void districtToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var frm = new MainForm()
+                {
+                    Text = StringMessages.DistrictTitle
+                };
+                frm.ShowDialog();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var frm = new AboutForm()
+                {
+                    Text = StringMessages.AboutTitle
+                };
+
+                frm.ShowDialog();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

@@ -10,5 +10,10 @@
         public static string EditDistrictSuccess = "Successfully updated the district.";
         public static string DeleteDistrictSuccess = "Successfully deleted the district.";
         public static string ExportSuccess = "Successfully exported.";
+        public static string LoginTitle = "Login";
+        public static string DistrictTitle= "District";
+        public static string AboutTitle = "About";
+
+
     }
 }
