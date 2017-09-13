@@ -1,0 +1,19 @@
+﻿namespace MyCountryApplication
+{
+    public static class StringMessages
+    {
+        public static string AddDistrictTitle = "Add new district";
+        public static string EditDistrictTitle = "Edit District";
+        public static string DeleteDistrictConfirmMessage = "Do you really want to delete the selected district?";
+        public static string AddedDistrictSuccess = "Successfully added district.";
+        public static string Information = "Information";
+        public static string EditDistrictSuccess = "Successfully updated the district.";
+        public static string DeleteDistrictSuccess = "Successfully deleted the district.";
+        public static string ExportSuccess = "Successfully exported.";
+        public static string LoginTitle = "Login";
+        public static string DistrictTitle= "District";
+        public static string AboutTitle = "About";
+
+
+    }
+}
