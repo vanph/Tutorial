@@ -4,12 +4,13 @@ using System.Linq;
 using MyCountryApplication.Modal;
 using MyCountryApplication.ViewModel;
 using System.Data.Entity;
+using MyCountryApplication.Common;
 
 namespace MyCountryApplication
 {
     public class MyCountryBusiness
     {
-        public List<DistrictViewModel> GetDistrictInformations(string keyword = "", string cityCode = "", int indexPage = 0,int numberShowRecords =0)
+        public List<DistrictViewModel> GetDistrictInformations(out int totalCount, string keyword = "", string cityCode = "", int pageNumber = 1, int pageSize = Constants.PageSize)
         {
             var dbContext = new MyCountryEntities();
             var query = from d in dbContext.Districts
@@ -19,20 +20,26 @@ namespace MyCountryApplication
 
             if (!string.IsNullOrEmpty(keyword))
             {
-                query = query.Where(x => x.DistrictCode == keyword || x.DistrictName == keyword);
+                query = query.Where(x => x.DistrictCode.Contains(keyword) || x.DistrictName.Contains(keyword));
             }
 
             if (!string.IsNullOrEmpty(cityCode))
             {
                 query = query.Where(x => x.CityCode == cityCode);
             }
-            if (indexPage != 0)
+
+            totalCount = query.Count();
+
+            if (pageNumber != 0)
             {
-               query = query.OrderBy(x => x.DistrictCode).Skip((indexPage - 1) * numberShowRecords).Take(numberShowRecords);
+               query = query.OrderBy(x => x.DistrictCode).Skip((pageNumber - 1) * pageSize).Take(pageSize);
             }
+            
 
             return query.ToList();
         }
+
+      
 
         public List<City> GetCities()
         {

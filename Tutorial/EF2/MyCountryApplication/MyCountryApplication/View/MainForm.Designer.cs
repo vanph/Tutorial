@@ -40,6 +40,8 @@
             this.grvColumnDistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvColumnCityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblTotalPage = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtIndexPage = new System.Windows.Forms.TextBox();
             this.btnPrev = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -199,6 +201,8 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.lblTotalPage);
+            this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.txtIndexPage);
             this.panel4.Controls.Add(this.btnPrev);
             this.panel4.Controls.Add(this.btnNext);
@@ -211,15 +215,37 @@
             this.panel4.Size = new System.Drawing.Size(884, 69);
             this.panel4.TabIndex = 4;
             // 
+            // lblTotalPage
+            // 
+            this.lblTotalPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotalPage.AutoSize = true;
+            this.lblTotalPage.Location = new System.Drawing.Point(733, 32);
+            this.lblTotalPage.Name = "lblTotalPage";
+            this.lblTotalPage.Size = new System.Drawing.Size(56, 13);
+            this.lblTotalPage.TabIndex = 11;
+            this.lblTotalPage.Text = "TotalPage";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(722, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(16, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "of";
+            
+            // 
             // txtIndexPage
             // 
             this.txtIndexPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIndexPage.Location = new System.Drawing.Point(686, 29);
+            this.txtIndexPage.Location = new System.Drawing.Point(671, 29);
             this.txtIndexPage.Name = "txtIndexPage";
-            this.txtIndexPage.Size = new System.Drawing.Size(75, 20);
+            this.txtIndexPage.Size = new System.Drawing.Size(45, 20);
             this.txtIndexPage.TabIndex = 10;
             this.txtIndexPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtIndexPage.TextChanged += new System.EventHandler(this.TxtIndexPage_TextChanged);
+            this.txtIndexPage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIndexPage_KeyPress);
             // 
             // btnPrev
             // 
@@ -608,6 +634,8 @@
         private System.Windows.Forms.ToolStripMenuItem cityToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
+        private System.Windows.Forms.Label lblTotalPage;
+        private System.Windows.Forms.Label label6;
     }
 }
 

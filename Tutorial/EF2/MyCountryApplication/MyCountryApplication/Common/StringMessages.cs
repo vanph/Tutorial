@@ -1,4 +1,4 @@
-﻿namespace MyCountryApplication
+﻿namespace MyCountryApplication.Common
 {
     public static class StringMessages
     {

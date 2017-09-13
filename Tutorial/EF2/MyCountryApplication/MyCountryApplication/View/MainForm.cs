@@ -2,19 +2,18 @@
 using System.Windows.Forms;
 using MyCountryApplication.Modal;
 using MyCountryApplication.ViewModel;
-using System.Text;
 using System.IO;
 using CsvHelper;
-using System.Collections.Generic;
 using System.Linq;
+using MyCountryApplication.Common;
 
 namespace MyCountryApplication.View
 {
     public partial class MainForm : Form
     {
         private readonly MyCountryBusiness _myCountryBusiness;
-        private int _indexPage = 1;
-        private int _numberShowRecords = 30;
+        private int _pageNumber = 1;
+
         public MainForm()
         {
             InitializeComponent();
@@ -23,6 +22,7 @@ namespace MyCountryApplication.View
             lblCityName.Text = "";
             lblDistrictCode.Text = "";
             lblDistrictName.Text = "";
+            lblTotalPage.Text = "1";
             _myCountryBusiness = new MyCountryBusiness();
         }
 
@@ -30,7 +30,7 @@ namespace MyCountryApplication.View
         {
             LoadCites();
             SearchDistricts();
-            txtIndexPage.Text = Convert.ToString(_indexPage);
+            txtIndexPage.Text = Convert.ToString(_pageNumber);
         }
 
         public void LoadCites()
@@ -44,6 +44,7 @@ namespace MyCountryApplication.View
         {
             try
             {
+                _pageNumber = 1;
                 SearchDistricts();
             }
             catch (Exception ex)
@@ -56,9 +57,12 @@ namespace MyCountryApplication.View
         {
             var keyword = txtSearch.Text;
             var cityChoose = cbbCitySearch.SelectedItem as City;
-            var cityCode = cityChoose != null ? cityChoose.CityCode : String.Empty;
-
-            grvDistrict.DataSource = _myCountryBusiness.GetDistrictInformations(keyword, cityCode,_indexPage, _numberShowRecords);
+            var cityCode = cityChoose != null ? cityChoose.CityCode : string.Empty;
+            int totalCount;
+            grvDistrict.DataSource = _myCountryBusiness.GetDistrictInformations(out totalCount, keyword, cityCode, _pageNumber, Constants.PageSize);
+            var totalPage = (totalCount % Constants.PageSize == 0) ? totalCount / Constants.PageSize : totalCount / Constants.PageSize + 1;
+            txtIndexPage.Text = _pageNumber.ToString();
+            lblTotalPage.Text = totalPage.ToString();
         }
 
         private void BtnClearSearch_Click(object sender, EventArgs e)
@@ -130,7 +134,7 @@ namespace MyCountryApplication.View
                     if (selectedDistrictInfo == null) return;
 
                     var districtEdit = _myCountryBusiness.GetDistrictByCode(selectedDistrictInfo.DistrictCode);
-                    var frm = new DistrictDetailForm(districtEdit) {Text = StringMessages.EditDistrictTitle};
+                    var frm = new DistrictDetailForm(districtEdit) { Text = StringMessages.EditDistrictTitle };
 
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
@@ -180,26 +184,35 @@ namespace MyCountryApplication.View
 
         private void BtnExport_Click(object sender, EventArgs e)
         {
-       
+
             try
-                
+
             {
-                using (SaveFileDialog fSave = new SaveFileDialog (){ Filter = "CSV|*.csv", ValidateNames = true })
+                using (SaveFileDialog fSave = new SaveFileDialog() { Filter = @"CSV|*.csv", ValidateNames = true })
                 {
-                    
+
                     if (fSave.ShowDialog() == DialogResult.OK)
                     {
                         using (var sw = new StreamWriter(fSave.FileName))
                         {
                             var write = new CsvWriter(sw);
 
-                            write.WriteHeader( typeof(DistrictViewModel));
+                            write.WriteHeader(typeof(DistrictViewModel));
 
-                            foreach( var dict in _myCountryBusiness.GetDistrictInformations())
+                            var keyword = txtSearch.Text;
+                            var cityChoose = cbbCitySearch.SelectedItem as City;
+                            var cityCode = cityChoose != null ? cityChoose.CityCode : string.Empty;
+                            var totalCount = 0;
+
+                            //no pagination when exporting
+                            var districts = _myCountryBusiness.GetDistrictInformations(out totalCount, keyword, cityCode, 1, int.MaxValue);
+
+                            foreach (var dict in districts)
                             {
-                                write.WriteRecord(dict);   
+                                write.WriteRecord(dict);
                             }
                         }
+
                         MessageBox.Show(StringMessages.ExportSuccess);
 
                     }
@@ -214,54 +227,56 @@ namespace MyCountryApplication.View
 
         private void BtnPrev_Click(object sender, EventArgs e)
         {
-            if (_indexPage -1 > 0)
+            if (_pageNumber - 1 > 0)
             {
-                _indexPage = _indexPage - 1;
-                txtIndexPage.Text = Convert.ToString(_indexPage);
+                btnPrev.Enabled = false; ;
+
+                _pageNumber = _pageNumber - 1;
                 SearchDistricts();
+
+                btnPrev.Enabled = true;
+                btnPrev.Focus();
             }
         }
 
         private void BtnNext_Click(object sender, EventArgs e)
         {
-            int totalRecord = _myCountryBusiness.GetDistrictInformations().Count;
-            float maxPages = totalRecord / _numberShowRecords;
+            btnNext.Enabled = false;
+            _pageNumber = _pageNumber + 1;
 
-            if (_indexPage <= Math.Ceiling(maxPages))
-            {
-                _indexPage = _indexPage + 1;
-                txtIndexPage.Text = Convert.ToString(_indexPage);
-                SearchDistricts();
-            }
+            SearchDistricts();
+            btnNext.Enabled = true;
+            btnNext.Focus();
         }
 
         private void TxtIndexPage_TextChanged(object sender, EventArgs e)
         {
-            int totalRecord = _myCountryBusiness.GetDistrictInformations().Count;
-            float maxPages = totalRecord / _numberShowRecords;
-            double max = Math.Ceiling(maxPages);
-            try
-            {
-                if (txtIndexPage.Text.All(char .IsDigit) && !String.IsNullOrEmpty(txtIndexPage.Text)) {
+            ////var totalRecord = _myCountryBusiness.GetCountDistrictInformations();
+            ////float maxPages = totalRecord / Constants.PageSize;
+            ////var max = Math.Ceiling(maxPages);
+            //try
+            //{
+            //    if (txtIndexPage.Text.All(char .IsDigit) && !string.IsNullOrEmpty(txtIndexPage.Text)) {
 
-                    _indexPage = Convert.ToInt32(txtIndexPage.Text);
+            //        _pageNumber = Convert.ToInt32(txtIndexPage.Text);
+            //        SearchDistricts();
 
-                    if (_indexPage < 1 || _indexPage > max + 1)
-                    {
-                        MessageBox.Show(StringMessages.ValidatePageNumber(0, max + 1));
-                    }
+            //        //if (_pageNumber < 1 || _pageNumber > max + 1)
+            //        //{
+            //        //    MessageBox.Show(StringMessages.ValidatePageNumber(0, max + 1));
+            //        //}
 
-                    if  (_indexPage > 0 && _indexPage <= max + 1)
-                    {
+            //        //if  (_pageNumber > 0 && _pageNumber <= max + 1)
+            //        //{
 
-                        SearchDistricts();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            //        //}
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
 
         }
 
@@ -297,7 +312,8 @@ namespace MyCountryApplication.View
                     Text = StringMessages.DistrictTitle
                 };
                 frm.ShowDialog();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -313,9 +329,25 @@ namespace MyCountryApplication.View
                 };
 
                 frm.ShowDialog();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtIndexPage_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != (char)8 && !char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+
+            }
+
+            if (e.KeyChar == (char)13 && !string.IsNullOrEmpty(txtIndexPage.Text))
+            {
+                _pageNumber = int.Parse(txtIndexPage.Text);
+                SearchDistricts();
             }
         }
     }
