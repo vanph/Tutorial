@@ -1,0 +1,7 @@
+http://linqsamples.com/tutorials/deferred-and-immediate-execution-in-linq
+
+Immediate execution:
+Aggregate, All, Any, Average, Contains, Count, ElementAt, ElementAtOrDefault, Empty, First, FirstOrDefault, Last, LastOrDefault, Max, LongCount, Min, SelectMany, SequenceEqual, Single, SingleOrDefault, Sum, ToArray, ToDictionary, ToList, ToLookup.
+
+Deferred execution
+AsEnumerable, Cast, Concat, DefaultIfEmpty, Distinct, Except, GroupBy, GroupJoin, Intersect, Join, OfType, OrderBy, OrderByDescending, Range, Repeat, Reverse, Select, SelectMany, Skip, SkipWhile, Take, TakeWhile, ThenBy, ThenByDescending, Union, Where.

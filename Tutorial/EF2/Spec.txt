@@ -1,0 +1,12 @@
+1. Tao solution dat ten la MyCountryApplication
+2. Tao project dang winform: MyCountryApplication
+3. Tao Database MyCountry: Co 2 bang city va dictrict
+4. Ve giao dien
+5. Ket noi co so du lieu: su dung CodeFirstFromExitingDatabase
+6. Impliment load tat ca du lieu len grid district
+7. Impliment load data combobox city
+8. Impliment search ( keyword + city)
+9. Impliment view detail ( show du lieu label duoi)
+10. Add new distict 
+11. Edit district
+12. Delete district
