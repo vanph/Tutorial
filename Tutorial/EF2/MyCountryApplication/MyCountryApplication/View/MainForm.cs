@@ -6,6 +6,7 @@ using System.Text;
 using System.IO;
 using CsvHelper;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MyCountryApplication.View
 {
@@ -226,7 +227,7 @@ namespace MyCountryApplication.View
             int totalRecord = _myCountryBusiness.GetDistrictInformations().Count;
             float maxPages = totalRecord / _numberShowRecords;
 
-            if (_indexPage <= Math.Round(maxPages,0))
+            if (_indexPage <= Math.Ceiling(maxPages))
             {
                 _indexPage = _indexPage + 1;
                 txtIndexPage.Text = Convert.ToString(_indexPage);
@@ -236,11 +237,32 @@ namespace MyCountryApplication.View
 
         private void TxtIndexPage_TextChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtIndexPage.Text))
+            int totalRecord = _myCountryBusiness.GetDistrictInformations().Count;
+            float maxPages = totalRecord / _numberShowRecords;
+            double max = Math.Ceiling(maxPages);
+            try
             {
-                _indexPage = Convert.ToInt16(txtIndexPage.Text);
-                SearchDistricts();
+                if (txtIndexPage.Text.All(char .IsDigit) && !String.IsNullOrEmpty(txtIndexPage.Text)) {
+
+                    _indexPage = Convert.ToInt32(txtIndexPage.Text);
+
+                    if (_indexPage < 1 || _indexPage > max + 1)
+                    {
+                        MessageBox.Show(StringMessages.ValidatePageNumber(0, max + 1));
+                    }
+
+                    if  (_indexPage > 0 && _indexPage <= max + 1)
+                    {
+
+                        SearchDistricts();
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void ExitMenu_Click(object sender, EventArgs e)

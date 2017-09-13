@@ -163,11 +163,11 @@
             this.grvColumnDistrictCode,
             this.grvColumnDistrictName,
             this.grvColumnCityName});
-            this.grvDistrict.Location = new System.Drawing.Point(8, 180);
+            this.grvDistrict.Location = new System.Drawing.Point(1, 185);
             this.grvDistrict.MultiSelect = false;
             this.grvDistrict.Name = "grvDistrict";
             this.grvDistrict.ReadOnly = true;
-            this.grvDistrict.Size = new System.Drawing.Size(870, 269);
+            this.grvDistrict.Size = new System.Drawing.Size(883, 254);
             this.grvDistrict.TabIndex = 2;
             this.grvDistrict.SelectionChanged += new System.EventHandler(this.GrvDistrict_SelectionChanged);
             // 
@@ -482,7 +482,7 @@
             // 
             this.loginMenu.Name = "loginMenu";
             this.loginMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.L)));
-            this.loginMenu.Size = new System.Drawing.Size(152, 22);
+            this.loginMenu.Size = new System.Drawing.Size(140, 22);
             this.loginMenu.Text = "Login";
             this.loginMenu.Click += new System.EventHandler(this.loginMenu_Click);
             // 
@@ -490,7 +490,7 @@
             // 
             this.exitMenu.Name = "exitMenu";
             this.exitMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitMenu.Size = new System.Drawing.Size(152, 22);
+            this.exitMenu.Size = new System.Drawing.Size(140, 22);
             this.exitMenu.Text = "Exit";
             this.exitMenu.Click += new System.EventHandler(this.ExitMenu_Click);
             // 
@@ -520,7 +520,7 @@
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.AboutToolStripMenuItem1_Click);
             // 
