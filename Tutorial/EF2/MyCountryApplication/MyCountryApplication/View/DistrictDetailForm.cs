@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using MyCountryApplication.Modal;
+using MyCountry.DataAccess.Model;
 
 namespace MyCountryApplication.View
 {

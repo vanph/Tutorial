@@ -1,7 +1,8 @@
-namespace MyCountryApplication.Modal
-{
-    using System.Data.Entity;
+using System.Data.Entity;
+using MyCountry.DataAccess.Model;
 
+namespace MyCountry.DataAccess.Persistence
+{
     public partial class MyCountryEntities : DbContext
     {
         public MyCountryEntities()

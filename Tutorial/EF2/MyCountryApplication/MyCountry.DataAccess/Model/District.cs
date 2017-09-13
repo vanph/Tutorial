@@ -1,8 +1,8 @@
-namespace MyCountryApplication.Modal
-{
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+namespace MyCountry.DataAccess.Model
+{
     [Table("District")]
     public partial class District
     {

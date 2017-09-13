@@ -123,10 +123,7 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modal\City.cs" />
-    <Compile Include="Modal\District.cs" />
     <Compile Include="ViewModel\DistrictInfomation.cs" />
-    <Compile Include="Modal\MyCountryEntities.cs" />
     <Compile Include="MyCountryBusiness.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,6 +162,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyCountry.DataAccess\MyCountry.DataAccess.csproj">
+      <Project>{84b82963-e3a6-4454-a244-fe6887a5e365}</Project>
+      <Name>MyCountry.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.0\build\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\NETStandard.Library.targets')" />

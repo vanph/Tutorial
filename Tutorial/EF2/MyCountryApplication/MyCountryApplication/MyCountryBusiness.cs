@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MyCountryApplication.Modal;
 using MyCountryApplication.ViewModel;
 using System.Data.Entity;
+using MyCountry.DataAccess.Model;
+using MyCountry.DataAccess.Persistence;
 using MyCountryApplication.Common;
 
 namespace MyCountryApplication

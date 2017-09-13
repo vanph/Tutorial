@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using MyCountryApplication.Modal;
 using MyCountryApplication.ViewModel;
 using System.IO;
 using CsvHelper;
 using System.Linq;
+using MyCountry.DataAccess.Model;
 using MyCountryApplication.Common;
 
 namespace MyCountryApplication.View
