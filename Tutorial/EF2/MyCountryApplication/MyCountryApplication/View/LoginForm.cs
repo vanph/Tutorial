@@ -23,21 +23,26 @@ namespace MyCountryApplication.View
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
-        { 
-            var login = new User();
+        {
+            using (var dbContent = new LoginEntities())
+            {
+                var checkUserId = dbContent.Users.Any(x => x.UserID == txtUser.Text);
+                var checkPassword = dbContent.Users.Any(x => x.Password == txtPassword.Text);
+
+                if (!checkUserId)
+                {
+                    MessageBox.Show(StringMessages.LoginWrongUserID);
+                }
+                if (!checkPassword)
+                {
+                    MessageBox.Show(StringMessages.LoginWrongPassword);
+                }
+                if (checkUserId && checkPassword)
+                {
+                    MessageBox.Show(StringMessages.LoginSuccess);
+                }
+            }
            
-            if (login.UserName != txtUser.Text)
-            {
-                MessageBox.Show(StringMessages.LoginWrongUserID);
-            }
-            if ( login.Password != txtPassword.Text)
-            {
-                MessageBox.Show(StringMessages.LoginWrongPassword);
-            }
-            if (login.UserName == txtUser.Text && login.Password == txtPassword.Text)
-            {
-                MessageBox.Show(StringMessages.LoginSuccess);
-            }
         }
     }
 }
