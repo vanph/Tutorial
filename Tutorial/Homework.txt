@@ -1,0 +1,23 @@
+Homework:
+- At first page => disable Prev
+- At last page => disable Next
+- If no data:
++ disable Edit, Delete 
++ Clear values in District detail informations
+
+Db:
+Create Users table
+- UserId
+- UserName
+- Password: text 
+- Email
+---
+---
+=> insert db manually into Users table
+=> Generate EF model
+- Code: Login
+=> Login successfully.
+
+MdiContainer.
+ChildForm 
+...
