@@ -24,6 +24,11 @@ namespace MyCountryApplication.View
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+            MatchUser();
+        }
+
+        private void MatchUser()
+        {
             using (var dbContent = new LoginEntities())
             {
                 var checkUserId = dbContent.Users.Any(x => x.UserID == txtUser.Text);
@@ -32,17 +37,25 @@ namespace MyCountryApplication.View
                 if (!checkUserId)
                 {
                     MessageBox.Show(StringMessages.LoginWrongUserID);
+                    return;
                 }
                 if (!checkPassword)
                 {
                     MessageBox.Show(StringMessages.LoginWrongPassword);
+                    return;
                 }
                 if (checkUserId && checkPassword)
                 {
                     MessageBox.Show(StringMessages.LoginSuccess);
                 }
             }
-           
         }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+        }
+
+      
     }
 }
