@@ -13,6 +13,7 @@
         public static string LoginTitle = "Login";
         public static string DistrictTitle= "District";
         public static string AboutTitle = "About";
+        public static string LoginSuccess = "Successfully Login.";
         public static string ValidatePageNumber(int min, double max) {
             return "The number of pages entered must be less than "+ max+ " and greater than "+ min;
         }
