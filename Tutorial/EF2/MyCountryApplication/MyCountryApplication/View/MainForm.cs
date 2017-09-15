@@ -345,5 +345,24 @@ namespace MyCountryApplication.View
                 }
             }
         }
+
+        private void cityToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var frm = new CitiesForm();
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    frm.Text = StringMessages.CitiesFormTilte;
+                }
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+
+            }
+        }
     }
 }

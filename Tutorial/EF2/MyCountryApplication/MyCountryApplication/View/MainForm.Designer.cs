@@ -234,7 +234,6 @@
             this.label6.Size = new System.Drawing.Size(16, 13);
             this.label6.TabIndex = 11;
             this.label6.Text = "of";
-            
             // 
             // txtIndexPage
             // 
@@ -533,6 +532,7 @@
             this.cityToolStripMenuItem1.Name = "cityToolStripMenuItem1";
             this.cityToolStripMenuItem1.Size = new System.Drawing.Size(40, 20);
             this.cityToolStripMenuItem1.Text = "City";
+            this.cityToolStripMenuItem1.Click += new System.EventHandler(this.cityToolStripMenuItem1_Click);
             // 
             // helpToolStripMenuItem1
             // 

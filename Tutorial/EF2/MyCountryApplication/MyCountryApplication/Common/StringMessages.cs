@@ -16,6 +16,7 @@
         public static string LoginSuccess = "Successfully Login.";
         public static string LoginWrongPassword = "Wrong Password.";
         public static string LoginWrongUserID= "Wrong UserID";
+        public static string CitiesFormTilte = " City";
         public static string ValidatePageNumber(int min, double max) {
             return "The number of pages entered must be less than "+ max+ " and greater than "+ min;
         }
