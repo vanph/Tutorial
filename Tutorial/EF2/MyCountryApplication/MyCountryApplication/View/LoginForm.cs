@@ -29,9 +29,9 @@ namespace MyCountryApplication.View
 
         private void MatchUser()
         {
-            using (var dbContent = new LoginEntities())
+            using (var dbContent = new MyCountryEntities())
             {
-                var checkUserId = dbContent.Users.Any(x => x.UserID == txtUser.Text);
+                var checkUserId = dbContent.Users.Any(x => x.UserName == txtUser.Text);
                 var checkPassword = dbContent.Users.Any(x => x.Password == txtPassword.Text);
 
                 if (!checkUserId)

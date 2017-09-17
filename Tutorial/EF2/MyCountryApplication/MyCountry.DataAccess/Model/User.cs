@@ -1,30 +1,36 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyCountry.DataAccess.Model
 {
     public partial class User
     {
-        [Key]
-        [Column(Order = 0)]
-        [StringLength(10)]
-        public string UserID { get; set; }
+        public Guid UserId { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(10)]
+        [Required]
+        [StringLength(50)]
         public string UserName { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
-        [StringLength(10)]
-        public string Password { get; set; }
-
-        [StringLength(24)]
+        [Required]
+        [StringLength(50)]
         public string Email { get; set; }
 
-        [Column(TypeName = "date")]
+        [Required]
+        [StringLength(50)]
+        public string Password { get; set; }
+
         public DateTime? DateOfBirth { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string CreatedBy { get; set; }
+
+        public DateTime ModifiedDate { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string ModifiedBy { get; set; }
     }
 }

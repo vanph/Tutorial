@@ -72,7 +72,6 @@
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.loginMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.districtToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cityToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -484,7 +483,6 @@
             // 
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem1,
-            this.districtToolStripMenuItem1,
             this.cityToolStripMenuItem1,
             this.helpToolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
@@ -517,15 +515,6 @@
             this.exitMenu.Size = new System.Drawing.Size(140, 22);
             this.exitMenu.Text = "Exit";
             this.exitMenu.Click += new System.EventHandler(this.ExitMenu_Click);
-            // 
-            // districtToolStripMenuItem1
-            // 
-            this.districtToolStripMenuItem1.Checked = true;
-            this.districtToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.districtToolStripMenuItem1.Name = "districtToolStripMenuItem1";
-            this.districtToolStripMenuItem1.Size = new System.Drawing.Size(56, 20);
-            this.districtToolStripMenuItem1.Text = "District";
-            this.districtToolStripMenuItem1.Click += new System.EventHandler(this.DistrictToolStripMenuItem1_Click);
             // 
             // cityToolStripMenuItem1
             // 
@@ -629,7 +618,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem loginMenu;
         private System.Windows.Forms.ToolStripMenuItem exitMenu;
-        private System.Windows.Forms.ToolStripMenuItem districtToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cityToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;

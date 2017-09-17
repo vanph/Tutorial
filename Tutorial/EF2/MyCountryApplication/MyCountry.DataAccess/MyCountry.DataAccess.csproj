@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Persistence\LoginEntities.cs" />
     <Compile Include="Model\City.cs" />
     <Compile Include="Model\District.cs" />
     <Compile Include="Persistence\MyCountryEntities.cs" />
