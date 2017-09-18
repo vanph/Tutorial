@@ -23,6 +23,8 @@ namespace MyCountryApplication.View
             lblDistrictName.Text = "";
             lblTotalPage.Text = "1";
             _myCountryBusiness = new MyCountryBusiness();
+
+           
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -30,6 +32,20 @@ namespace MyCountryApplication.View
             LoadCites();
             SearchDistricts();
             txtIndexPage.Text = Convert.ToString(_pageNumber);
+            pannelSearch.Visible = false;
+            panelExport.Visible = false;
+            grvDistrict.Visible = false;
+            panelTool.Visible = false;
+            panelInfo.Visible = false;
+
+            if (Constants.IsLoggedIn)
+            {
+                pannelSearch.Visible = true;
+                panelExport.Visible = true;
+                grvDistrict.Visible = true;
+                panelTool.Visible = true;
+                panelInfo.Visible = true;
+            }
         }
 
         public void LoadCites()
@@ -272,7 +288,7 @@ namespace MyCountryApplication.View
             Close();
         }
 
-        private void loginMenu_Click(object sender, EventArgs e)
+        private void LoginMenu_Click(object sender, EventArgs e)
         {
             try
             {
@@ -280,8 +296,12 @@ namespace MyCountryApplication.View
                 {
                     Text = StringMessages.LoginTitle
                 };
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    Constants.IsLoggedIn = true;
+                    Refresh();
+                };
 
-                frm.ShowDialog();
 
             }
             catch (Exception ex)
@@ -323,7 +343,7 @@ namespace MyCountryApplication.View
             }
         }
 
-        private void txtIndexPage_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtIndexPage_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != (char)8 && !char.IsNumber(e.KeyChar))
             {
@@ -346,7 +366,7 @@ namespace MyCountryApplication.View
             }
         }
 
-        private void cityToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void CityToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {

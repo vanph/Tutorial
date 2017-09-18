@@ -24,10 +24,13 @@ namespace MyCountryApplication.View
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            MatchUser();
+            if (IsMember())
+            {
+                this.DialogResult = DialogResult.OK;
+            }
         }
 
-        private void MatchUser()
+        private Boolean IsMember()
         {
             using (var dbContent = new MyCountryEntities())
             {
@@ -37,17 +40,19 @@ namespace MyCountryApplication.View
                 if (!checkUserId)
                 {
                     MessageBox.Show(StringMessages.LoginWrongUserID);
-                    return;
+                    return false;
                 }
                 if (!checkPassword)
                 {
                     MessageBox.Show(StringMessages.LoginWrongPassword);
-                    return;
+                    return false;
                 }
                 if (checkUserId && checkPassword)
                 {
+                    
                     MessageBox.Show(StringMessages.LoginSuccess);
                 }
+                return true;
             }
         }
 

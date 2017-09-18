@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.components = new System.ComponentModel.Container();
+            this.pannelSearch = new System.Windows.Forms.Panel();
             this.btnClearSearch = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cbbCitySearch = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,7 @@
             this.grvColumnDistrictCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvColumnDistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvColumnCityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panelTool = new System.Windows.Forms.Panel();
             this.lblTotalPage = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtIndexPage = new System.Windows.Forms.TextBox();
@@ -48,7 +49,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panelInfo = new System.Windows.Forms.Panel();
             this.lblDistrictName = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblCityName = new System.Windows.Forms.Label();
@@ -57,17 +58,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelExport = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.districtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblNoticeLogin = new System.Windows.Forms.Label();
+            this.cMSLogin = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.loginMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,30 +71,30 @@
             this.cityToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel2.SuspendLayout();
+            this.pannelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDistrict)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panelTool.SuspendLayout();
+            this.panelInfo.SuspendLayout();
+            this.panelExport.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.cMSLogin.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel2
+            // pannelSearch
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pannelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.btnClearSearch);
-            this.panel2.Controls.Add(this.btnSearch);
-            this.panel2.Controls.Add(this.cbbCitySearch);
-            this.panel2.Controls.Add(this.txtSearch);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(1, 76);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(884, 64);
-            this.panel2.TabIndex = 1;
+            this.pannelSearch.Controls.Add(this.btnClearSearch);
+            this.pannelSearch.Controls.Add(this.btnSearch);
+            this.pannelSearch.Controls.Add(this.cbbCitySearch);
+            this.pannelSearch.Controls.Add(this.txtSearch);
+            this.pannelSearch.Controls.Add(this.label3);
+            this.pannelSearch.Controls.Add(this.label2);
+            this.pannelSearch.Location = new System.Drawing.Point(1, 76);
+            this.pannelSearch.Name = "pannelSearch";
+            this.pannelSearch.Size = new System.Drawing.Size(884, 64);
+            this.pannelSearch.TabIndex = 1;
             // 
             // btnClearSearch
             // 
@@ -198,21 +194,21 @@
             this.grvColumnCityName.Name = "grvColumnCityName";
             this.grvColumnCityName.ReadOnly = true;
             // 
-            // panel4
+            // panelTool
             // 
-            this.panel4.Controls.Add(this.lblTotalPage);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.txtIndexPage);
-            this.panel4.Controls.Add(this.btnPrev);
-            this.panel4.Controls.Add(this.btnNext);
-            this.panel4.Controls.Add(this.btnDelete);
-            this.panel4.Controls.Add(this.btnEdit);
-            this.panel4.Controls.Add(this.btnAdd);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 442);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(884, 69);
-            this.panel4.TabIndex = 4;
+            this.panelTool.Controls.Add(this.lblTotalPage);
+            this.panelTool.Controls.Add(this.label6);
+            this.panelTool.Controls.Add(this.txtIndexPage);
+            this.panelTool.Controls.Add(this.btnPrev);
+            this.panelTool.Controls.Add(this.btnNext);
+            this.panelTool.Controls.Add(this.btnDelete);
+            this.panelTool.Controls.Add(this.btnEdit);
+            this.panelTool.Controls.Add(this.btnAdd);
+            this.panelTool.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelTool.Location = new System.Drawing.Point(0, 442);
+            this.panelTool.Name = "panelTool";
+            this.panelTool.Size = new System.Drawing.Size(884, 69);
+            this.panelTool.TabIndex = 4;
             // 
             // lblTotalPage
             // 
@@ -242,7 +238,7 @@
             this.txtIndexPage.Size = new System.Drawing.Size(45, 20);
             this.txtIndexPage.TabIndex = 10;
             this.txtIndexPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtIndexPage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIndexPage_KeyPress);
+            this.txtIndexPage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIndexPage_KeyPress);
             // 
             // btnPrev
             // 
@@ -296,19 +292,19 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
-            // panel5
+            // panelInfo
             // 
-            this.panel5.Controls.Add(this.lblDistrictName);
-            this.panel5.Controls.Add(this.label9);
-            this.panel5.Controls.Add(this.lblCityName);
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.lblDistrictCode);
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 511);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(884, 100);
-            this.panel5.TabIndex = 5;
+            this.panelInfo.Controls.Add(this.lblDistrictName);
+            this.panelInfo.Controls.Add(this.label9);
+            this.panelInfo.Controls.Add(this.lblCityName);
+            this.panelInfo.Controls.Add(this.label7);
+            this.panelInfo.Controls.Add(this.lblDistrictCode);
+            this.panelInfo.Controls.Add(this.label4);
+            this.panelInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelInfo.Location = new System.Drawing.Point(0, 511);
+            this.panelInfo.Name = "panelInfo";
+            this.panelInfo.Size = new System.Drawing.Size(884, 100);
+            this.panelInfo.TabIndex = 5;
             // 
             // lblDistrictName
             // 
@@ -384,16 +380,16 @@
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.BtnExport_Click);
             // 
-            // panel3
+            // panelExport
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelExport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.btnExport);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(1, 140);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(883, 43);
-            this.panel3.TabIndex = 8;
+            this.panelExport.Controls.Add(this.btnExport);
+            this.panelExport.Controls.Add(this.label5);
+            this.panelExport.Location = new System.Drawing.Point(1, 140);
+            this.panelExport.Name = "panelExport";
+            this.panelExport.Size = new System.Drawing.Size(883, 43);
+            this.panelExport.TabIndex = 8;
             // 
             // label1
             // 
@@ -408,7 +404,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.menuStrip1);
+            this.panel1.Controls.Add(this.lblNoticeLogin);
             this.panel1.Controls.Add(this.menuStrip2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -416,68 +412,29 @@
             this.panel1.Size = new System.Drawing.Size(884, 27);
             this.panel1.TabIndex = 0;
             // 
-            // menuStrip1
+            // lblNoticeLogin
             // 
-            this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.districtToolStripMenuItem,
-            this.cityToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(342, 22);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(185, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.lblNoticeLogin.AutoSize = true;
+            this.lblNoticeLogin.ContextMenuStrip = this.cMSLogin;
+            this.lblNoticeLogin.Location = new System.Drawing.Point(817, 6);
+            this.lblNoticeLogin.Name = "lblNoticeLogin";
+            this.lblNoticeLogin.Size = new System.Drawing.Size(35, 13);
+            this.lblNoticeLogin.TabIndex = 2;
+            this.lblNoticeLogin.Text = "label8";
+            this.lblNoticeLogin.Visible = false;
             // 
-            // fileToolStripMenuItem
+            // cMSLogin
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loginToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.cMSLogin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.signOutToolStripMenuItem});
+            this.cMSLogin.Name = "cMSLogin";
+            this.cMSLogin.Size = new System.Drawing.Size(119, 26);
             // 
-            // loginToolStripMenuItem
+            // signOutToolStripMenuItem
             // 
-            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
-            this.loginToolStripMenuItem.Text = "Login";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            // 
-            // districtToolStripMenuItem
-            // 
-            this.districtToolStripMenuItem.Name = "districtToolStripMenuItem";
-            this.districtToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.districtToolStripMenuItem.Text = "District";
-            // 
-            // cityToolStripMenuItem
-            // 
-            this.cityToolStripMenuItem.Name = "cityToolStripMenuItem";
-            this.cityToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.cityToolStripMenuItem.Text = "City";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.signOutToolStripMenuItem.Text = "Sign out";
             // 
             // menuStrip2
             // 
@@ -506,7 +463,7 @@
             this.loginMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.L)));
             this.loginMenu.Size = new System.Drawing.Size(140, 22);
             this.loginMenu.Text = "Login";
-            this.loginMenu.Click += new System.EventHandler(this.loginMenu_Click);
+            this.loginMenu.Click += new System.EventHandler(this.LoginMenu_Click);
             // 
             // exitMenu
             // 
@@ -521,7 +478,7 @@
             this.cityToolStripMenuItem1.Name = "cityToolStripMenuItem1";
             this.cityToolStripMenuItem1.Size = new System.Drawing.Size(40, 20);
             this.cityToolStripMenuItem1.Text = "City";
-            this.cityToolStripMenuItem1.Click += new System.EventHandler(this.cityToolStripMenuItem1_Click);
+            this.cityToolStripMenuItem1.Click += new System.EventHandler(this.CityToolStripMenuItem1_Click);
             // 
             // helpToolStripMenuItem1
             // 
@@ -544,31 +501,29 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 611);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelExport);
+            this.Controls.Add(this.panelTool);
+            this.Controls.Add(this.panelInfo);
+            this.Controls.Add(this.pannelSearch);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.grvDistrict);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Country Application";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pannelSearch.ResumeLayout(false);
+            this.pannelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDistrict)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelTool.ResumeLayout(false);
+            this.panelTool.PerformLayout();
+            this.panelInfo.ResumeLayout(false);
+            this.panelInfo.PerformLayout();
+            this.panelExport.ResumeLayout(false);
+            this.panelExport.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.cMSLogin.ResumeLayout(false);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
@@ -576,10 +531,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pannelSearch;
         private System.Windows.Forms.DataGridView grvDistrict;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panelTool;
+        private System.Windows.Forms.Panel panelInfo;
         private System.Windows.Forms.Button btnClearSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ComboBox cbbCitySearch;
@@ -603,17 +558,9 @@
         private System.Windows.Forms.TextBox txtIndexPage;
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelExport;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem districtToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem loginMenu;
@@ -623,6 +570,9 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.Label lblTotalPage;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblNoticeLogin;
+        private System.Windows.Forms.ContextMenuStrip cMSLogin;
+        private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
     }
 }
 
