@@ -20,6 +20,10 @@
         public static string ValidatePageNumber(int min, double max) {
             return "The number of pages entered must be less than "+ max+ " and greater than "+ min;
         }
+        public static string NameUser(string nameUser)
+        {
+            return "Welcome " + nameUser;
+        }
 
     }
 }

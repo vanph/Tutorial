@@ -414,9 +414,10 @@
             // 
             // lblNoticeLogin
             // 
+            this.lblNoticeLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNoticeLogin.AutoSize = true;
             this.lblNoticeLogin.ContextMenuStrip = this.cMSLogin;
-            this.lblNoticeLogin.Location = new System.Drawing.Point(817, 6);
+            this.lblNoticeLogin.Location = new System.Drawing.Point(783, 9);
             this.lblNoticeLogin.Name = "lblNoticeLogin";
             this.lblNoticeLogin.Size = new System.Drawing.Size(35, 13);
             this.lblNoticeLogin.TabIndex = 2;

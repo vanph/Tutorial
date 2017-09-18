@@ -38,14 +38,7 @@ namespace MyCountryApplication.View
             panelTool.Visible = false;
             panelInfo.Visible = false;
 
-            if (Constants.IsLoggedIn)
-            {
-                pannelSearch.Visible = true;
-                panelExport.Visible = true;
-                grvDistrict.Visible = true;
-                panelTool.Visible = true;
-                panelInfo.Visible = true;
-            }
+            
         }
 
         public void LoadCites()
@@ -299,7 +292,16 @@ namespace MyCountryApplication.View
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     Constants.IsLoggedIn = true;
-                    Refresh();
+                    if (Constants.IsLoggedIn)
+                    {
+                        lblNoticeLogin.Text = StringMessages.NameUser("luong tran");
+                        lblNoticeLogin.Visible = true;
+                        pannelSearch.Visible = true;
+                        panelExport.Visible = true;
+                        grvDistrict.Visible = true;
+                        panelTool.Visible = true;
+                        panelInfo.Visible = true;
+                    }
                 };
 
 
