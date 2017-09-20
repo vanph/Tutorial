@@ -15,10 +15,22 @@ namespace MyCountryApplication
         public List<DistrictViewModel> GetDistrictInformations(out int totalCount, string keyword = "", string cityCode = "", int pageNumber = 1, int pageSize = Constants.PageSize)
         {
             var dbContext = new MyCountryEntities();
-            var query = from d in dbContext.Districts
-                        join c in dbContext.Cities
-                        on d.CityCode equals c.CityCode
-                        select new DistrictViewModel { DistrictCode = d.DistrictCode, DistrictName = d.Name, CityName = c.Name, CityCode = c.CityCode };
+
+            //Version 1: query with join
+            //var query = from d in dbContext.Districts
+            //            join c in dbContext.Cities
+            //            on d.CityCode equals c.CityCode
+            //            select new DistrictViewModel { DistrictCode = d.DistrictCode, DistrictName = d.Name, CityName = c.Name, CityCode = c.CityCode };
+
+            //Version 2: 
+            var query = dbContext.Districts.Select(x => new DistrictViewModel
+            {
+                DistrictCode = x.DistrictCode,
+                DistrictName = x.Name,
+                CityName = x.City.Name,
+                CityCode = x.City.CityCode
+            });
+
 
             if (!string.IsNullOrEmpty(keyword))
             {
@@ -34,19 +46,21 @@ namespace MyCountryApplication
 
             if (pageNumber != 0)
             {
-               query = query.OrderBy(x => x.DistrictCode).Skip((pageNumber - 1) * pageSize).Take(pageSize);
+                query = query.OrderBy(x => x.DistrictCode).Skip((pageNumber - 1) * pageSize).Take(pageSize);
             }
-            
+
 
             return query.ToList();
         }
 
-      
+
 
         public List<City> GetCities()
         {
             var dbContext = new MyCountryEntities();
-            return dbContext.Cities.ToList();
+            var cities= dbContext.Cities.ToList();
+            
+            return cities;
         }
 
         public void AddDistrict(District district)
