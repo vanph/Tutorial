@@ -71,6 +71,7 @@
             this.cityToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.pannelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDistrict)).BeginInit();
             this.panelTool.SuspendLayout();
@@ -384,6 +385,7 @@
             // 
             this.panelExport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelExport.Controls.Add(this.button1);
             this.panelExport.Controls.Add(this.btnExport);
             this.panelExport.Controls.Add(this.label5);
             this.panelExport.Location = new System.Drawing.Point(1, 140);
@@ -429,7 +431,7 @@
             this.cMSLogin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.signOutToolStripMenuItem});
             this.cMSLogin.Name = "cMSLogin";
-            this.cMSLogin.Size = new System.Drawing.Size(153, 48);
+            this.cMSLogin.Size = new System.Drawing.Size(119, 26);
             // 
             // signOutToolStripMenuItem
             // 
@@ -496,6 +498,16 @@
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.AboutToolStripMenuItem1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(641, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -575,6 +587,7 @@
         private System.Windows.Forms.Label lblNoticeLogin;
         private System.Windows.Forms.ContextMenuStrip cMSLogin;
         private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 

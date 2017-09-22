@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using MyCountryApplication.ViewModel;
 using System.IO;
 using System.Linq;
+using System.Text;
 using CsvHelper;
 using MyCountry.DataAccess.Model;
 using MyCountryApplication.Common;
@@ -221,7 +222,7 @@ namespace MyCountryApplication.View
                             var keyword = txtSearch.Text;
                             var cityChoose = cbbCitySearch.SelectedItem as City;
                             var cityCode = cityChoose != null ? cityChoose.CityCode : string.Empty;
-                            var totalCount = 0;
+                            int totalCount;
 
                             //no pagination when exporting
                             var districts = _myCountryBusiness.GetDistrictInformations(out totalCount, keyword, cityCode, 1, int.MaxValue);
@@ -394,6 +395,46 @@ namespace MyCountryApplication.View
         {
             HideContent(false);
             loginMenu.Enabled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+
+            {
+                using (SaveFileDialog fSave = new SaveFileDialog() { Filter = @"CSV|*.csv", ValidateNames = true })
+                {
+
+                    if (fSave.ShowDialog() == DialogResult.OK)
+                    {
+                        var keyword = txtSearch.Text;
+                        var cityChoose = cbbCitySearch.SelectedItem as City;
+                        var cityCode = cityChoose != null ? cityChoose.CityCode : string.Empty;
+                        var totalCount = 0;
+
+                        //no pagination when exporting
+                        var districts = _myCountryBusiness.GetDistrictInformations(out totalCount, keyword, cityCode, 1, int.MaxValue);
+
+                        var str = new StringBuilder();
+
+                        str.AppendLine($"District Code,District Name,City Name");
+                        foreach (var districtInfo in districts)
+                        {
+                            str.AppendLine($"{districtInfo.DistrictCode},{districtInfo.DistrictName}, {districtInfo.CityName}");
+                        }
+
+                        File.WriteAllText(fSave.FileName, str.ToString());
+
+                        MessageBox.Show(StringMessages.ExportSuccess);
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

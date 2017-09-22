@@ -14,43 +14,46 @@ namespace MyCountryApplication
     {
         public List<DistrictViewModel> GetDistrictInformations(out int totalCount, string keyword = "", string cityCode = "", int pageNumber = 1, int pageSize = Constants.PageSize)
         {
-            var dbContext = new MyCountryEntities();
-
-            //Version 1: query with join
-            //var query = from d in dbContext.Districts
-            //            join c in dbContext.Cities
-            //            on d.CityCode equals c.CityCode
-            //            select new DistrictViewModel { DistrictCode = d.DistrictCode, DistrictName = d.Name, CityName = c.Name, CityCode = c.CityCode };
-
-            //Version 2: 
-            var query = dbContext.Districts.Select(x => new DistrictViewModel
+            using (var dbContext = new MyCountryEntities())
             {
-                DistrictCode = x.DistrictCode,
-                DistrictName = x.Name,
-                CityName = x.City.Name,
-                CityCode = x.City.CityCode
-            });
+                //Version 1: query with join
+                //var query = from d in dbContext.Districts
+                //            join c in dbContext.Cities
+                //            on d.CityCode equals c.CityCode
+                //            select new DistrictViewModel { DistrictCode = d.DistrictCode, DistrictName = d.Name, CityName = c.Name, CityCode = c.CityCode };
+
+                //Version 2: 
+                var query = dbContext.Districts.Select(x => new DistrictViewModel
+                {
+                    DistrictCode = x.DistrictCode,
+                    DistrictName = x.Name,
+                    CityName = x.City.Name,
+                    CityCode = x.City.CityCode
+                });
 
 
-            if (!string.IsNullOrEmpty(keyword))
-            {
-                query = query.Where(x => x.DistrictCode.Contains(keyword) || x.DistrictName.Contains(keyword));
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    query = query.Where(x => x.DistrictCode.Contains(keyword) || x.DistrictName.Contains(keyword));
+                }
+
+                if (!string.IsNullOrEmpty(cityCode))
+                {
+                    query = query.Where(x => x.CityCode == cityCode);
+                }
+
+                totalCount = query.Count();
+
+                if (pageNumber != 0)
+                {
+                    query = query.OrderBy(x => x.DistrictCode).Skip((pageNumber - 1) * pageSize).Take(pageSize);
+                }
+
+
+                return query.ToList();
+
             }
-
-            if (!string.IsNullOrEmpty(cityCode))
-            {
-                query = query.Where(x => x.CityCode == cityCode);
-            }
-
-            totalCount = query.Count();
-
-            if (pageNumber != 0)
-            {
-                query = query.OrderBy(x => x.DistrictCode).Skip((pageNumber - 1) * pageSize).Take(pageSize);
-            }
-
-
-            return query.ToList();
+            
         }
 
         public List<CityInfomation> GetCityInfomations()
@@ -95,72 +98,87 @@ namespace MyCountryApplication
 
         public List<City> GetCities()
         {
-            var dbContext = new MyCountryEntities();
-            var cities= dbContext.Cities.ToList();
-            
-            return cities;
+            using (var dbContext = new MyCountryEntities())
+            {
+                var cities = dbContext.Cities.ToList();
+
+                return cities;
+
+            }
         }
 
         public void AddDistrict(District districtParam)
         {
-            var dbContext = new MyCountryEntities();
-
-            var isExisted = dbContext.Districts.Any(x => x.DistrictCode == districtParam.DistrictCode);
-
-            if (isExisted)
+            using (var dbContext = new MyCountryEntities())
             {
-                throw new Exception($"District code {districtParam.DistrictCode} exists.");
+                var isExisted = dbContext.Districts.Any(x => x.DistrictCode == districtParam.DistrictCode);
+
+                if (isExisted)
+                {
+                    throw new Exception($"District code {districtParam.DistrictCode} exists.");
+                }
+
+                var district = new District
+                {
+                    DistrictCode = districtParam.DistrictCode,
+                    Name = districtParam.Name,
+                    Type = districtParam.Type,
+                    CityCode = districtParam.CityCode,
+                    CreatedBy = Constants.UserName,
+                    CreatedDate = DateTime.Now,
+                    ModifiedBy = Constants.UserName,
+                    ModifiedDate = DateTime.Now
+                };
+
+                dbContext.Districts.Add(district);
+
+                dbContext.SaveChanges();
             }
-
-            var district = new District
-            {
-                DistrictCode = districtParam.DistrictCode,
-                Name = districtParam.Name,
-                Type = districtParam.Type,
-                CityCode = districtParam.CityCode,
-                CreatedBy = Constants.UserName,
-                CreatedDate = DateTime.Now,
-                ModifiedBy = Constants.UserName,
-                ModifiedDate = DateTime.Now
-            };
             
-            dbContext.Districts.Add(district);
-
-            dbContext.SaveChanges();
         }
-
-       
+        
 
         public District GetDistrictByCode(string code)
         {
-            var dbContext = new MyCountryEntities();
-            return dbContext.Districts.FirstOrDefault(x => x.DistrictCode == code);
+            using (var dbContext = new MyCountryEntities())
+            {
+                return InnerGetDistrictByCode(dbContext, code);
+            }
         }
 
         public void EditDistrict(District districtParam)
         {
-            var dbContext = new MyCountryEntities();
-            var existingDistrict = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == districtParam.DistrictCode);
-            if (existingDistrict != null)
+            using (var dbContext = new MyCountryEntities())
             {
-                existingDistrict.ModifiedBy = Constants.UserName;
-                existingDistrict.ModifiedDate = DateTime.Now;
-                existingDistrict.Name = districtParam.Name;
-                existingDistrict.Type = districtParam.Type;
+                var existingDistrict = InnerGetDistrictByCode(dbContext, districtParam.DistrictCode);
+                if (existingDistrict != null)
+                {
+                    existingDistrict.ModifiedBy = Constants.UserName;
+                    existingDistrict.ModifiedDate = DateTime.Now;
+                    existingDistrict.Name = districtParam.Name;
+                    existingDistrict.Type = districtParam.Type;
 
-                dbContext.SaveChanges();
-            }
-            else
-            {
-                throw new Exception("Cannot found district");
+                    dbContext.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Cannot found district");
+                }
             }
 
         }
 
+        private District InnerGetDistrictByCode( MyCountryEntities dbContext, string districtCode)
+        {
+            return dbContext.Districts.FirstOrDefault(x => x.DistrictCode == districtCode);
+        }
+
         public City GetCityByCode(string code)
         {
-            var dbContext = new MyCountryEntities();
-            return dbContext.Cities.FirstOrDefault(x => x.CityCode == code);
+            using (var dbContext = new MyCountryEntities())
+            {
+                return dbContext.Cities.FirstOrDefault(x => x.CityCode == code);
+            }
         }
 
         //public void DeleteDistrict(District district)
@@ -180,17 +198,20 @@ namespace MyCountryApplication
 
         public void DeleteDistrict(string districtCode)
         {
-            var dbContext = new MyCountryEntities();
-            var existingDistrict = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == districtCode);
-            if (existingDistrict != null)
+            using (var dbContext = new MyCountryEntities())
             {
-                dbContext.Districts.Remove(existingDistrict);
-                dbContext.SaveChanges();
+                var existingDistrict = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == districtCode);
+                if (existingDistrict != null)
+                {
+                    dbContext.Districts.Remove(existingDistrict);
+                    dbContext.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Cannot found dictrict");
+                }
             }
-            else
-            {
-                throw new Exception("Cannot found dictrict");
-            }
+            
         }
     }
 }
