@@ -101,22 +101,35 @@ namespace MyCountryApplication
             return cities;
         }
 
-        public void AddDistrict(District district)
+        public void AddDistrict(District districtParam)
         {
             var dbContext = new MyCountryEntities();
 
-            var isExisted = dbContext.Districts.Any(x => x.DistrictCode == district.DistrictCode);
+            var isExisted = dbContext.Districts.Any(x => x.DistrictCode == districtParam.DistrictCode);
 
             if (isExisted)
             {
-                throw new Exception($"District code {district.DistrictCode} exists.");
+                throw new Exception($"District code {districtParam.DistrictCode} exists.");
             }
 
+            var district = new District
+            {
+                DistrictCode = districtParam.DistrictCode,
+                Name = districtParam.Name,
+                Type = districtParam.Type,
+                CityCode = districtParam.CityCode,
+                CreatedBy = Constants.UserName,
+                CreatedDate = DateTime.Now,
+                ModifiedBy = Constants.UserName,
+                ModifiedDate = DateTime.Now
+            };
+            
             dbContext.Districts.Add(district);
 
             dbContext.SaveChanges();
         }
 
+       
 
         public District GetDistrictByCode(string code)
         {
@@ -124,14 +137,17 @@ namespace MyCountryApplication
             return dbContext.Districts.FirstOrDefault(x => x.DistrictCode == code);
         }
 
-        public void EditDistrict(District district)
+        public void EditDistrict(District districtParam)
         {
             var dbContext = new MyCountryEntities();
-            var existingDistrict = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == district.DistrictCode);
+            var existingDistrict = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == districtParam.DistrictCode);
             if (existingDistrict != null)
             {
-                existingDistrict.Name = district.Name;
-                existingDistrict.Type = district.Type;
+                existingDistrict.ModifiedBy = Constants.UserName;
+                existingDistrict.ModifiedDate = DateTime.Now;
+                existingDistrict.Name = districtParam.Name;
+                existingDistrict.Type = districtParam.Type;
+
                 dbContext.SaveChanges();
             }
             else

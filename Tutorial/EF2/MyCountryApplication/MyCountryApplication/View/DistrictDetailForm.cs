@@ -37,8 +37,7 @@ namespace MyCountryApplication.View
             var cityName = city != null ? city.Name : string.Empty;
 
             cbbCity.SelectedIndex = cbbCity.FindString(cityName);
-            district.ModifiedBy = Constants.UserName;
-            district.ModifiedDate = DateTime.Now;
+           
         }
 
 
@@ -102,15 +101,11 @@ namespace MyCountryApplication.View
                 
                 if (_adding)
                 {
-                    district.CreatedBy = Constants.UserName;
-                    district.CreatedDate = DateTime.Now;
-                    district.ModifiedBy = Constants.UserName;
-                    district.ModifiedDate = DateTime.Now;
+                    
                     _myCountryBusiness.AddDistrict(district);
                 }
                 else
                 {
-                    
                     _myCountryBusiness.EditDistrict(district);
                 }
 
