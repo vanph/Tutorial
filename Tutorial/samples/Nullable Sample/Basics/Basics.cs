@@ -1,5 +1,7 @@
 ﻿
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Basics
 {
@@ -29,8 +31,45 @@ namespace Basics
 
         static void Main()
         {
-            DisplayValue(1);
-            DisplayValue(null);
+            //DisplayValue(1);
+            //DisplayValue(null);
+
+            //var lst = new List<int?>{1,2,3};
+
+            //var testNumber = lst.FirstOrDefault(x => x == 1000);
+
+            //Console.WriteLine($"Test number is {testNumber}");
+
+            //if (!testNumber.HasValue)
+            //{
+            //    Console.WriteLine($"Test number is NULL");
+            //}
+
+            //Console.WriteLine($"Default of int:{default(int)}");
+
+            var user1 = new User
+            {
+                UserName = "luong",
+                DateOfBirth = new DateTime(1996, 10, 5),
+                CreatedDate = DateTime.Now.AddDays(-1)
+            };
+
+            var user2 = new User
+            {
+                UserName = "van",
+                CreatedDate = DateTime.Now
+            };
+
+            var user3 = new User
+            {
+                UserName = "luong.tran"
+            };
+
+            user1.ShowInfo();
+            user2.ShowInfo();
+            user3.ShowInfo();
+
+            Console.ReadLine();
         }
     }
 }
