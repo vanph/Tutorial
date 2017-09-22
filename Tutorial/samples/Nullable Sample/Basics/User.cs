@@ -10,7 +10,6 @@ namespace Basics
        
         public string UserName { get; set; }
         
-
         public DateTime? DateOfBirth { get; set; }
 
         public DateTime CreatedDate { get; set; }
