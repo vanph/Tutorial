@@ -25,7 +25,7 @@ namespace MyCountryApplication.View
             lblTotalPage.Text = "1";
             _myCountryBusiness = new MyCountryBusiness();
 
-           
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -33,13 +33,8 @@ namespace MyCountryApplication.View
             LoadCites();
             SearchDistricts();
             txtIndexPage.Text = Convert.ToString(_pageNumber);
-            pannelSearch.Visible = false;
-            panelExport.Visible = false;
-            grvDistrict.Visible = false;
-            panelTool.Visible = false;
-            panelInfo.Visible = false;
-
-            
+            HideContent(false);
+            loginMenu.Enabled = true;
         }
 
         public void LoadCites()
@@ -137,6 +132,7 @@ namespace MyCountryApplication.View
                     MessageBox.Show(StringMessages.EditDistrictSuccess, StringMessages.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     SearchDistricts();
                 }
+                
 
             }
             catch (Exception ex)
@@ -162,6 +158,7 @@ namespace MyCountryApplication.View
                     {
                         MessageBox.Show(StringMessages.EditDistrictSuccess, StringMessages.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                    SearchDistricts();
                 }
                 else
                 {
@@ -290,27 +287,32 @@ namespace MyCountryApplication.View
                 {
                     Text = StringMessages.LoginTitle
                 };
-                if (frm.ShowDialog() == DialogResult.OK)
+                frm.ShowDialog();
+                
+                if (Constants.IsLoggedIn)
                 {
-                    Constants.IsLoggedIn = true;
-                    if (Constants.IsLoggedIn)
-                    {
-                        lblNoticeLogin.Text = StringMessages.NameUser("luong tran");
-                        lblNoticeLogin.Visible = true;
-                        pannelSearch.Visible = true;
-                        panelExport.Visible = true;
-                        grvDistrict.Visible = true;
-                        panelTool.Visible = true;
-                        panelInfo.Visible = true;
-                    }
+                    
+                    HideContent(true);
+                    loginMenu.Enabled = false;
                 };
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void HideContent(Boolean status)
+        {
+            lblNoticeLogin.Text = StringMessages.NameUser(Constants.UserName);
+            lblNoticeLogin.Visible = status;
+            pannelSearch.Visible = status;
+            panelExport.Visible = status;
+            grvDistrict.Visible = status;
+            panelTool.Visible = status;
+            panelInfo.Visible = status;
+            cityToolStripMenuItem1.Enabled = status;
+            
         }
 
         private void DistrictToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -360,7 +362,7 @@ namespace MyCountryApplication.View
 
                 if (_pageNumber < 1 || _pageNumber > _totalPage)
                 {
-                    MessageBox.Show(StringMessages.ValidatePageNumber(1,_totalPage));
+                    MessageBox.Show(StringMessages.ValidatePageNumber(1, _totalPage));
                 }
                 else
                 {
@@ -386,6 +388,12 @@ namespace MyCountryApplication.View
                 MessageBox.Show(exception.Message);
 
             }
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HideContent(false);
+            loginMenu.Enabled = true;
         }
     }
 }

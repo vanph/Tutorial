@@ -53,6 +53,44 @@ namespace MyCountryApplication
             return query.ToList();
         }
 
+        public List<CityInfomation> GetCityInfomations()
+        {
+            //Todo: use lazy loading
+            using (var dbContext = new MyCountryEntities())
+            {
+                var cityInfomations = dbContext.Districts.GroupBy(d => new {d.CityCode, d.City.Name}).Select(
+                    c => new CityInfomation()
+                    {
+                        CityCode = c.Key.CityCode,
+                        CityName = c.Key.CityCode,
+                        DistrictNames = c.Select(x => x.Name).ToList()
+
+                    }).ToList();
+
+                return cityInfomations;
+            }
+
+            //var query = from d in dbContext.Districts
+            //    join c in dbContext.Cities on d.CityCode equals c.CityCode
+            //    select new {CityCode = c.CityCode, CityName = c.Name, DistrictName = d.Name};
+
+            //var cityInfomations = (from q in query
+            //                          group q by new { q.CityCode, q.CityName }
+            //                          into g
+            //                          select new CityInfomation
+            //                          {
+            //                              CityCode = g.Key.CityCode,
+            //                              CityName = g.Key.CityName,
+            //                              DistrictNames = g.Select(x => x.DistrictName).ToList()
+            //                          }).ToList();
+
+            //var cityInfomations = query.GroupBy(q => new { q.CityCode, q.CityName }).Select(g => new CityInfomation
+            //{
+            //    CityCode = g.Key.CityCode,
+            //    CityName = g.Key.CityName,
+            //    DistrictNames = g.Select(x => x.DistrictName).ToList()
+            //}).ToList();
+        }
 
 
         public List<City> GetCities()

@@ -24,20 +24,27 @@ namespace MyCountryApplication.View
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            if (IsMember())
+            string userName;
+            if (IsMember(out userName))
             {
-                this.DialogResult = DialogResult.OK;
+                Constants.IsLoggedIn = true;
+                Constants.UserName = userName;
+                Close();
             }
         }
 
-        private Boolean IsMember()
+       
+
+        private Boolean IsMember(out string userName)
         {
+            bool checkUserName;
             using (var dbContent = new MyCountryEntities())
             {
-                var checkUserId = dbContent.Users.Any(x => x.UserName == txtUser.Text);
+                userName = "";
+                checkUserName = dbContent.Users.Any(x => x.UserName == txtUser.Text);
                 var checkPassword = dbContent.Users.Any(x => x.Password == txtPassword.Text);
 
-                if (!checkUserId)
+                if (!checkUserName)
                 {
                     MessageBox.Show(StringMessages.LoginWrongUserID);
                     return false;
@@ -47,11 +54,8 @@ namespace MyCountryApplication.View
                     MessageBox.Show(StringMessages.LoginWrongPassword);
                     return false;
                 }
-                if (checkUserId && checkPassword)
-                {
-                    
-                    MessageBox.Show(StringMessages.LoginSuccess);
-                }
+
+                userName = txtUser.Text;
                 return true;
             }
         }

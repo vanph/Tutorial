@@ -6,6 +6,6 @@ namespace MyCountryApplication.Common
     {
         public const int PageSize = 10;
         public static Boolean IsLoggedIn = false;
-
+        public static  string UserName;
     }
 }

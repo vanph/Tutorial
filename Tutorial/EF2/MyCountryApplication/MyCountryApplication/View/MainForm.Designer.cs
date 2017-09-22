@@ -429,13 +429,14 @@
             this.cMSLogin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.signOutToolStripMenuItem});
             this.cMSLogin.Name = "cMSLogin";
-            this.cMSLogin.Size = new System.Drawing.Size(119, 26);
+            this.cMSLogin.Size = new System.Drawing.Size(153, 48);
             // 
             // signOutToolStripMenuItem
             // 
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.signOutToolStripMenuItem.Text = "Sign out";
+            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
             // menuStrip2
             // 
