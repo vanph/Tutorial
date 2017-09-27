@@ -8,7 +8,8 @@ namespace MyCountryApplication.View
 {
     public partial class DistrictDetailForm : Form
     {
-        private readonly MyCountryBusiness _myCountryBusiness;
+        private readonly IDistrictBusiness _districtBusiness;
+        private readonly ICityBusiness _cityBusiness;
 
         private readonly bool _adding;
         private readonly District _dictrictEdit;
@@ -16,13 +17,15 @@ namespace MyCountryApplication.View
         {
             InitializeComponent();
             _adding = true;
-            _myCountryBusiness = new MyCountryBusiness();
+            _districtBusiness = new DistrictBusiness();
+            _cityBusiness = new CityBusiness();
         }
 
         public DistrictDetailForm(District district)
         {
             InitializeComponent();
-            _myCountryBusiness = new MyCountryBusiness();
+            _districtBusiness = new DistrictBusiness();
+            _cityBusiness = new CityBusiness();
             _adding = false;
             _dictrictEdit = district;
 
@@ -33,7 +36,7 @@ namespace MyCountryApplication.View
             txtDistrictName.Text = district.Name;
             txtDistrictType.Text = district.Type;
 
-            var city = _myCountryBusiness.GetCityByCode(district.CityCode);
+            var city = _cityBusiness.GetCityByCode(district.CityCode);
             var cityName = city != null ? city.Name : string.Empty;
 
             cbbCity.SelectedIndex = cbbCity.FindString(cityName);
@@ -102,11 +105,11 @@ namespace MyCountryApplication.View
                 if (_adding)
                 {
                     
-                    _myCountryBusiness.AddDistrict(district);
+                    _districtBusiness.AddDistrict(district);
                 }
                 else
                 {
-                    _myCountryBusiness.EditDistrict(district);
+                    _districtBusiness.EditDistrict(district);
                 }
 
                 DialogResult = DialogResult.OK;
@@ -124,7 +127,7 @@ namespace MyCountryApplication.View
 
         private void DistrictDetailForm_Load(object sender, EventArgs e)
         {
-            cbbCity.DataSource = _myCountryBusiness.GetCities();
+            cbbCity.DataSource = _cityBusiness.GetCities();
             cbbCity.DisplayMember = nameof(City.Name);
             if (!_adding)
             {

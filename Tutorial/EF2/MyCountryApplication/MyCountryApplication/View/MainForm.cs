@@ -12,7 +12,8 @@ namespace MyCountryApplication.View
 {
     public partial class MainForm : Form
     {
-        private readonly MyCountryBusiness _myCountryBusiness;
+        private readonly IDistrictBusiness _districtBusiness;
+        private readonly ICityBusiness _cityBusiness;
         private int _pageNumber = 1;
         private int _totalPage;
         public MainForm()
@@ -24,8 +25,8 @@ namespace MyCountryApplication.View
             lblDistrictCode.Text = "";
             lblDistrictName.Text = "";
             lblTotalPage.Text = "1";
-            _myCountryBusiness = new MyCountryBusiness();
-
+            _districtBusiness = new DistrictBusiness();
+            _cityBusiness = new CityBusiness();
 
         }
 
@@ -40,7 +41,7 @@ namespace MyCountryApplication.View
 
         public void LoadCites()
         {
-            cbbCitySearch.DataSource = _myCountryBusiness.GetCities();
+            cbbCitySearch.DataSource = _cityBusiness.GetCities();
             cbbCitySearch.DisplayMember = nameof(City.Name);
             cbbCitySearch.SelectedIndex = -1;
         }
@@ -65,7 +66,7 @@ namespace MyCountryApplication.View
             var cityCode = cityChoose != null ? cityChoose.CityCode : string.Empty;
 
             int _totalCount;
-            grvDistrict.DataSource = _myCountryBusiness.GetDistrictInformations(out _totalCount, keyword, cityCode, _pageNumber, Constants.PageSize);
+            grvDistrict.DataSource = _districtBusiness.GetDistrictInformations(out _totalCount, keyword, cityCode, _pageNumber, Constants.PageSize);
             _totalPage = (_totalCount % Constants.PageSize == 0) ? _totalCount / Constants.PageSize : _totalCount / Constants.PageSize + 1;
             txtIndexPage.Text = _pageNumber.ToString();
             lblTotalPage.Text = _totalPage.ToString();
@@ -152,7 +153,7 @@ namespace MyCountryApplication.View
 
                     if (selectedDistrictInfo == null) return;
 
-                    var districtEdit = _myCountryBusiness.GetDistrictByCode(selectedDistrictInfo.DistrictCode);
+                    var districtEdit = _districtBusiness.GetDistrictByCode(selectedDistrictInfo.DistrictCode);
                     var frm = new DistrictDetailForm(districtEdit) { Text = StringMessages.EditDistrictTitle };
 
                     if (frm.ShowDialog() == DialogResult.OK)
@@ -184,8 +185,8 @@ namespace MyCountryApplication.View
 
                         if (selectedDistrict == null) return;
 
-                        //_myCountryBusiness.DeleteDistrict(_myCountryBusiness.GetDistrictByCode(selectedDistrict.DistrictCode));
-                        _myCountryBusiness.DeleteDistrict(selectedDistrict.DistrictCode);
+                        //_districtBusiness.DeleteDistrict(_districtBusiness.GetDistrictByCode(selectedDistrict.DistrictCode));
+                        _districtBusiness.DeleteDistrict(selectedDistrict.DistrictCode);
                         MessageBox.Show(StringMessages.DeleteDistrictSuccess, StringMessages.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         SearchDistricts();
                     }
@@ -225,7 +226,7 @@ namespace MyCountryApplication.View
                             int totalCount;
 
                             //no pagination when exporting
-                            var districts = _myCountryBusiness.GetDistrictInformations(out totalCount, keyword, cityCode, 1, int.MaxValue);
+                            var districts = _districtBusiness.GetDistrictInformations(out totalCount, keyword, cityCode, 1, int.MaxValue);
 
                             foreach (var dict in districts)
                             {
@@ -413,7 +414,7 @@ namespace MyCountryApplication.View
                         var totalCount = 0;
 
                         //no pagination when exporting
-                        var districts = _myCountryBusiness.GetDistrictInformations(out totalCount, keyword, cityCode, 1, int.MaxValue);
+                        var districts = _districtBusiness.GetDistrictInformations(out totalCount, keyword, cityCode, 1, int.MaxValue);
 
                         var str = new StringBuilder();
 
