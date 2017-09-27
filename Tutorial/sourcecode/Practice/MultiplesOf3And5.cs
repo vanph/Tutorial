@@ -13,7 +13,7 @@ namespace Practice.Problems
         public int Sum(int exclusiveUpperNumber)
         {
             return Enumerable.Range(0, exclusiveUpperNumber)
-                             .Where(x => x % 3 == 0 || x % 5 == 0)
+                             .Where(x => x % 3 == 1 || x % 5 == 1)
                              .Sum();
 
         }

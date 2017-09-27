@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MyCountryApplication.ViewModel;
-using System.Data.Entity;
 using MyCountry.DataAccess;
 using MyCountry.DataAccess.Model;
 using MyCountry.DataAccess.Persistence;
 using MyCountryApplication.Common;
+using MyCountryApplication.ViewModel;
 
 namespace MyCountryApplication
 {
-    public class MyCountryBusiness
+    public class DistrictBusiness : IDistrictBusiness
     {
         public List<DistrictViewModel> GetDistrictInformations(out int totalCount, string keyword = "", string cityCode = "", int pageNumber = 1, int pageSize = Constants.PageSize)
         {
@@ -94,8 +93,7 @@ namespace MyCountryApplication
             //    DistrictNames = g.Select(x => x.DistrictName).ToList()
             //}).ToList();
         }
-
-
+        
         public List<City> GetCities()
         {
             using (var dbContext = new MyCountryEntities())
@@ -198,6 +196,7 @@ namespace MyCountryApplication
 
         public void DeleteDistrict(string districtCode)
         {
+            
             using (var dbContext = new MyCountryEntities())
             {
                 var existingDistrict = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == districtCode);

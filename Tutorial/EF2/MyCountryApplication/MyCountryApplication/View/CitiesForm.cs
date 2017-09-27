@@ -14,10 +14,12 @@ namespace MyCountryApplication.View
 {
     public partial class CitiesForm : Form
     {
+        private readonly ICityBusiness _cityBusiness;
         public CitiesForm()
         {
             InitializeComponent();
             dataGridView1.AutoGenerateColumns = false;
+            _cityBusiness = new CityBusiness();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -27,14 +29,9 @@ namespace MyCountryApplication.View
 
         private void CitiesForm_Load(object sender, EventArgs e)
         {
-            
-            var myCountryBusiness = new MyCountryBusiness();
 
-            dataGridView1.DataSource = myCountryBusiness.GetCityInfomations();
+            dataGridView1.DataSource = _cityBusiness.GetCityInfomations();
         }
 
-
-
-
     }
-    }
+}

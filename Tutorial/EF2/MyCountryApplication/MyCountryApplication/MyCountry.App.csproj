@@ -98,7 +98,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CityBusiness.cs" />
+    <Compile Include="DistrictBusiness.cs" />
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="ICityBusiness.cs" />
+    <Compile Include="IDistrictBusiness.cs" />
     <Compile Include="ViewModel\CityInfomation.cs" />
     <Compile Include="View\AboutForm.cs">
       <SubType>Form</SubType>
@@ -131,7 +135,6 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\DistrictInfomation.cs" />
-    <Compile Include="MyCountryBusiness.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\StringMessages.cs" />
